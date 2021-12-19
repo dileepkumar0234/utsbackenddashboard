@@ -1,215 +1,130 @@
-<div class="public">
-     <app-topbar></app-topbar>
-    <app-navbar></app-navbar>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" [ngClass]="{'active': slideIndex === 1}" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" [ngClass]="{'active': slideIndex === 2}" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" [ngClass]="{'active': slideIndex === 3}" aria-label="Slide 3"></button>
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+    <!-- Page Content Holder -->
+    <div id="content">
+        <div class="text-center MLogo"><img src="../../assets/images/logo.svg"></div>
+        <div class="TopBar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn toggleBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a class="btn Profile dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="../../assets/images/profile.png">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">My Profile</a>
+                                        <a class="dropdown-item" href="#">Payment</a>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item mySlides active">
-                <img src="assets/banner1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Are you worried about your TAX Planning?</h5>
-                    <h3>We are expert in
-                        Accounting and Taxation</h3>
-                    <button type="button" class="btn FileBtn">File Now <i class="far fa-arrow-alt-circle-right"></i></button>
+        <div class="p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Users</li>
+                </ol>
+            </nav>
+            <h2>Heading</h2>
+            <div class="white-box p-3">
+                <div class="table-responsive ">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                            DropDown
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="carousel-item mySlides">
-                <img src="assets/banner1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item mySlides">
-                <img src="assets/banner1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
-        </div>
-  </div>
-
-     <section class="WelcomSec">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-4 text-center">
-                    <img src="assets/tax-icon.png" class="Img1">
-                </div>
-                <div class="col-12 col-md-8">
-                    <div>We are Umpiretaxsolutions</div>
-                    <h2>Best financial and tax Advisor
-                        for your Future go grow up</h2>
-                    <p>Umpire Tax Solutions, LLC is Accounting and Taxation Company Providing various Financial Services in International Taxation, Accounting, Incorporations and Payroll Services.
-                        It was formed by a group of Qualified Professionals such as Certified Public Accountants, Enrolled Agents and Chartered Accountants.</p>
-                    <a href="" class="ViewBtn">View more <i class="far fa-arrow-alt-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ServiceSec1 mb-5">
-        <div class="container">
-            <div class="Background">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="Icon text-center mb-4">
-                            <img src="assets/tax-icon2.png">
-                        </div>
-                        <h4>Free TAX Estimates</h4>
-                        <p>This Free Tax Return estimator service accurately figures your Federal and State income taxes to show how much you may get back or what you may owe. It can also calculate your 2019 tax return!</p>
-                        <p>
-                            To see how the new tax reform affects you give us a call at
-                            (515) 686-4275</p>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="Icon text-center mb-4">
-                            <img src="assets/partner-icon.png">
-                        </div>
-                        <h4>For Individuals Partnership and Corporates</h4>
-                        <p>Our team offers Tax and Financial services for Individuals, Partnership and Corporate. Let us work with you to make a strong plan.</p>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="Icon text-center mb-4">
-                            <img src="assets/tax-icon3.png">
-                        </div>
-                        <h4>Let us file</h4>
-                        <p>Preparing your own tax return can leave you with more questions than answers. Come in. We will help you.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ServiceSec2">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 text-center">
-                    <div class=" SubTitle">Favourable Circumstances of Filing with UTS..!</div>
-                    <h2>How to pay less Taxes by taking the
-                        Qualified advantaes????</h2>
-                    <p class="pb-5 mb-4">Umpire Tax will direct you in asserting the advantages which gave by the Federal and State Governments with the goal that it will help you to diminish the TAXES.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <div class="ServiceBox">
-                        <div class="ServiceIcon"><img src="assets/ira-icon.svg"></div>
-                        <h4>IRA</h4>
-                        <p>IRA is a way to save for retirement that gives you tax advantages. Contributions you make to a traditional IRA may be fully or partially deductible, depending on your circumstances, and generally, amounts in your traditional IRA (including earnings and gains) are not taxed until distributed.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="ServiceBox">
-                        <div class="ServiceIcon"><img src="assets/hsa-icon.svg"></div>
-                        <h4>HSA</h4>
-                        <p>A Health Savings Account (HSA) is a tax-exempt trust you set up with a qualified HSA trustee to pay or reimburse certain medical expenses you incur. You must be an eligible individual to qualify for an HSA.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="ServiceBox">
-                        <div class="ServiceIcon"><img src="assets/tax-credit-icon.svg"></div>
-                        <h4>TAX CREDITS</h4>
-                        <p>A tax credit reduces the amount of tax you must pay. A refundable tax credit not only reduces the federal tax you owe, but also could result in a refund.</p>
-                        <p>
-                            The Child Tax Credit
-                            The Child and Dependent Care Credit</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="ServiceBox">
-                        <div class="ServiceIcon"><img src="assets/medical-icon.svg"></div>
-                        <h4>MEDICAL AND DENTAL
-                            EXPENSES</h4>
-                        <p>Beginning January 1, 2017, you can deduct only the part of your medical and dental expenses that exceed 7.5% of your adjusted gross income (AGI).</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="ServiceBox">
-                        <div class="ServiceIcon"><img src="assets/student-icon.svg"></div>
-                        <h4>STUDENT LOAN INTEREST
-                            DEDUCTION</h4>
-                        <p>Student loan interest is interest you paid during the year on a qualified student loan. It includes both required and voluntarily pre-paid interest payments. You may deduct the lesser of $2,500 or the amount of interest you actually paid during the year.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="ServiceBox">
-                        <div class="ServiceIcon"><img src="assets/hmi-icon.svg"></div>
-                        <h4>HMI</h4>
-                        <p>In most cases, you can deduct all of your home mortgage interest. How much you can deduct depends on the date of the mortgage, the amount of the mortgage, and how you use the mortgage proceeds.</p>
-                    </div>
+                <div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
-    </section>
-
-     <section class="Testimonials">
-        <div class="container-fluid">
-            <h2 class="text-center pb-5">Testimonials</h2>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-7">
-                    <div id="carouselExampleIndicators" class="carousel slide Slider" data-bs-ride="carousel">
-                        <div class="carousel-inner text-center">
-                            <div class="carousel-item testimonialSlides active">
-                                <div class="g-box">
-                                    <span class="tip-down"></span>
-                                    <p>I am glad to write a feedback on your services.
-                                        Your returns was good when compared to other Tax consultancies and most of all is when ever I called you for questions, you picked the call and emailed me clarifications, that was really good. Keep up the good work. </p>
-                                </div>
-                                <div class="mb-1 mt-3">
-                                    <div class="user-pic" style="background-image: url('./assets/p-pic.png')"></div>
-                                </div>
-                                <div class="Name">
-                                    Varalakshmi Naresh
-                                </div>
-                                <div class="Area">Kentucky</div>
-                            </div>
-                            <div class="carousel-item testimonialSlides">
-                                <div class="g-box">
-                                    <span class="tip-down"></span>
-                                    <p>I am glad to write a feedback on your services.
-                                        Your returns was good when compared to other Tax consultancies and most of all is when ever I called you for questions, you picked the call and emailed me clarifications, that was really good. Keep up the good work. </p>
-                                </div>
-                                <div class="mb-1 mt-3">
-                                    <div class="user-pic" style="background-image: url('./assets/p-pic.png')"></div>
-                                </div>
-                                <div class="Name">
-                                    Prakash Raj
-                                </div>
-                                <div class="Area">Kentucky</div>
-                            </div>
-                            <div class="carousel-item testimonialSlides">
-                                <div class="g-box">
-                                    <span class="tip-down"></span>
-                                    <p>I am glad to write a feedback on your services.
-                                        Your returns was good when compared to other Tax consultancies and most of all is when ever I called you for questions, you picked the call and emailed me clarifications, that was really good. Keep up the good work. </p>
-                                </div>
-                                <div class="mb-1 mt-3">
-                                    <div class="user-pic" style="background-image: url('./assets/p-pic.png')"></div>
-                                </div>
-                                <div class="Name">
-                                    Venkatesh Iyer
-                                </div>
-                                <div class="Area">Kentucky</div>
-                            </div>
-                        </div>
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" [ngClass]="{'active': testimonialSlideIndex === 1}" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" [ngClass]="{'active': testimonialSlideIndex === 2}" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" [ngClass]="{'active': testimonialSlideIndex === 3}" aria-label="Slide 3"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <app-footer></app-footer>
-    <app-login></app-login>
+    </div>
 </div>
-
-
+<div class="overlay"></div>

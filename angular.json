@@ -34,11 +34,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
+              "./src/assets/css/custom-styles.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.min.js"
             ]
           },
