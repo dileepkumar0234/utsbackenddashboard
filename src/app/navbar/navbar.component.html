@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="assets/logo.svg"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a routerLink="/profile" [ngClass]="{'active' : selectedNavLink === 'profile'}" (click)="captureSelectedNavLink('profile')" class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" routerLink="/us-tax-services" >US TAX SERVICES</a></li>
+                            <li><a class="dropdown-item" routerLink="/indian-tax-services">INDIAN TAX SERVICES</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/tax-center" [ngClass]="{'active' : selectedNavLink === 'tax-center'}" (click)="captureSelectedNavLink('tax-center')" class="nav-link" href="tax-center.html">Tax Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/testimonials" [ngClass]="{'active' : selectedNavLink === 'testimonials'}" (click)="captureSelectedNavLink('testimonials')" class="nav-link" href="testimonials.html">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/careers" [ngClass]="{'active' : selectedNavLink === 'careers'}" (click)="captureSelectedNavLink('careers')" class="nav-link" href="careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact-us" [ngClass]="{'active' : selectedNavLink === 'contact-us'}" (click)="captureSelectedNavLink('contact-us')" class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+ <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <a routerLink="/refer-a-friend" href="referafriend.html" class="Referafriend"><i class="fas fa-bullhorn"></i> Refer a Friend</a>
+ </div>

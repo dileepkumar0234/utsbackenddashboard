@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="63px" height="63px" viewBox="0 0 63 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mdi:finance</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tempalte8" transform="translate(-246.000000, -2291.000000)" fill="#07D0BD" fill-rule="nonzero">
+            <g id="Group-10" transform="translate(0.000000, 1938.000000)">
+                <g id="Group-2" transform="translate(112.000000, 353.000000)">
+                    <g id="mdi:finance" transform="translate(134.000000, 0.000000)">
+                        <path d="M9.94736842,44.7631579 L0,54.5115789 L0,26.5263158 L9.94736842,26.5263158 M26.5263158,38.6621053 L21.3205263,34.2189474 L16.5789474,38.5957895 L16.5789474,13.2631579 L26.5263158,13.2631579 M43.1052632,33.1578947 L33.1578947,43.1052632 L33.1578947,0 L43.1052632,0 M52.4226316,32.5278947 L46.4210526,26.5263158 L63,26.5263158 L63,43.1052632 L57.0647368,37.17 L33.1578947,60.8778947 L21.6521053,50.8642105 L9.11842105,63 L0,63 L21.4531579,41.9778947 L33.1578947,51.8589474" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

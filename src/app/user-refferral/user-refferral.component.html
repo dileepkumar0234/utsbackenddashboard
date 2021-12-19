@@ -1,0 +1,92 @@
+<div class="admin d-flex flex-column min-vh-100"> 
+    <app-user-navbar></app-user-navbar>
+    <main>
+        <app-user-topbar></app-user-topbar>
+        <table datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="persons?.length != 0">
+            <tr *ngFor="let person of persons">
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="persons?.length == 0">
+            <tr>
+                <td colspan="3" class="no-data-available">No data!</td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div> 
+
+
+<!-- <div class="admin d-flex flex-column min-vh-100"> 
+    <app-user-navbar></app-user-navbar>
+    <main>
+        <app-user-topbar></app-user-topbar>
+        <h1 class="PageHeadding mb-4"> Upload Tax Documents <span class="FileNo">File Number: <span>UTS0022</span></span></h1>
+        <div class="SecTabs ">
+            <a href="#" class="active">W2</a>
+            <a href="">1099B/G/DIV/INT/MISC</a>
+            <a href="">5498/HSA</a>
+            <a href="">1099R/IRA</a>
+            <a href="">OTHER DOCS</a>
+        </div>
+        <div class="WhiteBox">
+            <div class="UploadTax">
+                    <div class="pb-3">
+                        <div class="row align-items-center pb-2">
+                            <div class="col-12 col-md-6">
+                                <div class="FileUploadBox">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 text-end text-md-start">
+                                <a class="PDF me-2"><i class="far fa-image"></i></a>
+                                <a class="me-2 Delete"><i class="far fa-trash-alt"></i></a>
+                                
+                            </div>
+                        </div>
+                        <div class="row align-items-center pb-2">
+                            <div class="col-12 col-md-6">
+                                <div class="FileUploadBox">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 text-end text-md-start">
+                                <a class="PDF me-2"><i class="far fa-file-alt"></i></a>
+                                <a class="me-2 Delete"><i class="far fa-trash-alt"></i></a>
+                                
+                            </div>
+                        </div>
+                        <div class="row align-items-center pb-2 align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="FileUploadBox">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 text-end text-md-start">
+                                <a class="PDF me-2"><i class="far fa-file-pdf"></i></a>
+                                <a class="me-2 Delete"><i class="far fa-trash-alt"></i></a>
+                                <a class="AddFile"><i class="fas fa-plus-circle"></i></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button type="button" class="btn btn-primary me-2">Submit</button>
+                            <button type="button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    <div class="pt-3">Note: If the Upload size document is more than 02MB, Kindly mail the documents to <a href="mailto:Hello@umpiretaxsolutions.com"> Hello@umpiretaxsolutions.com</a></div>
+                </div>
+        </div>
+    </main>
+</div> -->
