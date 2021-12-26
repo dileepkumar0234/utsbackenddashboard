@@ -12,6 +12,22 @@ import { DataTablesModule } from 'angular-datatables';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { AllRecordsComponent } from './components/all-records/all-records.component';
+import { AssignedFileNumberComponent } from './components/assigned-file-number/assigned-file-number.component';
+import { ToBeAssignedComponent } from './components/to-be-assigned/to-be-assigned.component';
+import { BasicInfoPendingComponent } from './components/basic-info-pending/basic-info-pending.component';
+import { SchedulingPendingComponent } from './components/scheduling-pending/scheduling-pending.component';
+import { InterviewPendingComponent } from './components/interview-pending/interview-pending.component';
+import { DocumentsUploadPendingComponent } from './components/documents-upload-pending/documents-upload-pending.component';
+import { OtherDocsPendingComponent } from './components/other-docs-pending/other-docs-pending.component';
+import { PreparationPendingComponent } from './components/preparation-pending/preparation-pending.component';
+import { PreSynopsysPendingComponent } from './components/pre-synopsys-pending/pre-synopsys-pending.component';
+import { SynopsysPendingComponent } from './components/synopsys-pending/synopsys-pending.component';
+import { PaymentPendingComponent } from './components/payment-pending/payment-pending.component';
+import { ReviewUploadPendingComponent } from './components/review-upload-pending/review-upload-pending.component';
+import { ReviewConfirmationPendingComponent } from './components/review-confirmation-pending/review-confirmation-pending.component';
+import { EFilingPendingComponent } from './components/e-filing-pending/e-filing-pending.component';
+import { CustomDataTableComponent } from './components/custom-data-table/custom-data-table.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +36,22 @@ import { AuthGuardService } from './auth/auth-guard.service';
     LoginComponent,
     UserNavbarComponent,
     SidebarComponent,
+    AllRecordsComponent,
+    AssignedFileNumberComponent,
+    ToBeAssignedComponent,
+    BasicInfoPendingComponent,
+    SchedulingPendingComponent,
+    InterviewPendingComponent,
+    DocumentsUploadPendingComponent,
+    OtherDocsPendingComponent,
+    PreparationPendingComponent,
+    PreSynopsysPendingComponent,
+    SynopsysPendingComponent,
+    PaymentPendingComponent,
+    ReviewUploadPendingComponent,
+    ReviewConfirmationPendingComponent,
+    EFilingPendingComponent,
+    CustomDataTableComponent,
   ],
   imports: [
     BrowserModule,
