@@ -24,7 +24,7 @@ export class ApiService {
 
     data.user_id = localStorage.getItem('access_token');
 
-    return this.httpClient.post(`${baseUrl}/${url}`, data).pipe(
+    return this.httpClient.post(`${this.baseUrl}/${url}`, data).pipe(
       tap( (res : any) => {
         this.handleSuccess(res);
       }),
