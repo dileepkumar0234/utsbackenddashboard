@@ -1,4 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
+
+class DataTablesResponse {
+  data: any[];
+  draw: number;
+  recordsFiltered: number;
+  recordsTotal: number;
+}
 
 @Component({
   selector: 'app-custom-data-table',
@@ -7,9 +16,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomDataTableComponent implements OnInit {
 
-  constructor() { }
+  dtOptions: DataTables.Settings = {};
+  // persons: Person[];
+
+  constructor(private http: HttpClient,private apiService : ApiService) { }
+  user_id  : any;
 
   ngOnInit(): void {
+    const that = this;
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 4,
+      serverSide: true,
+      processing: true,
+      ajax: (dataTablesParameters: any, callback) => {
+        that.http
+          .post<DataTablesResponse>(
+            this.apiService.baseUrl + '/user/refferalslist',
+            {dataTablesParameters , user_id : localStorage.getItem("access_token") }, { }
+          ).subscribe((resp : any) => {
+            // console.log(resp); return false;
+            // that.persons = resp.data;
+            // console.log(that.persons);
+            callback({
+              recordsTotal: resp.recordsTotal,
+              recordsFiltered: resp.recordsFiltered,
+              data: []
+            });
+          });
+      },
+      columns: [{ data: 'rf_on_name' }, { data: 'rf_on_email' }, { data: 'rf_name' }, { data: 'rf_email' }, { data: 'rf_phone' }, { data: 'rf_comment' }]
+    };
   }
 
 }

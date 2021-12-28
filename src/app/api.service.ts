@@ -3,19 +3,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
-
-// const baseUrl = 'http://localhost:61953/api';
-const baseUrl = "http://3.111.6.221:61953/api";
-// but this does NOT work
-const access_token = 'UTSTESTING#@123456';
-const user_id = '';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiService {
+
+  public baseUrl:string = environment.apiUrl;
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   options = {
