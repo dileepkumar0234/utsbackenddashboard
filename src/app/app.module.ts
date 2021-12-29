@@ -28,6 +28,7 @@ import { ReviewUploadPendingComponent } from './components/review-upload-pending
 import { ReviewConfirmationPendingComponent } from './components/review-confirmation-pending/review-confirmation-pending.component';
 import { EFilingPendingComponent } from './components/e-filing-pending/e-filing-pending.component';
 import { CustomDataTableComponent } from './components/custom-data-table/custom-data-table.component';
+import { GuestGaurdService } from './auth/guest-gaurd.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { CustomDataTableComponent } from './components/custom-data-table/custom-
     HttpClientModule
 
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, GuestGaurdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

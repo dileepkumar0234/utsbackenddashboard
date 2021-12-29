@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
-
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +7,6 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 export class CommonService {
 
   constructor() { }
-
 
   validateAllFormFields(fromGroup:FormGroup){
 
@@ -22,7 +20,6 @@ export class CommonService {
         this.validateAllFormFields(control);
       }
       else if (control instanceof FormArray){
-        console.log(control);
         control.controls.forEach((element:any)=>{
           this.validateAllFormFields(element);
         })

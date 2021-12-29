@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 class DataTablesResponse {
   data: any[];
@@ -34,7 +35,7 @@ export class CustomDataTableComponent implements OnInit {
         that.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl + '/user/refferalslist',
-            {dataTablesParameters , user_id : localStorage.getItem("access_token") }, { }
+            {dataTablesParameters , user_id : localStorage.getItem(environment.authToken) }, { }
           ).subscribe((resp : any) => {
             // console.log(resp); return false;
             // that.persons = resp.data;

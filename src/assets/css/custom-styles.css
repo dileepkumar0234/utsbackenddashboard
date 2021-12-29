@@ -9,6 +9,13 @@ body {
     background: #fafafa;
 }
 
+.error{
+    color: red;
+}
+.success{
+    color:green;
+}
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;

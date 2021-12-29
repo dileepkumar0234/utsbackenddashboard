@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-
+  token: any;
   constructor() { }
-
-
   isAuthenticated() {
-    // this.token = sessionStorage.getItem('token');
-    // this.token = localStorage.getItem('token');
-    // return this.token != null;
-    return true;
-}
+    this.token = localStorage.getItem(environment.authToken);
+    return this.token != null;
+  }
+
 } 

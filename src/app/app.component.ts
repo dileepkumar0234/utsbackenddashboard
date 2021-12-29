@@ -8,7 +8,9 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   title = 'utsuiwebsite';
+  
   constructor(public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router)

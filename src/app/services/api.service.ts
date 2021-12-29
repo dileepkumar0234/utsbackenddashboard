@@ -22,7 +22,7 @@ export class ApiService {
 
   postCall(url : string, data: any) : Observable<any> {
 
-    data.user_id = localStorage.getItem('access_token');
+    data.user_id = localStorage.getItem(environment.authToken);
 
     return this.httpClient.post(`${this.baseUrl}/${url}`, data).pipe(
       tap( (res : any) => {
@@ -49,7 +49,7 @@ export class ApiService {
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-    localStorage.setItem('access_token', "");
+    localStorage.setItem(environment.authToken, "");
     return throwError(
       'Something bad happened; please try again later.');
 

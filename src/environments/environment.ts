@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl:'http://3.111.6.221:61953/api',
+  authToken:'access_token',
 
 };
 
