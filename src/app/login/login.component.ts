@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../services/api.service';
 import { CommonService } from '../services/common.service';
 
@@ -17,7 +18,11 @@ export class LoginComponent implements OnInit {
   submitted = false;
   success = "";
   failed = "";
-  constructor(public formBuilder:FormBuilder, public router: Router, private apiService : ApiService, private commonService : CommonService) { 
+  constructor(public formBuilder:FormBuilder, 
+    public router: Router, 
+    private apiService : ApiService, 
+    private commonService : CommonService,
+    private authService: AuthService) { 
    
   }
 
@@ -44,10 +49,12 @@ export class LoginComponent implements OnInit {
       res => {
           if(res.http_code === 200)
           {
-            const accessToken = res.uinfo.user_id;
+            const userId = res.uinfo.user_id;
+            const roleId = res.uinfo.user_type_id;
+            const uuId = res.uinfo.uu_id ? res.uinfo.uu_id : '';
+            this.authService.login(userId, roleId, uuId)
             this.success = res.status_smessage;
-            localStorage.setItem(environment.authToken, accessToken);
-            this.router.navigate(['/all-records']);
+            this.router.navigate(['/']);
           }
           else {
             this.failed = res.status_smessage;

@@ -29,6 +29,7 @@ import { ReviewConfirmationPendingComponent } from './components/review-confirma
 import { EFilingPendingComponent } from './components/e-filing-pending/e-filing-pending.component';
 import { CustomDataTableComponent } from './components/custom-data-table/custom-data-table.component';
 import { GuestGaurdService } from './auth/guest-gaurd.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { GuestGaurdService } from './auth/guest-gaurd.service';
     ReviewConfirmationPendingComponent,
     EFilingPendingComponent,
     CustomDataTableComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

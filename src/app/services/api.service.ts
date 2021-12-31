@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,11 @@ export class ApiService {
     'user_id': ''
   }; 
 
-  constructor(private httpClient : HttpClient, private router : Router) { }
+  constructor(private authService: AuthService, private httpClient : HttpClient, private router : Router) { }
 
   postCall(url : string, data: any) : Observable<any> {
 
-    data.user_id = localStorage.getItem(environment.authToken);
+    data.user_id = this.authService.getUserId();
 
     return this.httpClient.post(`${this.baseUrl}/${url}`, data).pipe(
       tap( (res : any) => {
@@ -49,7 +50,8 @@ export class ApiService {
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-    localStorage.setItem(environment.authToken, "");
+    
+    this.authService.logout();
     return throwError(
       'Something bad happened; please try again later.');
 

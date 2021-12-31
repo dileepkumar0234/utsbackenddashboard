@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://3.111.6.221:61953/api',
-  authToken:'access_token',
+  apiUrl:'http://3.111.6.221:8626/api',
+  user_id:'user_id',
+  uu_id:'uu_id',
+  role_id:'role_id',
 
 };
 

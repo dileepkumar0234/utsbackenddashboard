@@ -8,6 +8,7 @@ import { BasicInfoPendingComponent } from './components/basic-info-pending/basic
 import { DocumentsUploadPendingComponent } from './components/documents-upload-pending/documents-upload-pending.component';
 import { EFilingPendingComponent } from './components/e-filing-pending/e-filing-pending.component';
 import { InterviewPendingComponent } from './components/interview-pending/interview-pending.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { OtherDocsPendingComponent } from './components/other-docs-pending/other-docs-pending.component';
 import { PaymentPendingComponent } from './components/payment-pending/payment-pending.component';
 import { PreSynopsysPendingComponent } from './components/pre-synopsys-pending/pre-synopsys-pending.component';
@@ -21,13 +22,12 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/all-records', pathMatch: 'full'},
-  
+  {path: '', redirectTo: '/', pathMatch: 'full'},
 
   {path: 'login', component: LoginComponent, canActivate : [GuestGaurdService]},
   
   {path : "", component : HomeComponent, canActivate : [AuthGuardService], children : [
-    { path: 'all-records', component: AllRecordsComponent},
+    { path: 'all-records', component: AllRecordsComponent,},
     { path: 'assigned-file', component: AssignedFileNumberComponent},
     { path: 'to-be-assigned', component: ToBeAssignedComponent},
     { path: 'basic-info-pending', component: BasicInfoPendingComponent},
@@ -42,7 +42,9 @@ const routes: Routes = [
     { path: 'review-upload-pending', component: ReviewUploadPendingComponent},
     { path: 'review-confirmation-pending', component: ReviewConfirmationPendingComponent},
     { path: 'e-filing-assigned', component: EFilingPendingComponent},
-  ]}
+  ]},
+
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
