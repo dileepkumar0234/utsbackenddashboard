@@ -16,6 +16,8 @@ export class AuthService {
 
   uuId : any;
 
+  taxYear : any;
+
   constructor() { }
 
   isAuthenticated() {
@@ -78,5 +80,11 @@ export class AuthService {
   getUUId() {
     this.uuId = localStorage.getItem(environment.uu_id);
     return this.uuId;
+  }
+
+  getTaxYear()
+  {
+    this.taxYear = localStorage.getItem(environment.taxYear);
+    return this.taxYear;
   }
 } 

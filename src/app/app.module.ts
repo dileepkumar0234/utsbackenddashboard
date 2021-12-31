@@ -30,6 +30,13 @@ import { EFilingPendingComponent } from './components/e-filing-pending/e-filing-
 import { CustomDataTableComponent } from './components/custom-data-table/custom-data-table.component';
 import { GuestGaurdService } from './auth/guest-gaurd.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SiteSettingsComponent } from './components/site-settings/site-settings.component';
+import { RefferalsComponent } from './components/refferals/refferals.component';
+import { LoginHistoryComponent } from './components/login-history/login-history.component';
+import { PaymentsComponent } from './components/payments/payments.component';
+import { SchedulesComponent } from './components/schedules/schedules.component';
+import { EmailsComponent } from './components/emails/emails.component';
+import { ToCallComponent } from './components/to-call/to-call.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +62,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     EFilingPendingComponent,
     CustomDataTableComponent,
     NotFoundComponent,
+    SiteSettingsComponent,
+    RefferalsComponent,
+    LoginHistoryComponent,
+    PaymentsComponent,
+    SchedulesComponent,
+    EmailsComponent,
+    ToCallComponent,
   ],
   imports: [
     BrowserModule,
