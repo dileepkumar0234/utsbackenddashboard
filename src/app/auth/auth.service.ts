@@ -85,6 +85,6 @@ export class AuthService {
   getTaxYear()
   {
     this.taxYear = localStorage.getItem(environment.taxYear);
-    return this.taxYear;
+    return this.taxYear ? this.taxYear : 2018;
   }
 } 

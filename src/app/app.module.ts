@@ -37,6 +37,7 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
 import { EmailsComponent } from './components/emails/emails.component';
 import { ToCallComponent } from './components/to-call/to-call.component';
+import { IpComponent } from './components/ip/ip.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ToCallComponent } from './components/to-call/to-call.component';
     SchedulesComponent,
     EmailsComponent,
     ToCallComponent,
+    IpComponent
   ],
   imports: [
     BrowserModule,

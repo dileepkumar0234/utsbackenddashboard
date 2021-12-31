@@ -8,6 +8,14 @@ export class CommonService {
 
   constructor() { }
 
+  patchValue(fromGroup:FormGroup ,value: {[key: string]: any}, {onlySelf, emitEvent}: {onlySelf?: boolean, emitEvent?: boolean} = {}): void {
+    Object.keys(value).forEach(name => {
+      if (fromGroup.controls[name]) {
+        fromGroup.controls[name].patchValue(value[name], {onlySelf: true, emitEvent});
+      }
+    });
+  }
+
   validateAllFormFields(fromGroup:FormGroup){
 
     Object.keys(fromGroup.controls).forEach(field=>{

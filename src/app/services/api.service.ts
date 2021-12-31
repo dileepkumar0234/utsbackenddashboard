@@ -24,7 +24,6 @@ export class ApiService {
   postCall(url : string, data: any) : Observable<any> {
 
     data.user_id = this.authService.getUserId();
-
     return this.httpClient.post(`${this.baseUrl}/${url}`, data).pipe(
       tap( (res : any) => {
         this.handleSuccess(res);

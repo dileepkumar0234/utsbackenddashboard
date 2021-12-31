@@ -1,0 +1,39 @@
+<h2>IP Address</h2>
+        <form [formGroup]="ipsForm">
+            <div class="white-box p-3">
+                <div class="form-group">
+                    <label>IP Address:</label>
+                    <input type="text" class="form-control" formControlName = "ipaddress">
+                    <div *ngIf="submitted && ipsF.ipaddress.errors" class="error">
+                        <div *ngIf="ipsF.ipaddress.errors?.required">IP Address is required</div>
+                        <div *ngIf="ipsF.ipaddress.errors?.pattern">IP Address must be valid</div>
+                    </div>
+                </div>
+                <div *ngIf = "ipEdit">
+                    <button type="button" (click) = "ipUpdate()" class="btn btn-primary mr-2">Update</button>
+                    <button type="button" (click) = "ipUpdateCancel()" class="btn btn-secondary">Cancel</button>
+                </div>
+                <button *ngIf = "!ipEdit" type="button" (click) = "ipSubmit()" class="btn btn-primary mr-2">Add</button>
+            </div>
+        </form>
+        <div class="white-box p-3">
+            <div class="table-responsive ">
+                <table *ngIf="ipsList?.length != 0" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">IP Address</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ip of ipsList; let i = index;">
+                            <td>{{ip.ipaddress}}</td>
+                            <td>
+                                <i class="fas fa-edit" (click) = "onIPEdit(i, ip)"></i>
+                                <i class="fa fa-trash" (click) = "onIPDelete(i, ip)" aria-hidden="true"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
