@@ -7,7 +7,7 @@ export const environment = {
   apiUrl:'http://3.111.6.221:8626/api',
   user_id:'user_id',
   uu_id:'uu_id',
-  role_id:'role_id',
+  role:'role',
 
 };
 

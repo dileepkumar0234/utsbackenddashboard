@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Role } from '../models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AuthService {
 
   isLogin = false;
 
-  roleAs: any;
+  role: string = '3';
 
   userId: any;
 
@@ -28,36 +29,47 @@ export class AuthService {
     return this.isLogin;
   }
 
-  login(userId : any, roleId : any, uuId: any)
+  login(userId : any, role : string, uuId: any)
   {
     this.isLogin = true;
     this.userId = userId;
-    this.roleAs = roleId;
+    this.role = role;
     this.uuId = uuId;
 
     localStorage.setItem(environment.user_id, userId);
-    localStorage.setItem(environment.role_id, this.roleAs);
+    localStorage.setItem(environment.role, this.role.toString());
     localStorage.setItem(environment.uu_id, uuId);
 
-    return of({ success: this.isLogin, role: this.roleAs, userId : userId, uuId : uuId });
+    return of({ success: this.isLogin, role: this.role, userId : userId, uuId : uuId });
   }
 
   logout() {
 
     this.isLogin = false;
-    this.roleAs = '';
-     localStorage.removeItem(environment.user_id);
-    localStorage.removeItem(environment.role_id);
+    this.role = '';
+    localStorage.removeItem(environment.user_id);
+    localStorage.removeItem(environment.role);
     localStorage.removeItem(environment.uu_id)
 
     return of({ success: this.isLogin, role: '', userId : '', uuId : '' });
   }
 
   getRole() {
-    this.roleAs = localStorage.getItem(environment.role_id);
-    return this.roleAs;
+    const rol = localStorage.getItem(environment.role);
+    if (rol)
+    {
+      this.role = rol;
+    }
+    else {
+      this.role = "";
+    }
+    return this.role;
   }
 
+  hasRole(role: string) {
+    return this.isAuthenticated() && this.getRole() == role;  
+  }
+  
   getUserId() {
     this.userId = localStorage.getItem(environment.user_id);
     return this.userId;
@@ -67,5 +79,4 @@ export class AuthService {
     this.uuId = localStorage.getItem(environment.uu_id);
     return this.uuId;
   }
-
 } 

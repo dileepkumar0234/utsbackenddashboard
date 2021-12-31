@@ -14,7 +14,7 @@ export class GuestGaurdService {
     state: RouterStateSnapshot): boolean | Promise<boolean> {
     var isAuthenticated = this.authService.isAuthenticated();
     if (isAuthenticated) {
-        this.router.navigate(['/admin/all-records']);
+        this.router.navigate(['/']);
     }
     return !isAuthenticated;
   }

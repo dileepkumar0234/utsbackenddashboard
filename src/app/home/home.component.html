@@ -5,7 +5,7 @@
                 <a href=""><img src="../../assets/images/logo.svg"></a>
             </div>
             <ul class="list-unstyled components">
-                <li class="nav-item " routerLinkActive="active">
+                <li class="nav-item " routerLinkActive="active" *ngIf="isSuperAdmin">
                     <a 
                         routerLink="/all-records" 
                         class="nav-link active" 
@@ -18,7 +18,7 @@
                         All Records
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
                     <a 
                         routerLink="/assigned-file" 
                         class="nav-link active" 
@@ -31,7 +31,7 @@
                         Assigned File Number
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
                     <a 
                         routerLink="/to-be-assigned" 
                         class="nav-link active" 
@@ -44,7 +44,7 @@
                         To Be Assigned
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/basic-info-pending" 
                         class="nav-link active" 
@@ -57,7 +57,7 @@
                         Basic Info Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/scheduling-pending" 
                         class="nav-link active" 
@@ -70,7 +70,7 @@
                         Scheduling Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/interview-pending" 
                         class="nav-link active" 
@@ -83,7 +83,7 @@
                         Interview Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/documents-upload-pending" 
                         class="nav-link active" 
@@ -96,7 +96,7 @@
                         Documents Upload Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/other-docs-pending" 
                         class="nav-link active" 
@@ -109,7 +109,7 @@
                         Other Docs Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/preparation-pending" 
                         class="nav-link active" 
@@ -122,7 +122,7 @@
                         Preparation Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/pre-synopsys-pending" 
                         class="nav-link active" 
@@ -135,7 +135,7 @@
                         Pre-Synopsys Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/synopsys-pending" 
                         class="nav-link active" 
@@ -148,7 +148,7 @@
                         Synopsys Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/payment-pending" 
                         class="nav-link active" 
@@ -161,7 +161,7 @@
                         Payment Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/review-upload-pending" 
                         class="nav-link active" 
@@ -174,7 +174,7 @@
                         Review Upload Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/review-confirmation-pending" 
                         class="nav-link active" 
@@ -187,7 +187,7 @@
                         Review Confirmation Pending
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
                         routerLink="/e-filing-assigned" 
                         class="nav-link active" 

@@ -20,16 +20,27 @@ import { SynopsysPendingComponent } from './components/synopsys-pending/synopsys
 import { ToBeAssignedComponent } from './components/to-be-assigned/to-be-assigned.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { Role } from './models/role';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-
   {path: 'login', component: LoginComponent, canActivate : [GuestGaurdService]},
-  
   {path : "", component : HomeComponent, canActivate : [AuthGuardService], children : [
-    { path: 'all-records', component: AllRecordsComponent,},
-    { path: 'assigned-file', component: AssignedFileNumberComponent},
-    { path: 'to-be-assigned', component: ToBeAssignedComponent},
+    { path: 'all-records', component: AllRecordsComponent, canActivate : [AuthGuardService], data: {
+      roles: [
+        Role.SUPER_ADMIN,
+      ]
+    }},
+    { path: 'assigned-file', component: AssignedFileNumberComponent, canActivate : [AuthGuardService], data: {
+      roles: [
+        Role.SUPER_ADMIN, Role.ADMIN
+      ]
+    }},
+    { path: 'to-be-assigned', component: ToBeAssignedComponent, canActivate : [AuthGuardService], data: {
+      roles: [
+        Role.SUPER_ADMIN,
+      ]
+    }},
     { path: 'basic-info-pending', component: BasicInfoPendingComponent},
     { path: 'scheduling-pending', component: SchedulingPendingComponent},
     { path: 'interview-pending', component: InterviewPendingComponent},
@@ -43,8 +54,8 @@ const routes: Routes = [
     { path: 'review-confirmation-pending', component: ReviewConfirmationPendingComponent},
     { path: 'e-filing-assigned', component: EFilingPendingComponent},
   ]},
-
   { path: '**', component: NotFoundComponent }
+  
 ];
 
 @NgModule({
