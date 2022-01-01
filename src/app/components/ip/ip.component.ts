@@ -30,7 +30,7 @@ export class IpComponent implements OnInit {
   ngOnInit(): void {
 
     this.ipsForm = this.formBuilder.group({
-      ipaddress: ['', [Validators.required, Validators.email]],
+      ipaddress: ['', [Validators.required, Validators.pattern(this.ipPattern)]],
     })
     this.getIps();
   }
@@ -58,7 +58,6 @@ export class IpComponent implements OnInit {
     this.submitted = true;
     this.failed = "";
     this.success = "";
-
     if (this.ipsForm.invalid) {
       return;
     }
@@ -85,9 +84,7 @@ export class IpComponent implements OnInit {
   }
   ipUpdateCancel()
   {
-    this.submitted = true;
-    this.failed = "";
-    this.success = "";
+    this.submitted = false;
     this.ipEdit = false;
     this.currentEditIpId = "";
     this.ipsForm.reset();
@@ -110,13 +107,15 @@ export class IpComponent implements OnInit {
         setTimeout(() => {
           this.success = "";
         }, 3000);
-        this.getIps()        
+        this.getIps()
+        this.ipUpdateCancel(); 
       },
       error => {
         this.failed = "Please try again later."
         setTimeout(() => {
           this.failed = "";
         }, 3000);
+        this.ipUpdateCancel(); 
       }
     )
   }

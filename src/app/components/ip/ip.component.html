@@ -8,6 +8,8 @@
                         <div *ngIf="ipsF.ipaddress.errors?.required">IP Address is required</div>
                         <div *ngIf="ipsF.ipaddress.errors?.pattern">IP Address must be valid</div>
                     </div>
+                    <span class="success"> {{success}}</span>
+                    <span class="error"> {{failed}}</span>
                 </div>
                 <div *ngIf = "ipEdit">
                     <button type="button" (click) = "ipUpdate()" class="btn btn-primary mr-2">Update</button>
@@ -18,7 +20,7 @@
         </form>
         <div class="white-box p-3">
             <div class="table-responsive ">
-                <table *ngIf="ipsList?.length != 0" class="table table-striped">
+                <table *ngIf="ipsList?.length > 0" class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">IP Address</th>
