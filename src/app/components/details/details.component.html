@@ -1,0 +1,50 @@
+<div class="SecTabs">
+    <a  href="javascript:void(0)" 
+        [ngClass]="{'active' : selectedProfileTab === 'basic-info'}" 
+        (click)="profileTab('basic-info')" >
+        Basic Info
+    </a>
+    <a  href="javascript:void(0)" 
+        [ngClass]="{'active' : selectedProfileTab === 'other-info'}" 
+        (click)="profileTab('other-info')">
+        Other Info
+    </a>
+    <a  href="javascript:void(0)" 
+        [ngClass]="{'active' : selectedProfileTab === 'download-documents'}" 
+        (click)="profileTab('download-documents')">
+        Download documents
+    </a>
+    <a  href="javascript:void(0)" 
+        [ngClass]="{'active' : selectedProfileTab === 'upload-documents'}" 
+        (click)="profileTab('upload-documents')">
+        Upload documents
+    </a>
+    <a  href="javascript:void(0)" 
+        [ngClass]="{'active' : selectedProfileTab === 'file-status'}" 
+        (click)="profileTab('file-status')">
+        File status
+    </a>
+    <a  href="javascript:void(0)" 
+        [ngClass]="{'active' : selectedProfileTab === 'referral'}" 
+        (click)="profileTab('referral')">
+        Referral
+    </a>
+</div>
+<div *ngIf="selectedProfileTab === 'basic-info'" class="white-box p-3">
+    <app-basic-info></app-basic-info>
+</div>
+<div *ngIf="selectedProfileTab === 'other-info'" class="white-box p-3">
+    <app-other-info></app-other-info>
+</div>
+<div *ngIf="selectedProfileTab === 'download-documents'" class="white-box p-3">
+    <app-download-documents></app-download-documents>
+</div>
+<div *ngIf="selectedProfileTab === 'upload-documents'" class="white-box p-3">
+    <app-upload-documents></app-upload-documents>
+</div>
+<div *ngIf="selectedProfileTab === 'file-status'" class="white-box p-3">
+    <app-file-status></app-file-status>
+</div>
+<div *ngIf="selectedProfileTab === 'referral'" class="white-box p-3">
+    <app-referral></app-referral>
+</div>

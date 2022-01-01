@@ -12,14 +12,12 @@ class DataTablesResponse {
 }
 
 interface Person {
-  rf_on_name: string;
-  rf_on_email: string;
-  rf_on_phone: string;
-  rf_name: string;
-  rf_email: string;
-  rf_phone: string;
-  rf_comment: string;
-  rf_year: string;
+  unique_code: string;
+  user_name: string;
+  email: string;
+  phone: string;
+  file_status: string;
+  user_id : any;
 }
 
 @Component({
@@ -30,7 +28,7 @@ interface Person {
 
 export class CustomDataTableComponent implements OnInit {
 
-  @Input() type : any;
+  @Input() fileState : any;
 
   dtOptions: DataTables.Settings = {};
 
@@ -38,7 +36,7 @@ export class CustomDataTableComponent implements OnInit {
 
   taxYear : any;
 
-  persons: Person[];
+  persons: Person[] = [];
 
   constructor(private http: HttpClient , 
     private authService : AuthService,
@@ -46,21 +44,14 @@ export class CustomDataTableComponent implements OnInit {
 
     this.userId = this.authService.getUserId();
     
-    this.taxYear = this.authService.getTaxYear() ? this.authService.getTaxYear() : '2018';
+    this.taxYear = this.authService.getTaxYear() ? this.authService.getTaxYear() : '2020';
    }
 
   ngOnInit(): void {
-    console.log(this.type);
-    // // debugger;
-    switch(this.type)
-    {
-      case "/all-records":
-        this.getAllRecords();
-        break;
-    }
-    
+    this.getTableData();
   }
-  getAllRecords()
+  
+  getTableData()
   {
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -71,12 +62,13 @@ export class CustomDataTableComponent implements OnInit {
         console.log('All Params', dataTablesParameters);
         this.http
           .post<DataTablesResponse>(
-            'http://3.111.6.221:8626/api/user/refferalslist',
-            {dataTablesParameters, user_id : this.userId, taxYear : 2018}, 
+            this.apiService.baseUrl +'/member/commonprocessingclientdata',
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear, filestate : this.fileState}, 
             {}
           )
           .subscribe(resp => {
             this.persons = resp.data;
+            console.log(resp);
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
@@ -84,8 +76,8 @@ export class CustomDataTableComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'rf_on_name' }, { data: 'rf_on_email' }, { data: 'rf_on_phone' }, 
-                { data: 'rf_name' }, { data: 'rf_email' }, { data: 'rf_phone' } , { data: 'rf_comment' }]
+      columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' }, 
+                { data: 'phone' }, { data: 'file_status' }]
     };
   }
 }

@@ -1,0 +1,8 @@
+<div *ngIf="!isEmptySpouse() || !isEmptyDependentsInfo() || !isEmptyEmployerInfo()">
+    <app-spouse-info *ngIf="!isEmptySpouse()" [spouseInfo] = "spouseInfo"></app-spouse-info>
+    <app-employer-info *ngIf="empInfoList && empInfoList.length > 0" [empInfoList] = "empInfoList"></app-employer-info>
+    <app-dependents-info *ngIf="dependentsList && dependentsList.length > 0" [dependentsList] = "dependentsList" ></app-dependents-info>
+</div>
+<div *ngIf="isEmptySpouse() || isEmptyDependentsInfo() || isEmptyEmployerInfo()">
+    <h6>No Data Available</h6>
+</div>

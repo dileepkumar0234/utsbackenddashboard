@@ -55,69 +55,76 @@ export class IpComponent implements OnInit {
   }
   ipUpdate()
   {
-    this.submitted = true;
-    this.failed = "";
-    this.success = "";
-    if (this.ipsForm.invalid) {
-      return;
-    }
-    this.apiService.postCall('/settings/updateips', {ipaddress : this.ipsForm.value.ipaddress , ipid : this.currentEditIpId})
-    .subscribe(
-      res => {
-        this.success = res.status_smessage;
-        setTimeout(() => {
-          this.success = "";
-        }, 3000);
-        this.submitted = false;
-        this.ipUpdateCancel();
-        this.getIps()        
-      },
-      error => {
-        this.failed = "Please try again later."
-        setTimeout(() => {
-          this.failed = "";
-        }, 3000);
-        this.submitted = false
-        this.ipUpdateCancel();
+      this.submitted = true;
+      this.failed = "";
+      this.success = "";
+      
+      if (this.ipsForm.invalid) {
+        if (confirm("There is noting to update."))
+        {
+          
+        }
+        return;
       }
-    )
+
+      this.apiService.postCall('/settings/updateips', {ipaddress : this.ipsForm.value.ipaddress , ipid : this.currentEditIpId})
+      .subscribe(
+        res => {
+          this.success = res.status_smessage;
+          setTimeout(() => {
+            this.success = "";
+          }, 3000);
+          this.submitted = false;
+          this.ipUpdateCancel();
+          this.getIps()        
+        },
+        error => {
+          this.failed = "Please try again later."
+          setTimeout(() => {
+            this.failed = "";
+          }, 3000);
+          this.submitted = false
+          this.ipUpdateCancel();
+        }
+      )
   }
+
   ipUpdateCancel()
   {
-    this.submitted = false;
-    this.ipEdit = false;
-    this.currentEditIpId = "";
-    this.ipsForm.reset();
+      this.submitted = false;
+      this.ipEdit = false;
+      this.currentEditIpId = "";
+      this.ipsForm.reset();
   }
 
   ipSubmit()
   {
-    this.submitted = true;
-    this.failed = "";
-    this.success = "";
+      this.submitted = true;
+      this.failed = "";
+      this.success = "";
 
-    if (this.ipsForm.invalid) {
-      return;
-    }
-
-    this.apiService.postCall('/settings/saveips', this.ipsForm.getRawValue())
-    .subscribe(
-      res => {
-        this.success = res.status_smessage;
-        setTimeout(() => {
-          this.success = "";
-        }, 3000);
-        this.getIps()
-        this.ipUpdateCancel(); 
-      },
-      error => {
-        this.failed = "Please try again later."
-        setTimeout(() => {
-          this.failed = "";
-        }, 3000);
-        this.ipUpdateCancel(); 
+      if (this.ipsForm.invalid) {
+        return;
       }
-    )
+
+      this.apiService.postCall('/settings/saveips', this.ipsForm.getRawValue())
+      .subscribe(
+        res => {
+          this.success = res.status_smessage;
+          setTimeout(() => {
+            this.success = "";
+          }, 3000);
+          this.getIps()
+          this.ipUpdateCancel(); 
+        },
+        error => {
+          this.failed = "Please try again later."
+          setTimeout(() => {
+            this.failed = "";
+          }, 3000);
+          this.ipUpdateCancel(); 
+        }
+      )
   }
 
   onIPEdit(listIndex : any, ip : any)
@@ -129,16 +136,18 @@ export class IpComponent implements OnInit {
 
   onIPDelete(listIndex : any, ipId : any)
   {
-    this.apiService.postCall('/settings/deleteuip', { 'ipid' : ipId.ipid })
-    .subscribe(
-      res => {
-        console.log(res);
-        this.ipsList.splice(listIndex, 1);
-      },
-      error => {
-        console.log(error);
-      }
-    )
-    this.getIps();
+    if(confirm("Are you sure to delete")) {
+        this.apiService.postCall('/settings/deleteuip', { 'ipid' : ipId.ipid })
+        .subscribe(
+          res => {
+            console.log(res);
+            this.ipsList.splice(listIndex, 1);
+          },
+          error => {
+            console.log(error);
+          }
+        )
+        this.getIps();
+    }
   }
 }

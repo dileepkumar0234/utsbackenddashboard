@@ -189,7 +189,7 @@
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a 
-                        routerLink="/e-filing-assigned" 
+                        routerLink="/e-filing-pending" 
                         class="nav-link active" 
                         data-bs-toggle="tooltip" 
                         data-bs-placement="right" 
@@ -197,7 +197,59 @@
                         <span class="icon">
                             <i class="fas fa-home"></i>
                         </span>
-                        e-Filing Pending
+                        E Filing Pending
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a 
+                        routerLink="/p-filing-pending" 
+                        class="nav-link active" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
+                        title="Home">
+                        <span class="icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        P Filing Pending
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a 
+                        routerLink="/e-filing-complete" 
+                        class="nav-link active" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
+                        title="Home">
+                        <span class="icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        E Filing Complete
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a 
+                        routerLink="/p-filing-docs" 
+                        class="nav-link active" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
+                        title="Home">
+                        <span class="icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        P Filing Docs
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a 
+                        routerLink="/files-cancelled" 
+                        class="nav-link active" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
+                        title="Home">
+                        <span class="icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        Files Cancelled
                     </a>
                 </li>
                 <!-- <li>
@@ -262,7 +314,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="nav-item" routerLinkActive="active">
+                                    <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin" >
                                         <a 
                                             routerLink="/payments" 
                                             class="nav-link" 
@@ -339,7 +391,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                                 <a class="dropdown-item" href="#">My Profile</a>
-                                                <a 
+                                                <a  *ngIf="isSuperAdmin"
                                                     routerLink="/site-settings" 
                                                     class="dropdown-item" >
                                                     Site Settings

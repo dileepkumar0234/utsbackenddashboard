@@ -1,0 +1,41 @@
+<h6>Dependents Information</h6>
+<hr>
+<div class="row ViewDetails pb-3" *ngFor="let dependent of dependentsList; let i = index;">
+        <h6 class="col-12 col-md-12" >Information {{i + 1}}</h6>
+        <div class="col-12 col-md-6">
+            <div class="row py-2">
+                <div class="col-12 col-md-5 col-lg-5 VDLable">First Name :</div>
+                <div class="col-12 col-md-7 col-lg-7 VDValue">{{dependent.first_name}}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row py-2">
+                <div class="col-12 col-md-5 col-lg-5 VDLable">Last Name :</div>
+                <div class="col-12 col-md-7 col-lg-7 VDValue">{{dependent.last_name}}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row py-2">
+                <div class="col-12 col-md-5 col-lg-5 VDLable">SSIN :</div>
+                <div class="col-12 col-md-7 col-lg-7 VDValue">{{dependent.ssn}}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row py-2">
+                <div class="col-12 col-md-5 col-lg-5 VDLable">ITIN :</div>
+                <div class="col-12 col-md-7 col-lg-7 VDValue">{{dependent.itin}}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row py-2">
+                <div class="col-12 col-md-5 col-lg-5 VDLable">Date Of Birth :</div>
+                <div class="col-12 col-md-7 col-lg-7 VDValue">{{dependent.dob}}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row py-2">
+                <div class="col-12 col-md-5 col-lg-5 VDLable">Occupation :</div>
+                <div class="col-12 col-md-7 col-lg-7 VDValue">{{dependent.occupation}}</div>
+            </div>
+        </div>
+</div>
