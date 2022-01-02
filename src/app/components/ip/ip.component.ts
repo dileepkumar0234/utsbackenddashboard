@@ -140,11 +140,9 @@ export class IpComponent implements OnInit {
         this.apiService.postCall('/settings/deleteuip', { 'ipid' : ipId.ipid })
         .subscribe(
           res => {
-            console.log(res);
             this.ipsList.splice(listIndex, 1);
           },
           error => {
-            console.log(error);
           }
         )
         this.getIps();

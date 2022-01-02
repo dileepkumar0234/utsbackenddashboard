@@ -42,7 +42,6 @@ export class OtherInfoComponent implements OnInit {
         if (res.sinfo)
         {
           this.spouseInfo = res.sinfo;
-          console.log(this.spouseInfo);
         }
       },
       error => {

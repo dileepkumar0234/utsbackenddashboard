@@ -59,7 +59,6 @@ export class ToCallComponent implements OnInit {
       serverSide: true,
       processing: true,
       ajax: (dataTablesParameters: any, callback) => {
-        console.log('All Params', dataTablesParameters);
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/user/wantusinfo',
@@ -68,7 +67,6 @@ export class ToCallComponent implements OnInit {
           )
           .subscribe(resp => {
             this.persons = resp.data;
-            console.log(resp);
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
@@ -88,7 +86,6 @@ export class ToCallComponent implements OnInit {
       this.apiService.postCall('/user/deletewantuscall', {contactid : contactId})
       .subscribe(
         res => {
-          console.log(res);
           this.commonService.refresh();
         },
         error => {

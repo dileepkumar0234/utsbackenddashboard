@@ -56,7 +56,6 @@ export class LoginHistoryComponent implements OnInit {
       serverSide: true,
       processing: true,
       ajax: (dataTablesParameters: any, callback) => {
-        console.log('All Params', dataTablesParameters);
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/user/loginshistory',
@@ -65,7 +64,6 @@ export class LoginHistoryComponent implements OnInit {
           )
           .subscribe(resp => {
             this.persons = resp.data;
-            console.log(resp);
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,

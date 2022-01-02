@@ -18,7 +18,6 @@ export class CommonDataComponent implements OnInit {
 
   isBasicInfo()
   {
-    console.log(this.currentRoute === '/basic-info-pending');
     return (this.currentRoute === '/basic-info-pending');
   }
 }

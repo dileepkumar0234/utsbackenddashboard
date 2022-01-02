@@ -13,7 +13,6 @@ export class SpouseInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.spouseInfo);
   }
 
   

@@ -20,7 +20,6 @@ export class AuthGuardService implements CanActivate {
         return false;
     }
     const roles = route.data.roles as Role[];
-    console.log(roles);
     if (roles && !roles.some(r => this.authService.hasRole(r.toString()))) {
         this.router.navigate(['error', 'not-found']);
         return false;

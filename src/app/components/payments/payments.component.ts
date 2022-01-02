@@ -64,7 +64,6 @@ export class PaymentsComponent implements OnInit {
           )
           .subscribe(resp => {
             this.persons = resp.data;
-            console.log(resp);
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,

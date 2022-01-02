@@ -26,7 +26,6 @@ export class ReferralComponent implements OnInit {
     private http : HttpClient, private apiService : ApiService, private authService : AuthService) { 
     this.referrals = [];
     this.client_id = this.route.snapshot.paramMap.get('id');
-    console.log(this.client_id);
     this.userId = this.authService.getUserId();
     this.taxYear = this.authService.getTaxYear();
   }
