@@ -12,10 +12,10 @@
                     <span class="error"> {{failed}}</span>
                 </div>
                 <div *ngIf = "ipEdit">
-                    <button type="button" (click) = "ipUpdate()" class="btn btn-primary mr-2">Update</button>
+                    <button type="button"   [disabled] = "!ipsForm.valid" (click) = "ipUpdate()" class="btn btn-primary mr-2">Update</button>
                     <button type="button" (click) = "ipUpdateCancel()" class="btn btn-secondary">Cancel</button>
                 </div>
-                <button *ngIf = "!ipEdit" type="button" (click) = "ipSubmit()" class="btn btn-primary mr-2">Add</button>
+                <button *ngIf = "!ipEdit"   [disabled] = "!ipsForm.valid" type="button" (click) = "ipSubmit()" class="btn btn-primary mr-2">Add</button>
             </div>
         </form>
         <div class="white-box p-3">

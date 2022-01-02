@@ -1,1 +1,31 @@
-<p>to-call works!</p>
+<div class="white-box p-3">
+    <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" class="table table-striped" style="width: 100%;" >
+            <thead>
+                <tr>
+                    <th>Client Name</th>
+                    <th>Email ID</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="persons?.length != 0">
+                <tr *ngFor="let person of persons">
+                    <td>{{ person.c_name }}</td>
+                    <td>{{ person.c_email }}</td>
+                    <td>{{ person.c_phone }}</td>
+                    <td>{{ person.c_message }}</td>
+                    <td>{{ person.c_created_at }}</td>
+                    <td> <u style="cursor: pointer;" class="error" (click) = "OnDelete(person.contact_id)" >  Delete  </u> </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="persons?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+</div>
