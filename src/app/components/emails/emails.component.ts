@@ -14,6 +14,7 @@ export class EmailsComponent implements OnInit {
 	public sendingEmailForm:FormGroup;
 	success_msg : string = '';
 	error_msg   : string = '';
+	templatesList   : any;
 
 	constructor(public formBuilder:FormBuilder, public commonService:CommonService,public apiService:ApiService){
 		this.sendingEmailForm = this.formBuilder.group({
@@ -25,12 +26,13 @@ export class EmailsComponent implements OnInit {
 	}
 
 	ngOnInit(): void {	
+		
 		let user_id = localStorage.getItem('access_token');
 		var changeData = {"user_id":user_id};
 		this.apiService.postCall('/settings/emailtemplates', changeData)
 		.subscribe(res => {
 			if(res.http_code==200){
-				console.log(res);                 
+				this.templatesList = res.templatesinfo;                 
 			}else{
 				this.error_msg = res.status_smessage;
 			} 
@@ -39,6 +41,7 @@ export class EmailsComponent implements OnInit {
 			this.error_msg = error;
 		});
 	}
+	
 	submitC(){
 		this.confirmemailflag = false;
 		if(!this.sendingEmailForm.valid){

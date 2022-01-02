@@ -21,14 +21,12 @@
 						<span *ngIf="confirmemailflag" class="error-color">Email and confirm email is not match.</span>
 					</div>
 					<div class="mb-3">
-						<select class="nav-link dropdown-toggle form-control" formControlName="yearControl"
-							role="button" name="year_" (change)="changeYear($event)">
-							<option *ngFor="let year of years" [value]="year.utstaxyear">
-								<a class="dropdown-item"> {{year.dutstaxyear}}</a>
+						<select class="nav-link dropdown-toggle form-control" formControlName="ettemplateid"
+							role="button" name="ettemplateid">
+							<option value="" selected >Select a Template</option>
+							<option *ngFor="let etemplate of templatesList" [value]="etemplate.ettemplateid">
+								<a class="dropdown-item"> {{etemplate.ettemplatedisplay}}</a>
 							</option>
-						</select>
-						<select class="form-control" id="exampleFormControlSelect2" formControlName="ettemplateid">
-							<option> Select a template</option>
 						</select>
 						<span *ngIf="sendingEmailForm?.controls?.ettemplateid?.errors?.required && sendingEmailForm?.controls?.ettemplateid?.touched" 
 						class="font-13 error-color confirmemailvalid">Email template is required</span>
