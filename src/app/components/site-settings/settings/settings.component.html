@@ -1,0 +1,152 @@
+<h2>Settings</h2> <span class="error"> {{processingError}} </span>
+<form [formGroup]="settingsForm">
+    <div class="white-box p-3">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Site Email :</label>
+                    <input type="email" class="form-control" formControlName="site_email">
+
+                    <div *ngIf="f.site_email" class="error">
+                        <div *ngIf="f.site_email.errors?.required && f.site_email.touched">Site Email is required</div>
+                        <div *ngIf="f.site_email.errors?.email">Site Email must be a valid email address</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>US Phone Number :</label>
+                    <input type="" class="form-control" formControlName = "usphonenumber">
+
+                    <div *ngIf="f.usphonenumber" class="error">
+                        <div *ngIf="f.usphonenumber.errors?.required && f.usphonenumber.touched">US Phone Number is required</div>
+                        <div *ngIf="f.usphonenumber.errors?.pattern">US Phone Number must be valid</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Indian Phone Number :</label>
+                    <input type="text" class="form-control" formControlName="indianphonenumber" >
+                    <div *ngIf="f.indianphonenumber" class="error">
+                        <div *ngIf="f.indianphonenumber.errors?.required && f.indianphonenumber.touched">Indian Phone Number is required</div>
+                        <div *ngIf="f.indianphonenumber.errors?.pattern">Indian Phone Number must be valid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Office Days :</label>
+                    <input type="text" class="form-control" formControlName = "officedays">
+                    <div *ngIf="f.officedays" class="error">
+                        <div *ngIf="f.officedays.errors?.required && f.officedays.touched">Office Days is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="form-group">
+                    <label>Office Timing :</label>
+                    <input type="text" class="form-control" formControlName="officetimings" >
+                    <div *ngIf="f.officetimings" class="error">
+                        <div *ngIf="f.officetimings.errors?.required && f.officetimings.touched">Office Timings is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="form-group">
+                    <label>Corporate Office :</label>
+                    <input type="text" class="form-control" formControlName = "corporateoffice">
+                    <div *ngIf="f.corporateoffice" class="error">
+                        <div *ngIf="f.corporateoffice.errors?.required && f.corporateoffice.touched">Corporate oOfficeis required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="form-group">
+                    <label>Processing Center :</label>
+                    <input type="text" class="form-control" formControlName="processingcenter" >
+                    <div *ngIf="f.processingcenter" class="error">
+                        <div *ngIf="f.processingcenter.errors?.required && f.processingcenter.touched">Processing Center is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>FB Link :</label>
+                    <input type="text" class="form-control" formControlName = "fblink">
+                    <div *ngIf="f.fblink" class="error">
+                        <div *ngIf="f.fblink.errors?.required && f.fblink.touched">FB link is required</div>
+                        <div *ngIf="f.fblink.errors?.pattern">FB link must be valid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Twitter Link :</label>
+                    <input type="text" class="form-control" formControlName="twitterlink" >
+                    <div *ngIf="f.twitterlink" class="error">
+                        <div *ngIf="f.twitterlink.errors?.required && f.twitterlink.touched">Twitter Link is required</div>
+                        <div *ngIf="f.twitterlink.errors?.pattern">Twitter Link must be valid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Linkedin Link :</label>
+                    <input type="text" class="form-control" formControlName = "linkedinlink">
+                    <div *ngIf="f.linkedinlink" class="error">
+                        <div *ngIf="f.linkedinlink.errors?.required && f.linkedinlink.touched">Linkedin Link is required</div>
+                        <div *ngIf="f.linkedinlink.errors?.pattern">Linkedin Link must be valid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Site URL :</label>
+                    <input type="text" class="form-control" formControlName = "siteURL">
+                    <div *ngIf="f.siteURL" class="error">
+                        <div *ngIf="f.siteURL.errors?.required && f.siteURL.touched">Site URL is required</div>
+                        <div *ngIf="f.siteURL.errors?.pattern">Site URL must be valid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Site Popup Setting :</label>
+                    <input type="text" class="form-control" formControlName="sitepopupsetting" >
+                    <div *ngIf="f.sitepopupsetting" class="error">
+                        <div *ngIf="f.sitepopupsetting.errors?.required && f.sitepopupsetting.touched">Site Popup Setting is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Tax Year :</label>
+                    <input type="text" class="form-control" formControlName = "taxyear" placeholder="2021">
+                    <div *ngIf="f.taxyear" class="error">
+                        <div *ngIf="f.taxyear.errors?.required && f.taxyear.touched">Tax Year is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="success"> {{success}} </span>
+        <span class="error"> {{failed}} </span>
+        <button type="button" (click) = "settingsSubmit()" class="btn btn-primary mr-2">Submit</button>
+    </div>
+</form>

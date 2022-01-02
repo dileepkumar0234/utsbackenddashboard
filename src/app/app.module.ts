@@ -37,6 +37,8 @@ import { SpouseInfoComponent } from './components/details/other-info/spouse-info
 import { EmployerInfoComponent } from './components/details/other-info/employer-info/employer-info.component';
 import { DependentsInfoComponent } from './components/details/other-info/dependents-info/dependents-info.component';
 import { CommonDataComponent } from './components/common-data/common-data.component';
+import { SettingsComponent } from './components/site-settings/settings/settings.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { CommonDataComponent } from './components/common-data/common-data.compon
     EmployerInfoComponent,
     DependentsInfoComponent,
     CommonDataComponent,
+    SettingsComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

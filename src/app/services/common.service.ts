@@ -18,6 +18,10 @@ export class CommonService {
     });
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
+
   validateAllFormFields(fromGroup:FormGroup){
 
     Object.keys(fromGroup.controls).forEach(field=>{

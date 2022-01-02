@@ -303,15 +303,14 @@
                                     </li>
 
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                            Select Year
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
+                                        <form [formGroup]="yearForm">
+                                            <select class="nav-link dropdown-toggle form-control" formControlName="yearControl"
+                                                role="button" name="year_" (change)="changeYear($event)">
+                                                <option *ngFor="let year of years" [value]="year.utstaxyear">
+                                                    <a class="dropdown-item"> {{year.dutstaxyear}}</a>
+                                                </option>
+                                            </select>
+                                        </form>
                                     </li>
 
                                     <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin" >
@@ -341,21 +340,16 @@
                                             Referrals
                                         </a>
                                     </li>
-
                                     <li class="nav-item" routerLinkActive="active">
                                         <a 
-                                            routerLink="/schedules" 
+                                            routerLink="/comments" 
                                             class="nav-link" 
                                             data-bs-toggle="tooltip" 
                                             data-bs-placement="right" 
-                                            title="Schedules">
-                                            <!-- <span class="icon">
-                                                <i class="fas fa-home"></i>
-                                            </span> -->
-                                            Schedules
+                                            title="Comments">
+                                            Comments
                                         </a>
                                     </li>
-                                    
                                     <li class="nav-item" routerLinkActive="active">
                                         <a 
                                             routerLink="/emails" 

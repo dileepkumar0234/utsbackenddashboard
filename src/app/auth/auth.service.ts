@@ -82,9 +82,14 @@ export class AuthService {
     return this.uuId;
   }
 
+  setTaxYear(year : any)
+  {
+    localStorage.setItem(environment.taxYear, year);
+  }
+
   getTaxYear()
   {
     this.taxYear = localStorage.getItem(environment.taxYear);
-    return this.taxYear ? this.taxYear : 2018;
+    return this.taxYear;
   }
 } 

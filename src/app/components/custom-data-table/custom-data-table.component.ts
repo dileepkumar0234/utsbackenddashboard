@@ -37,14 +37,14 @@ export class CustomDataTableComponent implements OnInit {
   taxYear : any;
 
   persons: Person[] = [];
-
+  
   constructor(private http: HttpClient , 
     private authService : AuthService,
     private apiService : ApiService) {
 
     this.userId = this.authService.getUserId();
     
-    this.taxYear = this.authService.getTaxYear() ? this.authService.getTaxYear() : '2020';
+    this.taxYear = this.authService.getTaxYear();
    }
 
   ngOnInit(): void {

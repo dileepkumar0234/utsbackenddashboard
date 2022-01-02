@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -10,10 +11,17 @@ export class DetailsComponent implements OnInit {
   showEditProfile = false
   selectedProfileTab = ''
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+    this.selectedProfileTab = 'basic-info'
+  }
 
   ngOnInit(): void {
-    this.selectedProfileTab = 'basic-info'
+    this.route.queryParams.subscribe(params => {
+      if (params.to)
+      {
+        this.selectedProfileTab = params.to
+      }
+    });
   }
 
   profileTab(tabName:string){

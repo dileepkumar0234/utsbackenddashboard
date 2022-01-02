@@ -4,6 +4,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { GuestGaurdService } from './auth/guest-gaurd.service';
 import { AllRecordsComponent } from './components/all-records/all-records.component';
 import { AssignedFileNumberComponent } from './components/assigned-file-number/assigned-file-number.component';
+import { CommentsComponent } from './components/comments/comments.component';
 import { CommonDataComponent } from './components/common-data/common-data.component';
 import { DetailsComponent } from './components/details/details.component';
 import { EmailsComponent } from './components/emails/emails.component';
@@ -68,6 +69,7 @@ const routes: Routes = [
     { path: 'schedules', component: SchedulesComponent},
     { path: 'emails', component: EmailsComponent},
     { path: 'to-call', component: ToCallComponent},
+    { path: 'comments', component: CommentsComponent},
     {path : 'details/:id', component: DetailsComponent},
    
   ]},

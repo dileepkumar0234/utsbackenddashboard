@@ -1,1 +1,34 @@
-<p>referral works!</p>
+<div class="white-box p-3">
+    <div class="table-responsive ">
+        <table datatable [dtOptions]="dtOptions"  class="table table-striped" style="width: 100%;" >
+            <thead>
+                <tr>
+                    <th scope="col">Referral Name</th>
+                    <th scope="col">Referral Email</th>
+                    <th scope="col">Referral Phone</th>
+                    <th scope="col">Referral To Name ID</th>
+                    <th scope="col">Referral To Email</th>
+                    <th scope="col">Referral To 
+                      Phone Status</th>
+                    <th scope="col">Comment</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="referrals?.length != 0">
+                <tr *ngFor="let referral of referrals">
+                  <td>{{ referral.rf_on_name }}</td>
+                  <td>{{ referral.rf_on_email }}</td>
+                  <td>{{ referral.rf_on_phone }}</td>
+                  <td>{{ referral.rf_name }}</td>
+                  <td>{{ referral.rf_email }}</td>
+                  <td>{{ referral.rf_phone }}</td>
+                  <td>{{ referral.rf_comment }}</td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="referrals?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+</div>

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/auth.service';
 import { Role } from '../models/role';
+import { ApiService } from '../services/api.service';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +14,55 @@ import { Role } from '../models/role';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router : Router) {}
+  yearForm : FormGroup;
+  selectedYear : any;
+  years : any;
+  constructor(private commonService : CommonService, private fb : FormBuilder, private apiService : ApiService, public authService: AuthService, private router : Router) {}
 
   ngOnInit(): void {
+
+    this.getYears();
+
+    this.yearForm = this.fb.group({
+      yearControl: [this.selectedYear]
+    });
    
   }
 
-  // canShow(roles : any)
-  // {
-  //   const rols = roles as Role[];
-  //   if (rols && !rols.some(r => this.authService.hasRole(r.toString()))) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  changeYear(e : any)
+  {
+      this.authService.setTaxYear(e.target.value)
+      this.commonService.refresh();
+  }
+
+  getYears()
+  {
+    this.apiService.postCall('/member/utstaxyears', {})
+    .subscribe(
+      res => {
+        if (res.taxyears)
+        {
+          this.years = res.taxyears; 
+          res.taxyears.forEach((year : any, index : any) => {
+            if (this.authService.getTaxYear())
+            {
+              if (this.authService.getTaxYear() == year.utstaxyear)
+              {
+                this.selectedYear = year.utstaxyear;
+              }
+            }
+            else {
+              this.selectedYear = year.utstaxyear;
+            }
+          });
+          this.authService.setTaxYear(this.selectedYear)
+          this.yearForm.controls['yearControl'].patchValue(this.selectedYear);
+        }
+      },
+      error => {
+      }
+    )
+  }
 
   get isSuperAdmin() {
     return this.authService.hasRole((Role.SUPER_ADMIN).toString());
@@ -34,7 +72,6 @@ export class HomeComponent implements OnInit {
   {
     return this.authService.hasRole((Role.ADMIN).toString());
   }
- 
   onLogout()
   {
     this.authService.logout();

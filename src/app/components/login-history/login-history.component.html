@@ -1,1 +1,31 @@
-<p>login-history works!</p>
+<div class="white-box p-3">
+    <div class="table-responsive">
+        <table datatable [dtOptions]="dtOptions" class="table table-striped" style="width: 100%;" >
+            <thead>
+                <tr>
+                    <th>File Number</th>
+                    <th>Name</th>
+                    <th>Email ID</th>
+                    <th>Phone</th>
+                    <th>File Status</th>
+                    <th>Logged Date</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="persons?.length != 0">
+                <tr *ngFor="let person of persons">
+                  <td> <u> <a class="success" routerLink="/details/{{person?.userid}}">{{ person.userfilename }} </a> </u> </td>
+                  <td>{{ person.username }}</td>
+                  <td><u> <a class="success" routerLink="/details/{{person?.userid}}">{{ person.useremail }} </a> </u></td>
+                  <td>{{ person.userphone }}</td>
+                  <td>{{ person.filestatus }}</td>
+                  <td>{{ person.createdat }}</td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="persons?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+</div>
