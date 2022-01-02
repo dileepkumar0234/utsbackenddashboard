@@ -1,25 +1,9 @@
 <div class="row">
-    <div class="col-12 col-md-6 ">
+    <div class="col-12">
         <h2>Sending Emails to Client</h2>
         <form [formGroup]="sendingEmailForm">
 			<div class="row">
-				<div class="col-12 col-md-8"> 
-					<div class="mb-3">
-						<input type="text" class="form-control" placeholder="User Name" formControlName="username">
-						<span *ngIf="sendingEmailForm?.controls?.username?.errors?.required && sendingEmailForm?.controls?.username?.touched" 
-						class="font-13 error-color">User name is required</span>
-					</div>                            
-					<div class="mb-3">
-						<input type="text" class="form-control" placeholder="Email Address" formControlName="useremail">
-						<span *ngIf="sendingEmailForm?.controls?.useremail?.errors?.required && sendingEmailForm?.controls?.useremail?.touched" 
-						class="font-13 error-color">Email is required</span>
-					</div>                            
-					<div class="mb-3">
-						<input type="text" class="form-control" placeholder="Confirm Email" formControlName="confirmemail">
-						<span *ngIf="sendingEmailForm?.controls?.confirmemail?.errors?.required && sendingEmailForm?.controls?.confirmemail?.touched" 
-						class="font-13 error-color confirmemailvalid">Confirm email is required</span>
-						<span *ngIf="confirmemailflag" class="error-color">Email and confirm email is not match.</span>
-					</div>
+				<div class="col-12 col-md-4"> 
 					<div class="mb-3">
 						<select class="nav-link dropdown-toggle form-control" formControlName="ettemplateid"
 							role="button" name="ettemplateid">
@@ -31,6 +15,48 @@
 						<span *ngIf="sendingEmailForm?.controls?.ettemplateid?.errors?.required && sendingEmailForm?.controls?.ettemplateid?.touched" 
 						class="font-13 error-color confirmemailvalid">Email template is required</span>
 					</div>
+				</div>
+				<div class="col-12"> 
+					<div style="background-color:#fff;padding:10px;margin-bottom:8px;"> 
+						<div class="row">
+							<div class="col-4">
+								<input type="text" class="form-control" placeholder="Name" formControlName="username">
+								<span *ngIf="sendingEmailForm?.controls?.username?.errors?.required && sendingEmailForm?.controls?.username?.touched" 
+								class="font-13 error-color">Name is required</span>
+							</div>
+							<div class="col-4">                            
+								<input type="text" class="form-control" placeholder="Email Address" formControlName="useremail">
+								<span *ngIf="sendingEmailForm?.controls?.useremail?.errors?.required && sendingEmailForm?.controls?.useremail?.touched" 
+								class="font-13 error-color">Email is required</span>
+							</div>					
+						</div>									
+					</div><div style="background-color:#fff;padding:10px;margin-bottom:8px;"> 
+						<div class="row">
+							<div class="col-4">
+								<input type="text" class="form-control" placeholder="Name" formControlName="username">
+								<span *ngIf="sendingEmailForm?.controls?.username?.errors?.required && sendingEmailForm?.controls?.username?.touched" 
+								class="font-13 error-color">Name is required</span>
+							</div>
+							<div class="col-4">                            
+								<input type="text" class="form-control" placeholder="Email Address" formControlName="useremail">
+								<span *ngIf="sendingEmailForm?.controls?.useremail?.errors?.required && sendingEmailForm?.controls?.useremail?.touched" 
+								class="font-13 error-color">Email is required</span>
+							</div>					
+						</div>									
+					</div><div style="background-color:#fff;padding:10px;margin-bottom:8px;"> 
+						<div class="row">
+							<div class="col-4">
+								<input type="text" class="form-control" placeholder="Name" formControlName="username">
+								<span *ngIf="sendingEmailForm?.controls?.username?.errors?.required && sendingEmailForm?.controls?.username?.touched" 
+								class="font-13 error-color">Name is required</span>
+							</div>
+							<div class="col-4">                            
+								<input type="text" class="form-control" placeholder="Email Address" formControlName="useremail">
+								<span *ngIf="sendingEmailForm?.controls?.useremail?.errors?.required && sendingEmailForm?.controls?.useremail?.touched" 
+								class="font-13 error-color">Email is required</span>
+							</div>					
+						</div>									
+					</div>									
 				</div>                            
 				<span class="success-color"> {{success_msg}} </span>
 				<span class="error-color"> {{error_msg}} </span>

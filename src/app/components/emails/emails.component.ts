@@ -54,7 +54,7 @@ export class EmailsComponent implements OnInit {
 		  if(useremail==confirmemail){
 			this.confirmemailflag = false;
 			let user_id = localStorage.getItem('access_token');
-			var changeData = {"user_id":user_id,"username":username,"useremail":useremail,"ettemplateid":ettemplateid};   
+			var changeData = {"user_id":user_id,"clientname":username,"useremail":useremail,"ettemplateid":ettemplateid};   
 			this.apiService.postCall('/settings/sendemailtoclient', changeData)
 			.subscribe(
 				res => {

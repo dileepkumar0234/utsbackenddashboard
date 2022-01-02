@@ -288,7 +288,7 @@
                             </button>
                             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                                 <ul class="nav navbar-nav ml-auto">
-                                    <li class="nav-item" routerLinkActive="active">
+                                    <li class="nav-item mr-4" routerLinkActive="active">
                                         <a 
                                             routerLink="/login-history" 
                                             class="nav-link" 
@@ -303,7 +303,7 @@
                                     </li>
 
                                     <li class="nav-item dropdown">
-                                        <form [formGroup]="yearForm">
+                                        <form [formGroup]="yearForm" class="mr-4">
                                             <select class="nav-link dropdown-toggle form-control" formControlName="yearControl"
                                                 role="button" name="year_" (change)="changeYear($event)">
                                                 <option *ngFor="let year of years" [value]="year.utstaxyear">
