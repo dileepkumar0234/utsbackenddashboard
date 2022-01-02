@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" (click) = "submitOTP()" class="btn btn-primary mr-2">Submit</button>
+        <button type="button"  [disabled] = "!otpForm.valid"  (click) = "submitOTP()" class="btn btn-primary mr-2">Submit</button>
     </div>
 </form>
 <div *ngIf = "isValid" class="row">
