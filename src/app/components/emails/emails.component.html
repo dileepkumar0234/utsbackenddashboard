@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-12">
         <h2>Sending Emails to Client</h2>
-        <form [formGroup]="emailForm">
-			<div class="row p-3">
+        <form [formGroup]="emailForm" class="white-box p-3">
+			<div class="row mb-3 mt-3 ">
 				<div class="nav-item dropdown col-12 col-md-4"> 
 					<select class="form-control" formControlName="ettemplateid"
 						role="button" name="ettemplateid">
@@ -14,7 +14,7 @@
 			</div> 
 			<div formArrayName="emails">
 				<div *ngFor="let emailForm of emailsFormGroup.controls; let i = index;" >
-					<div [formGroupName]="i" class="row p-3">
+					<div [formGroupName]="i" class="row">
 						<div class="col-12 col-md-4">
 							<div class="form-group">
 								<input type="text" class="form-control" formControlName="userName" placeholder="Name">
@@ -31,7 +31,7 @@
 							<button *ngIf = "i == emailsFormGroup.controls.length - 1" class="btn btn-primary" type="button" (click)="addEmailForm()"> Add User </button>
 						</div>
 
-						<div class="col-12 col-md-4">
+						<div class="col-12 col-md-4 mb-2">
 							<div class="form-group" *ngIf="submitted && !getValidity(i)" class="error">
 								<div>Name and Email address are required.</div>
 							</div>
@@ -39,13 +39,13 @@
 					</div>
 				</div>
 			</div> 
-			<div  class="row p-3">
+			<div  class="row p-2">
 				<div class="col-12 col-md-4">
 					<span class="success">{{success_msg}} </span>
 					<span class="error">{{error_msg}}</span>
 				</div>
 			</div>
-			<div  class="row p-3">
+			<div  class="row p-2">
 				<div class="col-12 col-md-4">
 					<button type="button" (click) = "Submit()" class="btn btn-primary mr-2">Submit</button>
 				</div>

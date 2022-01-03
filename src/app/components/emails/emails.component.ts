@@ -42,10 +42,12 @@ export class EmailsComponent implements OnInit {
 
 	addEmailForm() {
 		this.emailsList.push(this.createEmailForm());
+		this.submitted = false;
 	}
 	
 	removeEmail(index : any) {
 		this.emailsList.removeAt(index);
+		this.submitted = false;
 	}
 
 	get emailsFormGroup() {
