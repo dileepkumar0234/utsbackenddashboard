@@ -65,5 +65,10 @@ export class LoginComponent implements OnInit {
       }
 
     )
-}
+  }
+  
+  getLogo()
+  {
+    return environment.logo;
+  }
 }

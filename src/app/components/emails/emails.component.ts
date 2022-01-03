@@ -106,6 +106,9 @@ export class EmailsComponent implements OnInit {
 						}else{
 							emailSuccessFlag =0;
 						} 
+						this.emailForm.reset();
+						this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);
+						this.submitted = false;
 					},
 					error => {
 						this.error_msg = error;

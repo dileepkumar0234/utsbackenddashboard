@@ -29,6 +29,16 @@ export class HomeComponent implements OnInit {
    
   }
 
+  getLogo()
+  {
+    return environment.logo;
+  }
+  getProfile()
+  {
+    return environment.profile;
+  }
+
+
   changeYear(e : any)
   {
       this.authService.setTaxYear(e.target.value)
