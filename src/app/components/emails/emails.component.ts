@@ -95,7 +95,7 @@ export class EmailsComponent implements OnInit {
 				let user_id = localStorage.getItem('access_token');
 				var i=0;
 				for(i=0;i<=emaillength;i++){
-					let username = emaillist[i].clientname;
+					let username = emaillist[i].userName;
 					let useremail = emaillist[i].email_id;
 					var changeData = {"user_id":user_id,"clientname":username,"useremail":useremail,"ettemplateid":ettemplateid};   
 					this.apiService.postCall('/settings/sendemailtoclient', changeData)

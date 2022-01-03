@@ -10,14 +10,14 @@
 							<a class="dropdown-item"> {{template.ettemplatedisplay}}</a>
 						</option>
 					</select>
-				</div>
-			</div>
+				</div> 
+			</div> 
 			<div formArrayName="emails">
 				<div *ngFor="let emailForm of emailsFormGroup.controls; let i = index;" >
 					<div [formGroupName]="i" class="row p-3">
 						<div class="col-12 col-md-4">
 							<div class="form-group">
-								<input type="text" class="form-control" formControlName="clientname" placeholder="Name">
+								<input type="text" class="form-control" formControlName="userName" placeholder="Name">
 							</div>
 						</div>
 						<div class="col-12 col-md-4">
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> 
 			<span class="">{{success_msg}}</span>
 			<span class="error_color">{{error_msg}}</span>
 			<button type="button" (click) = "Submit()" class="btn btn-primary mr-2">Submit</button>
