@@ -16,6 +16,7 @@ export class EmailsComponent implements OnInit {
 	success_msg : string = '';
 	error_msg   : string = '';
 	templatesList   : any;
+	confirmemailflag   : any;
 
 	constructor(public formBuilder:FormBuilder, public commonService:CommonService,public apiService:ApiService){
 		
@@ -83,37 +84,41 @@ export class EmailsComponent implements OnInit {
 		{
 			this.commonService.validateAllFormFields(this.emailForm);
 			// return;
+		}else{
+			this.confirmemailflag = false;
+			let ettemplateid = this.emailForm.getRawValue().ettemplateid;
+			var emaillist = this.emailForm.getRawValue().emails;
+			var emaillength = emaillist.length;
+			var emailSuccessFlag =0;
+			if(emaillength>0){
+				this.confirmemailflag = false;
+				let user_id = localStorage.getItem('access_token');
+				var i=0;
+				for(i=0;i<=emaillength;i++){
+					let username = emaillist[i].clientname;
+					let useremail = emaillist[i].email_id;
+					var changeData = {"user_id":user_id,"clientname":username,"useremail":useremail,"ettemplateid":ettemplateid};   
+					this.apiService.postCall('/settings/sendemailtoclient', changeData)
+					.subscribe(
+					res => {
+						if(res.http_code==200){
+							emailSuccessFlag =1;							               
+						}else{
+							emailSuccessFlag =0;
+						} 
+					},
+					error => {
+						this.error_msg = error;
+					});
+				}
+				if(emailSuccessFlag==1){
+					this.success_msg = "Mail is successfully sent.";  
+				}else{
+					this.error_msg = "Mail is not successfully sent .";  
+				}
+			}else{
+				this.confirmemailflag = false;
+			}
 		}
-		console.log(this.emailForm.getRawValue());
-	}
-	submitC(){
-		// this.confirmemailflag = false;
-		// if(!this.sendingEmailForm.valid){
-		//   this.commonService.validateAllFormFields(this.sendingEmailForm);
-		// }else{
-		//   let username = this.sendingEmailForm.getRawValue().username;
-		//   let useremail = this.sendingEmailForm.getRawValue().useremail;
-		//   let confirmemail = this.sendingEmailForm.getRawValue().confirmemail;
-		//   let ettemplateid = this.sendingEmailForm.getRawValue().ettemplateid;
-		//   if(useremail==confirmemail){
-		// 	// this.confirmemailflag = false;
-		// 	let user_id = localStorage.getItem('access_token');
-		// 	var changeData = {"user_id":user_id,"clientname":username,"useremail":useremail,"ettemplateid":ettemplateid};   
-		// 	this.apiService.postCall('/settings/sendemailtoclient', changeData)
-		// 	.subscribe(
-		// 		res => {
-		// 		  if(res.http_code==200){
-		// 			this.success_msg = res.status_smessage;                 
-		// 		  }else{
-		// 			this.error_msg = res.status_smessage;
-		// 		  } 
-		// 	  },
-		// 	  error => {
-		// 		this.error_msg = error;
-		// 	  });
-		//   }else{
-		// 	// this.confirmemailflag = true;
-		//   }
-		// }
 	}
 }

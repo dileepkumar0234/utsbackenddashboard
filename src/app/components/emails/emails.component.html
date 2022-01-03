@@ -17,7 +17,7 @@
 					<div [formGroupName]="i" class="row p-3">
 						<div class="col-12 col-md-4">
 							<div class="form-group">
-								<input type="text" class="form-control" formControlName="userName" placeholder="User Name">
+								<input type="text" class="form-control" formControlName="clientname" placeholder="Name">
 							</div>
 						</div>
 						<div class="col-12 col-md-4">
@@ -31,11 +31,13 @@
 							<button *ngIf = "i == emailsFormGroup.controls.length - 1" class="btn btn-primary" type="button" (click)="addEmailForm()"> Add User </button>
 						</div>
 						<div class="form-group" *ngIf="submitted && !getValidity(i)" class="error">
-							<div>Please Enter Valid Email and User Name</div>
+							<div>Name and Email address is required.</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<span class="">{{success_msg}}</span>
+			<span class="error_color">{{error_msg}}</span>
 			<button type="button" (click) = "Submit()" class="btn btn-primary mr-2">Submit</button>
 		</form>
 	</div>
