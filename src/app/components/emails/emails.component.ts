@@ -94,7 +94,7 @@ export class EmailsComponent implements OnInit {
 				this.confirmemailflag = false;
 				let user_id = localStorage.getItem('access_token');
 				var i=0;
-				for(i=0;i<=emaillength;i++){
+				for(i=0;i < emaillength; i++){
 					let username = emaillist[i].userName;
 					let useremail = emaillist[i].email_id;
 					var changeData = {"user_id":user_id,"clientname":username,"useremail":useremail,"ettemplateid":ettemplateid};   
@@ -102,22 +102,28 @@ export class EmailsComponent implements OnInit {
 					.subscribe(
 					res => {
 						if(res.http_code==200){
-							emailSuccessFlag =1;							               
+							emailSuccessFlag =1;	
+							this.success_msg = "Mails sent successfully."; 						               
 						}else{
 							emailSuccessFlag =0;
+							this.error_msg = "There is an issue while sending mails. Please try later.";  
 						} 
+						console.log(res);
 						this.emailForm.reset();
 						this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);
 						this.submitted = false;
+						setTimeout(() => {
+							this.success_msg = "";  
+							this.error_msg = "";  
+						}, 3000);
 					},
 					error => {
 						this.error_msg = error;
+						setTimeout(() => {
+							this.success_msg = "";  
+							this.error_msg = "";  
+						}, 3000);
 					});
-				}
-				if(emailSuccessFlag==1){
-					this.success_msg = "Mail is successfully sent.";  
-				}else{
-					this.error_msg = "Mail is not successfully sent .";  
 				}
 			}else{
 				this.confirmemailflag = false;
