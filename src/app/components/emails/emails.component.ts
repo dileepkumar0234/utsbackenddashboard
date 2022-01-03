@@ -70,7 +70,7 @@ export class EmailsComponent implements OnInit {
 				{
 					this.templatesList = res.templatesinfo;     
 				}
-				this.emailForm.controls['templateId'].patchValue(this.templatesList[0].ettemplateid);
+				this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);
 			},
 			error => {
 			}
