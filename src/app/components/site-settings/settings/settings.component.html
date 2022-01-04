@@ -129,7 +129,10 @@
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <label>Site Popup Setting :</label>
-                    <input type="text" class="form-control" formControlName="sitepopupsetting" >
+                    <select class="nav-link dropdown-toggle form-control" formControlName="sitepopupsetting" role="button">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
                     <div *ngIf="f.sitepopupsetting" class="error">
                         <div *ngIf="f.sitepopupsetting.errors?.required && f.sitepopupsetting.touched">Site Popup Setting is required</div>
                     </div>

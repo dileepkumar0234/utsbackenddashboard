@@ -4,7 +4,7 @@
             <div class="col-4">
                 <div class="form-group">
                     <label>Enter OTP :</label>
-                    <input type="text" class="form-control" formControlName="otp_setting">
+                    <input type="password" class="form-control" formControlName="otp_setting">
                     <div *ngIf="f.otp_setting" class="error">
                         <div *ngIf="f.otp_setting.errors?.required && f.otp_setting.touched">OTP is required</div>
                     </div>
