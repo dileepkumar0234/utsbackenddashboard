@@ -2,20 +2,36 @@
 <hr>
 <div class="row ViewDetails pb-3">
     <div class="col-12 col-md-6">
-        <div class="form-group">
-            <label>File Status:</label>
-            <select class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Comments:</label>
-           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <button type="button" class="btn btn-primary mr-2">Push to State</button>
+        <form [formGroup]="processStateForm">
+            <!-- <div class="nav-item dropdown col-12 col-md-4"> 
+                <label>File Status:</label>
+                <select class="form-control" formControlName="processstate"
+                    role="button" name="processstate" (change)="changeProcess($event)">
+                    <option *ngFor="let process of processStatusList" [value]="process.ps_masterid">
+                        <a class="dropdown-item"> {{process.ps_mastername}}</a>
+                    </option>
+                </select>
+            </div>  -->
+
+            <div class="form-group">
+                <label>File Status:</label>
+                <select class="form-control" formControlName="processstate"
+                    role="button" name="processstate">
+                    <option *ngFor="let process of processStatusList" [value]="process.ps_masterid">
+                        <a class="dropdown-item"> {{process.ps_mastername}}</a>
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Comments:</label>
+               <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="commentmessage" 
+               rows="3"></textarea>
+               <div *ngIf="f.commentmessage" class="error">
+                <div *ngIf="f.commentmessage.errors?.required && f.commentmessage.touched">Comment is required</div>
+            </div>
+            </div>
+        </form>
+        <button type="button" (click) = "submitComment()" class="btn btn-primary mr-2">Push to State</button>
     </div>
 </div>
+<app-user-comments></app-user-comments>

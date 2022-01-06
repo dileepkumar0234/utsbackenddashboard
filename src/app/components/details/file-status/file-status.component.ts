@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
+import { ApiService } from 'src/app/services/api.service';
+import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 @Component({
   selector: 'app-file-status',
@@ -7,9 +12,67 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileStatusComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(UserCommentsComponent, {static : true}) userCommentsComponent : UserCommentsComponent;
+	
+  processStateForm : FormGroup = new FormGroup({});
+  processStatusList : any;
+  userId : any;
+
+  client_id : any;
+
+  taxYear : any;
+
+  constructor(private authService : AuthService, private apiService : ApiService, private formBuilder : FormBuilder, private route: ActivatedRoute) { }
+
 
   ngOnInit(): void {
+    this.processStateForm = this.formBuilder.group({
+      processstate: ['', [Validators.required]],
+      commentmessage: ['', [Validators.required]],
+    })
+    this.client_id = this.route.snapshot.paramMap.get('id');
+    this.userId = this.authService.getUserId();
+    this.taxYear = this.authService.getTaxYear();
+    this.getProcessingStatusList();
+  }
+
+  getProcessingStatusList()
+  {
+    this.apiService.postCall('/settings/getprocessingstatus', {})
+    .subscribe(
+      res => {
+        if(res.processingstatus)
+        {
+          this.processStatusList = res.processingstatus;
+				  this.processStateForm.controls['processstate'].patchValue(this.processStatusList[0].ps_masterid);
+        }
+      },
+      error => {
+      }
+    )
+  }
+  get f(){
+    return this.processStateForm.controls;
+  }
+
+  
+
+  submitComment()
+  {
+    if (confirm("Please confirm to change status"))
+    {
+      this.apiService.postCall('/member/pushtonewfilestatus', 
+      { client_id : this.client_id, 
+        processstate : this.processStateForm.getRawValue().processstate, 
+        commentmessage : this.processStateForm.getRawValue().commentmessage })
+      .subscribe(
+        res => {
+          this.userCommentsComponent.getTableData();
+        },
+        error => {
+        }
+      )
+    }
   }
 
 }

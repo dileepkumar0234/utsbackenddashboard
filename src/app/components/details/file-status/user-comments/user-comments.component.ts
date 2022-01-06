@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,8 +13,6 @@ class DataTablesResponse {
 
 interface Person {
   user_id: any;
-  f_unique_code: any;
-  f_user_name: any;
   user_name: any;
   comment: any;
   previousstate: any;
@@ -23,35 +22,32 @@ interface Person {
 
 
 @Component({
-  selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  selector: 'app-user-comments',
+  templateUrl: './user-comments.component.html',
+  styleUrls: ['./user-comments.component.scss']
 })
-export class CommentsComponent implements OnInit {
+export class UserCommentsComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
 
   userId : any;
 
+  client_id : any;
+
   taxYear : any;
 
   persons: Person[] = [];
-  
 
-  constructor(private http: HttpClient , 
-    private authService : AuthService,
-    private apiService : ApiService) {
-
+  constructor( private route : ActivatedRoute, 
+    private http : HttpClient, private apiService : ApiService, private authService : AuthService) { 
+    this.client_id = this.route.snapshot.paramMap.get('id');
     this.userId = this.authService.getUserId();
-    
     this.taxYear = this.authService.getTaxYear();
-   }
+  }
 
-
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.getTableData();
   }
-  
   getTableData()
   {
     this.dtOptions = {
@@ -62,8 +58,8 @@ export class CommentsComponent implements OnInit {
       ajax: (dataTablesParameters: any, callback) => {
         this.http
           .post<DataTablesResponse>(
-            this.apiService.baseUrl +'/member/allcomments',
-            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear}, 
+            this.apiService.baseUrl +'/member/usercomments',
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear,  client_id : this.client_id}, 
             {}
           )
           .subscribe(resp => {
@@ -75,8 +71,8 @@ export class CommentsComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'f_unique_code' }, { data: 'f_user_name' }, { data: 'user_name' }, 
-                { data: 'comment' }, { data: 'previousstate' }, { data: 'presentstate' }, { data: 'cmt_created_at' }]
+      columns: [{ data: 'user_name' }, { data: 'previousstate' }, { data: 'presentstate' }, 
+                { data: 'comment' }, { data: 'cmt_created_at' }]
     };
   }
 

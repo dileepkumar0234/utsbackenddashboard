@@ -40,6 +40,7 @@ import { CommonDataComponent } from './components/common-data/common-data.compon
 import { SettingsComponent } from './components/site-settings/settings/settings.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { UserCommentsComponent } from './components/details/file-status/user-comments/user-comments.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     SettingsComponent,
     CommentsComponent,
     ChangePasswordComponent,
+    UserCommentsComponent,
   ],
   imports: [
     BrowserModule,
