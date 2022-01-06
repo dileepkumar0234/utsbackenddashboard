@@ -18,7 +18,18 @@
                   <td><u> <a class="success" routerLink="/details/{{person?.user_id}}">{{ person.email }} </a> </u></td>
                   <td>{{ person.phone }}</td>
                   <td>{{ person.file_status }}</td>
-                  <td>Assigned</td>
+                  <td *ngIf = "fileState != 0">Assigned</td>
+                  <td *ngIf = "fileState == 0">
+                    <form [formGroup]="myAnalystForm">
+                      <select class="form-control" formControlName="unlists_u_id"  (change)="assignFile($event, person?.user_id)"
+                          role="button" name="unlists_u_id">
+                          <option value=""> Please Select</option>
+                          <option *ngFor="let analyst of analystList" [value]="analyst.user_id">
+                              <a class="dropdown-item"> {{analyst.user_name}}</a>
+                          </option>
+                      </select>
+                    </form>
+                  </td>
                 </tr>
               </tbody>
               <tbody *ngIf="persons?.length == 0">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommonService } from '../../common.service';
+import { CommonService } from 'src/app/services/common.service';
 import { ApiService } from '../../services/api.service';
 
 @Component({

@@ -41,6 +41,8 @@ import { SettingsComponent } from './components/site-settings/settings/settings.
 import { CommentsComponent } from './components/comments/comments.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { UserCommentsComponent } from './components/details/file-status/user-comments/user-comments.component';
+import { SetNewFileNumberComponent } from './components/assigned-file-number/set-new-file-number/set-new-file-number.component';
+import { SetOldFileNumberComponent } from './components/assigned-file-number/set-old-file-number/set-old-file-number.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { UserCommentsComponent } from './components/details/file-status/user-com
     CommentsComponent,
     ChangePasswordComponent,
     UserCommentsComponent,
+    SetNewFileNumberComponent,
+    SetOldFileNumberComponent,
   ],
   imports: [
     BrowserModule,

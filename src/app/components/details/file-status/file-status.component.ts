@@ -67,6 +67,7 @@ export class FileStatusComponent implements OnInit {
         commentmessage : this.processStateForm.getRawValue().commentmessage })
       .subscribe(
         res => {
+          console.log(res);
           this.userCommentsComponent.getTableData();
         },
         error => {

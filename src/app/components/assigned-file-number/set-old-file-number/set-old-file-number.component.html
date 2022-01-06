@@ -1,0 +1,28 @@
+<h2>Edit file number</h2>
+<form [formGroup]="form">
+    <div class="white-box p-3">
+        <h6>Set File Number</h6>
+        <div class="form-group">
+            <label>Users:</label>
+            <select class="form-control" formControlName="client_id" 
+                role="button" name="client_id">
+                <option value=""> Please Select</option>
+                <option *ngFor="let user of userList; let i = index;" [value]="user.user_id">
+                    <a class="dropdown-item"> {{user.unique_code}} ({{user.email}})</a>
+                </option>
+                <div *ngIf="f.client_id.invalid && f.client_id.errors?.required" class="error">
+                    <div>Please Select user </div>
+                </div>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Update File Number:</label>
+            <input type="text" class="form-control" formControlName = "filenumber">
+            <div *ngIf="isSubmitted && f.filenumber.errors" class="error">
+                <div *ngIf="f.filenumber.errors?.required && f.filenumber.touched">File Number  is Required</div>
+            </div>
+        </div>
+        <button type="button" (click) = "saveProcess()" class="btn btn-primary mr-2">Update</button>
+        <!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
+    </div>
+</form>
