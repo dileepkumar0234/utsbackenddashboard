@@ -56,9 +56,10 @@ export class SetOldFileNumberComponent implements OnInit {
   {
     this.failed = "";
     this.success = "";
-    if (!this.form.valid)
-    {
+    console.log(this.form);
+    if (this.form.invalid) {
       this.commonService.validateAllFormFields(this.form);
+      return;
     }
     if (confirm("Please confirm"))
     {
@@ -66,8 +67,10 @@ export class SetOldFileNumberComponent implements OnInit {
       this.apiService.postCall('/member/confirmationtoassigningfilenumber', this.form.getRawValue())
       .subscribe(
         res => {
+          this.success = "Success"
         },
         error => {
+          this.failed = "Failed to add"
         }
       )
     }

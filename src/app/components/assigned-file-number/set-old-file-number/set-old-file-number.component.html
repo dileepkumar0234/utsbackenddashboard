@@ -6,22 +6,25 @@
             <label>Users:</label>
             <select class="form-control" formControlName="client_id" 
                 role="button" name="client_id">
-                <option value=""> Please Select</option>
+                <option> Please Select</option>
                 <option *ngFor="let user of userList; let i = index;" [value]="user.user_id">
                     <a class="dropdown-item"> {{user.unique_code}} ({{user.email}})</a>
                 </option>
-                <div *ngIf="f.client_id.invalid && f.client_id.errors?.required" class="error">
-                    <div>Please Select user </div>
+                <div *ngIf="f.client_id?.errors" class="error">
+                    <div *ngIf="f.client_id.errors?.required">Please Select</div>
                 </div>
             </select>
         </div>
         <div class="form-group">
             <label>Update File Number:</label>
             <input type="text" class="form-control" formControlName = "filenumber">
-            <div *ngIf="isSubmitted && f.filenumber.errors" class="error">
-                <div *ngIf="f.filenumber.errors?.required && f.filenumber.touched">File Number  is Required</div>
+            <div *ngIf="f.filenumber?.errors" class="error">
+                <div *ngIf="f.filenumber.errors?.required && f.filenumber.touched">File Number is required</div>
             </div>
         </div>
+       
+        <span class="error">{{failed}}</span>
+        <span class="sucess">{{success}}</span>
         <button type="button" (click) = "saveProcess()" class="btn btn-primary mr-2">Update</button>
         <!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
     </div>

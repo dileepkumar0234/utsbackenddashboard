@@ -1,23 +1,32 @@
 <h2>Assigned File Number</h2>
-<form>
+<form [formGroup]="form">
     <div class="white-box p-3">
         <h6>Set File Number</h6>
         <div class="form-group">
-            <label>New User:</label>
-            <select class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <label>Users:</label>
+            <select class="form-control" formControlName="client_id" 
+                role="button" name="client_id">
+                <option> Please Select</option>
+                <option *ngFor="let user of userList; let i = index;" [value]="user.user_id">
+                    <a class="dropdown-item"> {{user.unique_code}} ({{user.email}})</a>
+                </option>
+                <div *ngIf="f.client_id?.errors" class="error">
+                    <div *ngIf="f.client_id.errors?.required">Please Select</div>
+                </div>
             </select>
         </div>
         <div class="form-group">
-            <label>File Number:</label>
-            <input type="text" class="form-control">
+            <label>Update File Number:</label>
+            <input type="text" class="form-control" formControlName = "filenumber">
+            <div *ngIf="f.filenumber?.errors" class="error">
+                <div *ngIf="f.filenumber.errors?.required && f.filenumber.touched">File Number is required</div>
+            </div>
         </div>
-        <button type="button" class="btn btn-primary mr-2">Submit</button>
-        <button type="button" class="btn btn-secondary">Cancel</button>
+       
+        <span class="error">{{failed}}</span>
+        <span class="sucess">{{success}}</span>
+        <button type="button" (click) = "saveProcess()" class="btn btn-primary mr-2">Update</button>
+        <!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
     </div>
 </form>
     
