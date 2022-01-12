@@ -67,10 +67,13 @@ export class SetNewFileNumberComponent implements OnInit {
       this.apiService.postCall('/member/confirmationtoassigningfilenumber', this.form.getRawValue())
       .subscribe(
         res => {
-          this.success = "Success"
+          if (res.filestatus)
+          {
+            this.success = res.filestatus;
+          }
         },
         error => {
-          this.failed = "Failed to add"
+          this.failed = "Failed to Assign File number"
         }
       )
     }

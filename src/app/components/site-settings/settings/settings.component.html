@@ -21,7 +21,7 @@
 
                     <div *ngIf="f.usphonenumber" class="error">
                         <div *ngIf="f.usphonenumber.errors?.required && f.usphonenumber.touched">US Phone Number is required</div>
-                        <div *ngIf="f.usphonenumber.errors?.pattern">US Phone Number must be valid</div>
+                        <!-- <div *ngIf="f.usphonenumber.errors?.pattern">US Phone Number must be valid</div> -->
                     </div>
 
                 </div>
@@ -34,7 +34,7 @@
                     <input type="text" class="form-control" formControlName="indianphonenumber" >
                     <div *ngIf="f.indianphonenumber" class="error">
                         <div *ngIf="f.indianphonenumber.errors?.required && f.indianphonenumber.touched">Indian Phone Number is required</div>
-                        <div *ngIf="f.indianphonenumber.errors?.pattern">Indian Phone Number must be valid</div>
+                        <!-- <div *ngIf="f.indianphonenumber.errors?.pattern">Indian Phone Number must be valid</div> -->
                     </div>
                 </div>
             </div>

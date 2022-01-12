@@ -6,7 +6,7 @@
             <label>Users:</label>
             <select class="form-control" formControlName="client_id" 
                 role="button" name="client_id">
-                <option> Please Select</option>
+                <option value=""> Please Select</option>
                 <option *ngFor="let user of userList; let i = index;" [value]="user.user_id">
                     <a class="dropdown-item"> {{user.unique_code}} ({{user.email}})</a>
                 </option>
@@ -22,9 +22,10 @@
                 <div *ngIf="f.filenumber.errors?.required && f.filenumber.touched">File Number is required</div>
             </div>
         </div>
-       
-        <span class="error">{{failed}}</span>
-        <span class="sucess">{{success}}</span>
+        <div class="form-group">
+            <span class="error">{{failed}} </span>
+            <span class="success">{{success}}</span>
+        </div>
         <button type="button" (click) = "saveProcess()" class="btn btn-primary mr-2">Update</button>
         <!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
     </div>
