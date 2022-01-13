@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadDocumentsComponent implements OnInit {
 
-  constructor() { }
+  selectedProfileTab = ''
+  tabName="upload"
 
+  constructor() { 
+    this.selectedProfileTab = 'w2'
+  }
+
+  profileTab(tabName:string){
+    this.selectedProfileTab = tabName
+  }
+  
   ngOnInit(): void {
   }
 

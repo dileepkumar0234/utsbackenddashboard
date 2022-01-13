@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   yearForm : FormGroup;
   selectedYear : any;
   years : any;
+  taxYear : any;
+  countData : any;
   constructor(private commonService : CommonService, private fb : FormBuilder, private apiService : ApiService, public authService: AuthService, private router : Router) {}
 
   ngOnInit(): void {
@@ -26,7 +28,34 @@ export class HomeComponent implements OnInit {
     this.yearForm = this.fb.group({
       yearControl: [this.selectedYear]
     });
-   
+    this.taxYear = this.authService.getTaxYear();
+    this.getCount();
+    
+  }
+
+  getCount()
+  {
+    this.apiService.postCall("/member/commonprocessingcount", {taxYear : this.taxYear})
+    .subscribe(
+      res => {
+        if (res.recordsTotal)
+          this.countData = res.recordsTotal
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+
+  getRecord(fileNo : any)
+  {
+    if (this.countData != null)
+    {
+      var obj = this.countData.filter((x : any) => x.filestate === fileNo);
+      return obj[0].fcount;
+    }
+    return 0;
   }
 
   getLogo()
