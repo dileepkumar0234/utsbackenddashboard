@@ -29,8 +29,6 @@ export class HomeComponent implements OnInit {
       yearControl: [this.selectedYear]
     });
     this.taxYear = this.authService.getTaxYear();
-    this.getCount();
-    
   }
 
   getCount()
@@ -95,6 +93,7 @@ export class HomeComponent implements OnInit {
             }
           });
           this.authService.setTaxYear(this.selectedYear)
+          this.getCount();
           this.yearForm.controls['yearControl'].patchValue(this.selectedYear);
         }
       },

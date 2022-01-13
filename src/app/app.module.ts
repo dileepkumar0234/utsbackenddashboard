@@ -43,6 +43,11 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { UserCommentsComponent } from './components/details/file-status/user-comments/user-comments.component';
 import { SetNewFileNumberComponent } from './components/assigned-file-number/set-new-file-number/set-new-file-number.component';
 import { SetOldFileNumberComponent } from './components/assigned-file-number/set-old-file-number/set-old-file-number.component';
+import { W2DocsComponent } from './components/details/download-documents/w2-docs/w2-docs.component';
+import { MiscDocsComponent } from './components/details/download-documents/misc-docs/misc-docs.component';
+import { HsaDocsComponent } from './components/details/download-documents/hsa-docs/hsa-docs.component';
+import { IraDocsComponent } from './components/details/download-documents/ira-docs/ira-docs.component';
+import { OtherDocsComponent } from './components/details/download-documents/other-docs/other-docs.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +86,11 @@ import { SetOldFileNumberComponent } from './components/assigned-file-number/set
     UserCommentsComponent,
     SetNewFileNumberComponent,
     SetOldFileNumberComponent,
+    W2DocsComponent,
+    MiscDocsComponent,
+    HsaDocsComponent,
+    IraDocsComponent,
+    OtherDocsComponent,
   ],
   imports: [
     BrowserModule,

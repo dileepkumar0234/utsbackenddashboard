@@ -1,0 +1,20 @@
+<div  *ngIf="docs.length > 0">
+    <div *ngFor="let doc of docs; let i = index;" class="row align-items-center pb-2">
+        <div *ngIf="uploadedFilesWithUrls[i]" class="col-12 col-md-6 text-end text-md-start">
+            <a *ngIf="uploadedFilesWithUrls[i].type === 'image/jpeg'" class="PDF me-2">
+                <i class="far fa-image"></i> &nbsp;
+                <span>{{doc.upload_file}}</span>
+            </a>
+            <a *ngIf="uploadedFilesWithUrls[i].type === 'application/pdf'" class="PDF me-2">
+                <i class="far fa-file-pdf"></i> &nbsp;
+                <span>{{doc.upload_file}}</span>
+            </a>
+            &nbsp; 
+            <a class="me-2 Delete" (click)="downloadImage(doc.upload_file)" *ngIf="uploadedFilesWithUrls[i].type === 'image/jpeg'"  ><i class="fas fa-download"></i></a>
+            <a class="me-2 Delete" href="{{doc.upload_file}}" download target="_blank"   *ngIf="uploadedFilesWithUrls[i].type === 'application/pdf'" ><i class="fas fa-download"></i></a>
+        </div>
+    </div>
+</div>
+<div  *ngIf="docs.length <= 0">
+    <h6>No Docs Available</h6>
+</div>

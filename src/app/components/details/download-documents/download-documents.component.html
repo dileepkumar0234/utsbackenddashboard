@@ -1,23 +1,24 @@
-<div class="SecTabs">
-    <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'w2'}" (click)="profileTab('w2')" >W2</a>
-    <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'misc'}" (click)="profileTab('misc')"  >1099B/G/DIV/INT/MISC</a>
-    <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'hsa'}" (click)="profileTab('hsa')"  >5498/HSA</a>
-    <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'ira'}" (click)="profileTab('ira')"  >1099R/IRA</a>
-    <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'other-docs'}" (click)="profileTab('other-docs')"  >OTHER DOCS</a>
+<div *ngIf = "dataLoaded">
+    <div class="SecTabs">
+        <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'w2'}" (click)="profileTab('w2')" >W2</a>
+        <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'misc'}" (click)="profileTab('misc')"  >1099B/G/DIV/INT/MISC</a>
+        <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'hsa'}" (click)="profileTab('hsa')"  >5498/HSA</a>
+        <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'ira'}" (click)="profileTab('ira')"  >1099R/IRA</a>
+        <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'other-docs'}" (click)="profileTab('other-docs')"  >OTHER DOCS</a>
+    </div>
+    <div *ngIf="selectedProfileTab === 'w2'" class="WhiteBox p-3">
+        <app-w2-docs [docs] = "getRecord('W2')"></app-w2-docs>
+    </div>
+    <div *ngIf="selectedProfileTab === 'misc'" class="WhiteBox p-3">
+        <app-misc-docs></app-misc-docs>
+    </div>
+    <div *ngIf="selectedProfileTab === 'hsa'" class="WhiteBox p-3">
+        <app-hsa-docs></app-hsa-docs>
+    </div>
+    <div *ngIf="selectedProfileTab === 'ira'" class="WhiteBox p-3">
+        <app-ira-docs></app-ira-docs>
+    </div>
+    <div *ngIf="selectedProfileTab === 'other-docs'" class="WhiteBox p-3">
+        <app-other-docs></app-other-docs>
+    </div>
 </div>
-
-<!-- <div *ngIf="selectedProfileTab === 'w2'" class="WhiteBox p-3">
-    <app-profile-w2></app-profile-w2>
-</div>
-<div *ngIf="selectedProfileTab === 'misc'" class="WhiteBox p-3">
-    <app-profile-misc></app-profile-misc>
-</div>
-<div *ngIf="selectedProfileTab === 'hsa'" class="WhiteBox p-3">
-    <app-profile-hsa></app-profile-hsa>
-</div>
-<div *ngIf="selectedProfileTab === 'ira'" class="WhiteBox p-3">
-    <app-profile-ira></app-profile-ira>
-</div>
-<div *ngIf="selectedProfileTab === 'other-docs'" class="WhiteBox p-3">
-    <app-profile-other-docs></app-profile-other-docs>
-</div> -->
