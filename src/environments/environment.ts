@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl:'http://localhost:8626/api',
-  apiUrl:'http://3.111.6.221:8626/api',
+  apiUrl:'http://13.127.242.35:8626/api',
   user_id:'user_id',
   uu_id:'uu_id',
   taxYear:'tax_year',
