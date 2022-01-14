@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -14,6 +14,8 @@ export class FileStatusComponent implements OnInit {
 
   @ViewChild(UserCommentsComponent, {static : true}) userCommentsComponent : UserCommentsComponent;
 	
+  @Input() currentFileStatus : any;
+
   processStateForm : FormGroup = new FormGroup({});
   processStatusList : any;
   userId : any;
@@ -44,7 +46,10 @@ export class FileStatusComponent implements OnInit {
         if(res.processingstatus)
         {
           this.processStatusList = res.processingstatus;
-				  this.processStateForm.controls['processstate'].patchValue(this.processStatusList[0].ps_masterid);
+          if (this.currentFileStatus)
+				    this.processStateForm.controls['processstate'].patchValue(this.currentFileStatus.presentfilestatus);
+          else
+				    this.processStateForm.controls['processstate'].patchValue(this.processStatusList[0].ps_masterid);
         }
       },
       error => {

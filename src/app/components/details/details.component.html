@@ -30,21 +30,24 @@
         Referral
     </a>
 </div>
-<div *ngIf="selectedProfileTab === 'basic-info'" class="white-box p-3">
-    <app-basic-info></app-basic-info>
-</div>
-<div *ngIf="selectedProfileTab === 'other-info'" class="white-box p-3">
-    <app-other-info></app-other-info>
-</div>
-<div *ngIf="selectedProfileTab === 'download-documents'" class="white-box p-3">
-    <app-download-documents></app-download-documents>
-</div>
-<div *ngIf="selectedProfileTab === 'upload-documents'" class="white-box p-3">
-    <app-upload-documents></app-upload-documents>
-</div>
-<div *ngIf="selectedProfileTab === 'file-status'" class="white-box p-3">
-    <app-file-status></app-file-status>
-</div>
-<div *ngIf="selectedProfileTab === 'referral'" class="white-box p-3">
-    <app-referral></app-referral>
+<div *ngIf = "canShow">
+    <div *ngIf="selectedProfileTab === 'basic-info'" class="white-box p-3">
+        <app-basic-info [currentFileStatus] = "currentFileStatus"></app-basic-info>
+    </div>
+    <div *ngIf="selectedProfileTab === 'other-info'" class="white-box p-3">
+        <app-other-info [currentFileStatus] = "currentFileStatus" ></app-other-info>
+    </div>
+    <div *ngIf="selectedProfileTab === 'download-documents'" class="white-box p-3">
+        <app-download-documents [currentFileStatus] = "currentFileStatus" ></app-download-documents>
+    </div>
+    <div *ngIf="selectedProfileTab === 'upload-documents'" class="white-box p-3">
+        <app-upload-documents [currentFileStatus] = "currentFileStatus" ></app-upload-documents>
+    </div>
+    <div *ngIf="selectedProfileTab === 'file-status'" class="white-box p-3">
+        <app-file-status [currentFileStatus] = "currentFileStatus"></app-file-status>
+    </div>
+    <div *ngIf="selectedProfileTab === 'referral'" class="white-box p-3">
+        <app-referral [currentFileStatus] = "currentFileStatus" ></app-referral>
+    </div>
+    
 </div>

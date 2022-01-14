@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Observer } from "rxjs";
 @Component({
-  selector: 'app-ira-docs',
-  templateUrl: './ira-docs.component.html',
-  styleUrls: ['./ira-docs.component.scss']
+  selector: 'app-docs-data',
+  templateUrl: './docs-data.component.html',
+  styleUrls: ['./docs-data.component.scss']
 })
-export class IraDocsComponent implements OnInit {
+export class DocsDataComponent implements OnInit {
 
+  
   @Input() docs : any[] = [];
 
   base64Image: any;
@@ -18,7 +19,6 @@ export class IraDocsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.docs);
     this.uploadedFilesWithUrls = this.docs.map((item:any,index:number)=>{
       let extension = item.upload_file.split(".")[1];
       let type = "application/pdf"

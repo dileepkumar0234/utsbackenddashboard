@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { DataTablesResponse } from 'src/app/objects/dataTableResponse';
@@ -12,6 +12,8 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./referral.component.scss']
 })
 export class ReferralComponent implements OnInit {
+
+  @Input() currentFileStatus : any;
 
   dtOptions: DataTables.Settings = {};
 

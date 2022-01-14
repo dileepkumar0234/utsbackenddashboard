@@ -31,8 +31,10 @@
                         <tr *ngFor="let ip of ipsList; let i = index;">
                             <td>{{ip.ipaddress}}</td>
                             <td>
-                                <i style="cursor: pointer;" class="fas fa-edit" title="Edit" (click) = "onIPEdit(i, ip)"> </i> &nbsp; &nbsp;
-                                <i style="cursor: pointer;" class="fa fa-trash" title="Delete" (click) = "onIPDelete(i, ip)" aria-hidden="true"></i>
+                                <span *ngIf="ip.neveripdeleteflag != 1">
+                                    <i  style="cursor: pointer;" class="fas fa-edit" title="Edit" (click) = "onIPEdit(i, ip)"> </i> &nbsp; &nbsp;
+                                    <i  style="cursor: pointer;" class="fa fa-trash" title="Delete" (click) = "onIPDelete(i, ip)" aria-hidden="true"></i>
+                                </span>
                             </td>
                         </tr>
                     </tbody>

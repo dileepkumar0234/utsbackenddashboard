@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class BasicInfoComponent implements OnInit {
 
+  @Input() currentFileStatus : any;
   constructor(private apiService : ApiService, private route : ActivatedRoute) { }
 
   otherInfo : any;
@@ -17,6 +18,7 @@ export class BasicInfoComponent implements OnInit {
   ngOnInit(): void {
     this.client_id = this.route.snapshot.paramMap.get('id');
     this.getTaxPayerInfo();
+    console.log(this.currentFileStatus);
   }
   
   getTaxPayerInfo()

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ApiService } from 'src/app/services/api.service';
@@ -9,6 +9,8 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./download-documents.component.scss']
 })
 export class DownloadDocumentsComponent implements OnInit {
+
+  @Input() currentFileStatus : any;
 
   selectedProfileTab = ''
   tabName="upload"
@@ -49,11 +51,13 @@ export class DownloadDocumentsComponent implements OnInit {
 
   getRecord(docType : any)
   {
+    var obj : any[] = [];
     if (this.downloadInfo != null)
     {
-      var obj = this.downloadInfo.filter((x : any) => x.typename === docType);
-      return obj[0].docsdata;
+      obj = this.downloadInfo.filter((x : any) => x.typename === docType);
+      if (obj.length > 0)
+        return obj[0].docsdata;
     }
-    return 0;
+    return obj;
   }
 }

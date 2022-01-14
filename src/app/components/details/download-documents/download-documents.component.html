@@ -7,18 +7,18 @@
         <a href="javascript:void(0)" [ngClass]="{'active' : selectedProfileTab === 'other-docs'}" (click)="profileTab('other-docs')"  >OTHER DOCS</a>
     </div>
     <div *ngIf="selectedProfileTab === 'w2'" class="WhiteBox p-3">
-        <app-w2-docs [docs] = "getRecord('W2')"></app-w2-docs>
+        <app-docs-data [docs] = "getRecord('W2')"></app-docs-data>
     </div>
     <div *ngIf="selectedProfileTab === 'misc'" class="WhiteBox p-3">
-        <app-misc-docs></app-misc-docs>
+        <app-docs-data [docs] = "getRecord('1099B-G')" ></app-docs-data>
     </div>
     <div *ngIf="selectedProfileTab === 'hsa'" class="WhiteBox p-3">
-        <app-hsa-docs></app-hsa-docs>
+        <app-docs-data [docs] = "getRecord('5498-HSA')"></app-docs-data>
     </div>
     <div *ngIf="selectedProfileTab === 'ira'" class="WhiteBox p-3">
-        <app-ira-docs></app-ira-docs>
+        <app-docs-data [docs] = "getRecord('1099R-IRA')" ></app-docs-data>
     </div>
     <div *ngIf="selectedProfileTab === 'other-docs'" class="WhiteBox p-3">
-        <app-other-docs></app-other-docs>
+        <app-docs-data [docs] = "getRecord('OTHERDOCS')" ></app-docs-data>
     </div>
 </div>

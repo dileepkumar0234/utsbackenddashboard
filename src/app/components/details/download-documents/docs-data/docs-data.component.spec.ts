@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HsaDocsComponent } from './hsa-docs.component';
+import { DocsDataComponent } from './docs-data.component';
 
-describe('HsaDocsComponent', () => {
-  let component: HsaDocsComponent;
-  let fixture: ComponentFixture<HsaDocsComponent>;
+describe('DocsDataComponent', () => {
+  let component: DocsDataComponent;
+  let fixture: ComponentFixture<DocsDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HsaDocsComponent ]
+      declarations: [ DocsDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HsaDocsComponent);
+    fixture = TestBed.createComponent(DocsDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
