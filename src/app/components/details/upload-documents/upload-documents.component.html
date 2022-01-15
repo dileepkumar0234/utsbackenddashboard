@@ -1,2 +1,35 @@
-<h6>File Number : UTS3184</h6>
+<span class="success" *ngIf = "currentFileStatus" >Status : {{currentFileStatus?.pfilename}}</span>
 <hr>
+
+<div class="row ViewDetails pb-3">
+    <div class="col-12 col-md-6">
+        <form>
+            <div class="form-group">
+                <label>Synopsys Title :</label>
+                <input type="text" class="form-control" id = "synopsys_title" (change)="handleInput($event)" >
+                <div *ngIf="invalidTitle" class="error">
+                    Please Enter Title
+                 </div>
+            </div>
+            <div class="form-group">
+                <label>Synopsys File :</label>
+                <input type="file" class="form-control-file" accept=".pdf, .doc,.docx, image/png, image/jpeg" (change)="handleFileInput($event)" id="synopsys_file">
+            </div>
+            <div class="form-group">
+                <span class="success" *ngIf="sucessMessage">{{sucessMessage}}</span>
+                <span class="error" *ngIf="uploadErrorMsg">{{uploadErrorMsg}}</span>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type="button" (click)="uploadFileToActivity()" class="btn btn-primary me-2">Submit</button>
+                    &nbsp;
+                    &nbsp;
+                    <!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+<!-- <div class="pt-3">Note: If the Upload size document is more than 02MB, Kindly mail the documents to <a href="mailto:Hello@umpiretaxsolutions.com"> Hello@umpiretaxsolutions.com</a></div> -->
+<app-synopsys-list></app-synopsys-list>

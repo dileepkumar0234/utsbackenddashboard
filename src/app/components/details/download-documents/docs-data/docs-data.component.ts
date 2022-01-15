@@ -20,7 +20,8 @@ export class DocsDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.uploadedFilesWithUrls = this.docs.map((item:any,index:number)=>{
-      let extension = item.upload_file.split(".")[1];
+      let list = item.upload_file.split(".")[1];
+      let extension = list[list.length - 1];
       let type = "application/pdf"
       if(extension === 'jpg'){
         type = "image/jpeg"

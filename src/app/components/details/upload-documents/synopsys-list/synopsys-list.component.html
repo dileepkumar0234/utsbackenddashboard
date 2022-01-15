@@ -1,0 +1,27 @@
+<div  *ngIf="synopsysList.length > 0">
+    <h6>Synopsys List</h6>
+    <div class="ViewDetails pb-3">
+        <div *ngFor="let doc of synopsysList; let i = index;" class="row align-items-center pb-2">
+            <div *ngIf="synopsysFilesWithUrls[i]" class="col-12 col-md-6 text-end text-md-start">
+                <a *ngIf="synopsysFilesWithUrls[i].type === 'image/jpeg'" class="PDF me-2">
+                    <i class="far fa-image"></i> &nbsp;
+                    <span>{{doc.synopsys_title}}</span>
+                </a>
+                <a *ngIf="synopsysFilesWithUrls[i].type === 'application/pdf'" class="PDF me-2">
+                    <i class="far fa-file-pdf"></i> &nbsp;
+                    <span>{{doc.synopsys_title}}</span>
+                </a>
+                &nbsp; 
+                <a class="me-2 Delete" (click)="downloadImage(doc.synopsys_file)" *ngIf="synopsysFilesWithUrls[i].type === 'image/jpeg'"  ><i class="fas fa-download"></i></a>
+                <a class="me-2 Delete" href="{{doc.synopsys_file}}" download target="_blank" *ngIf="synopsysFilesWithUrls[i].type === 'application/pdf'" ><i class="fas fa-download"></i></a>
+                &nbsp;
+                &nbsp;
+                <a class="me-2 Delete" (click)="deleteSynopsys(doc.synopsys_id, i)"><i class="fas fa-trash-alt" style="color:red" ></i> </a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div  *ngIf="synopsysList.length <= 0">
+    <h6>No Docs Available</h6>
+</div>

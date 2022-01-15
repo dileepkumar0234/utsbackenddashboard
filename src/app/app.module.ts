@@ -44,6 +44,8 @@ import { UserCommentsComponent } from './components/details/file-status/user-com
 import { SetNewFileNumberComponent } from './components/assigned-file-number/set-new-file-number/set-new-file-number.component';
 import { SetOldFileNumberComponent } from './components/assigned-file-number/set-old-file-number/set-old-file-number.component';
 import { DocsDataComponent } from './components/details/download-documents/docs-data/docs-data.component';
+import { SynopsysListComponent } from './components/details/upload-documents/synopsys-list/synopsys-list.component';
+import { DefaultHomeComponent } from './default-home/default-home.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { DocsDataComponent } from './components/details/download-documents/docs-
     SetNewFileNumberComponent,
     SetOldFileNumberComponent,
     DocsDataComponent,
+    SynopsysListComponent,
+    DefaultHomeComponent,
   ],
   imports: [
     BrowserModule,

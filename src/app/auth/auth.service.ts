@@ -52,6 +52,7 @@ export class AuthService {
     localStorage.removeItem(environment.user_id);
     localStorage.removeItem(environment.role);
     localStorage.removeItem(environment.uu_id)
+    localStorage.removeItem(environment.taxYear)
 
     return of({ success: this.isLogin, role: '', userId : '', uuId : '' });
   }

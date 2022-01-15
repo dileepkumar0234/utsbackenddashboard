@@ -16,12 +16,14 @@ import { RefferalsComponent } from './components/refferals/refferals.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
 import { SiteSettingsComponent } from './components/site-settings/site-settings.component';
 import { ToCallComponent } from './components/to-call/to-call.component';
+import { DefaultHomeComponent } from './default-home/default-home.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { Role } from './models/role';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', redirectTo: '/landing-home', pathMatch: 'full'},
+  {path: 'landing-home', component: DefaultHomeComponent, canActivate : [AuthGuardService]},
   {path: 'login', component: LoginComponent, canActivate : [GuestGaurdService]},
   {path : "", component : HomeComponent, canActivate : [AuthGuardService], children : [
     { path: 'all-records', component: AllRecordsComponent, canActivate : [AuthGuardService], data: {
