@@ -23,7 +23,7 @@ export class DocsDataComponent implements OnInit {
       let list = item.upload_file.split(".")[1];
       let extension = list[list.length - 1];
       let type = "application/pdf"
-      if(extension === 'jpg'){
+      if(extension === 'jpg' || extension === 'png'){
         type = "image/jpeg"
       }
        return {

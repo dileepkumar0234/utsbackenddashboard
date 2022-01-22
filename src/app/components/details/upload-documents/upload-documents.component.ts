@@ -62,13 +62,15 @@ export class UploadDocumentsComponent implements OnInit {
       this.uploadErrorMsg = "Fields cannot be empty"
       return;
     }
-      let data = {
-        synopsys_file : this.fileToUpload,
-        synopsys_title : this.fileTitle,
-        taxyear : this.taxyear,
-      }
+      const formData: FormData = new FormData();
+      formData.append('synopsys_file', this.fileToUpload);
+      formData.append('folderPath', `${this.client_id}/Synopsys/`);
+      formData.append('synopsys_title', this.fileTitle);
+      formData.append('taxyear', this.taxyear);
+      formData.append('client_id', this.client_id);
+      formData.append('user_id', this.authService.getUserId());
       this.uploadingInProgress = true
-      this.apiService.postCall('/member/savesynopsys', data)
+      this.apiService.postCall('/member/savesynopsys', formData)
     .subscribe(
         res => {
           this.uploadingInProgress = false
