@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ApiService } from 'src/app/services/api.service';
+import { SynopsysListComponent } from './synopsys-list/synopsys-list.component';
 
 @Component({
   selector: 'app-upload-documents',
@@ -9,6 +10,8 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./upload-documents.component.scss']
 })
 export class UploadDocumentsComponent implements OnInit {
+
+  @ViewChild(SynopsysListComponent, {static : true}) synopsysList : SynopsysListComponent;
 
   @Input() currentFileStatus : any;
 
@@ -74,7 +77,8 @@ export class UploadDocumentsComponent implements OnInit {
     .subscribe(
         res => {
           this.uploadingInProgress = false
-          this.sucessMessage = res.message
+          this.sucessMessage = "File uploaded successfully"
+          this.synopsysList.getSynopsys();
       },
       error => {
         this.uploadingInProgress = false
