@@ -35,10 +35,10 @@ export class SynopsysListComponent implements OnInit {
             let list = item.synopsys_file.split(".");
             let extension = list[list.length - 1];
             let type = "application/pdf"
-            if(extension === 'jpg'){
+            if(extension === 'jpg' || extension === 'png' || extension == 'svg'){
               type = "image/jpeg"
             }
-            else if (extension == 'svg')
+            else if(extension === 'docx')
             {
               type = "image/jpeg"
             }

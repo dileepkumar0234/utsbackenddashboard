@@ -12,8 +12,8 @@
                     <span>{{doc.synopsys_title}}</span>
                 </a>
                 &nbsp; 
-                <a class="me-2 Delete" (click)="downloadImage(doc.synopsys_file)" *ngIf="synopsysFilesWithUrls[i].type === 'image/jpeg'"  ><i class="fas fa-download"></i></a>
-                <a class="me-2 Delete" href="{{doc.synopsys_file}}" download target="_blank" *ngIf="synopsysFilesWithUrls[i].type === 'application/pdf'" ><i class="fas fa-download"></i></a>
+                <!-- <a class="me-2 Delete" (click)="downloadImage(doc.synopsys_file)" *ngIf="synopsysFilesWithUrls[i].type === 'image/jpeg'"  ><i class="fas fa-download"></i></a> -->
+                <a class="me-2 Delete" href="{{doc.synopsys_file}}" download target="_blank"><i class="fas fa-download"></i></a>
                 &nbsp;
                 &nbsp;
                 <a class="me-2 Delete" (click)="deleteSynopsys(doc.synopsys_id, i)"><i class="fas fa-trash-alt" style="color:red" ></i> </a>

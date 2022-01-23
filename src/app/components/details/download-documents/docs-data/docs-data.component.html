@@ -10,8 +10,8 @@
                 <!-- <span>{{doc.upload_file}}</span> -->
             </a>
             &nbsp; 
-            <a class="me-2 Delete" (click)="downloadImage(doc.upload_file)" *ngIf="uploadedFilesWithUrls[i].type === 'image/jpeg'"  ><i class="fas fa-download"></i></a>
-            <a class="me-2 Delete" href="{{doc.upload_file}}" download target="_blank"   *ngIf="uploadedFilesWithUrls[i].type === 'application/pdf'" ><i class="fas fa-download"></i></a>
+            <!-- <a class="me-2 Delete" (click)="downloadImage(doc.upload_file)" *ngIf="uploadedFilesWithUrls[i].type === 'image/jpeg'"  ><i class="fas fa-download"></i></a> -->
+            <a class="me-2 Delete" href="{{doc.upload_file}}" download target="_blank" ><i class="fas fa-download"></i></a>
         </div>
     </div>
 </div>
