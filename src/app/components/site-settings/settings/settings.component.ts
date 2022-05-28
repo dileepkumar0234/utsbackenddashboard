@@ -26,8 +26,8 @@ export class SettingsComponent implements OnInit {
   ngOnInit(): void {
     this.settingsForm = this.formBuilder.group({
       site_email: ['', [Validators.required, Validators.email]],
-      usphonenumber: ['', [Validators.required, Validators.pattern(this.USmobNumberPattern)]],
-      indianphonenumber: ['', [Validators.required, Validators.pattern(this.INmobNumberPattern)]],
+      usphonenumber: ['', [Validators.required, Validators.minLength(10)]],
+      indianphonenumber: ['', [Validators.required, Validators.minLength(10)]],
       officedays: ['', [Validators.required]],
       officetimings: ['', [Validators.required]],
       corporateoffice: ['', [Validators.required]],
@@ -52,6 +52,8 @@ export class SettingsComponent implements OnInit {
     this.success = "";
     // stop here if form is invalid
     if (this.settingsForm.invalid) {
+      console.log(this.settingsForm.getRawValue());
+
         return;
     }
 
