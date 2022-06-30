@@ -46,7 +46,9 @@ import { SetOldFileNumberComponent } from './components/assigned-file-number/set
 import { DocsDataComponent } from './components/details/download-documents/docs-data/docs-data.component';
 import { SynopsysListComponent } from './components/details/upload-documents/synopsys-list/synopsys-list.component';
 import { DefaultHomeComponent } from './default-home/default-home.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { SetEmailAddressComponent } from './components/assigned-file-number/set-email-address/set-email-address.component';
+import { SetMobileNumberComponent } from './components/assigned-file-number/set-mobile-number/set-mobile-number.component'
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -90,6 +92,8 @@ const maskConfig: Partial<IConfig> = {
     DocsDataComponent,
     SynopsysListComponent,
     DefaultHomeComponent,
+    SetEmailAddressComponent,
+    SetMobileNumberComponent,
   ],
   imports: [
     BrowserModule,

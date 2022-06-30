@@ -37,7 +37,7 @@ export class SetOldFileNumberComponent implements OnInit {
   
   getExistingUsers()
   {
-    this.apiService.postCall('/member/existingassignfilenumber', {})
+    this.apiService.postCall('/member/usersliist', {})
     .subscribe(
       res => {
         if (res.oldusers)

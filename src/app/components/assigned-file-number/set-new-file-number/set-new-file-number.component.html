@@ -6,9 +6,9 @@
             <label>Users:</label>
             <select class="form-control" formControlName="client_id" 
                 role="button" name="client_id">
-                <option value=""> Please Select</option>
+                <option value="">Select User</option>
                 <option *ngFor="let user of userList; let i = index;" [value]="user.user_id">
-                    <a class="dropdown-item"> {{user.unique_code}} ({{user.email}})</a>
+                    <a class="dropdown-item"> {{user.user_name}} ({{user.email}})</a>
                 </option>
                 <div *ngIf="f.client_id?.errors" class="error">
                     <div *ngIf="f.client_id.errors?.required">Please Select</div>
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label>Update File Number:</label>
-            <input type="text" class="form-control" formControlName = "filenumber">
+            <input placeholder="File Number Ex: UTS0001" type="text" class="form-control" formControlName = "filenumber">
             <div *ngIf="f.filenumber?.errors" class="error">
                 <div *ngIf="f.filenumber.errors?.required && f.filenumber.touched">File Number is required</div>
             </div>
