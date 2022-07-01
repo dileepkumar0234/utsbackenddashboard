@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/landing-home', pathMatch: 'full'},
   {path: 'landing-home', component: DefaultHomeComponent, canActivate : [AuthGuardService]},
   {path: 'login', component: LoginComponent, canActivate : [GuestGaurdService]},
-  {path : "", component : HomeComponent, canActivate : [AuthGuardService], children : [
+  {path : '', component : HomeComponent, canActivate : [AuthGuardService], children : [
     { path: 'all-records', component: AllRecordsComponent, canActivate : [AuthGuardService], data: {
       roles: [
         Role.SUPER_ADMIN,
@@ -74,16 +74,17 @@ const routes: Routes = [
     { path: 'to-call', component: ToCallComponent},
     { path: 'comments', component: CommentsComponent},
     { path: 'change-password', component: ChangePasswordComponent},
+    {path : 'details', component: DetailsComponent},
     {path : 'details/:id', component: DetailsComponent},
-   
+
   ]},
   { path: '**', component: NotFoundComponent }
-  
+
   // <a [routerLink]="['/account', 1]">Account 1</a>
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: false })],
-  exports: [RouterModule]   
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
