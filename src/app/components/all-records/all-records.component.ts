@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Role } from 'src/app/models/role';
 import { ApiService } from 'src/app/services/api.service';
 
 class DataTablesResponse {
@@ -61,7 +62,8 @@ export class AllRecordsComponent implements OnInit {
             {}
           )
           .subscribe(resp => {
-            this.persons = resp.data;        
+            this.persons = resp.data;  
+            console.log(location.origin);      
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
@@ -73,4 +75,9 @@ export class AllRecordsComponent implements OnInit {
                 { data: 'phone' }, { data: 'file_status' } , { data: 'client_name' }]
     };
   }
+
+  get isSuperAdmin() {
+    return this.authService.hasRole((Role.SUPER_ADMIN).toString());
+  }
+
 }
