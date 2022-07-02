@@ -20,6 +20,7 @@ interface Person {
   phone: string;
   file_status: string;
   user_id : any;
+  phoneext : any;
 }
 
 @Component({
@@ -39,19 +40,19 @@ export class CustomDataTableComponent implements OnInit {
   taxYear : any;
 
   persons: Person[] = [];
-  
+
   analystList : any;
 
   myAnalystForm : FormGroup = new FormGroup({});
 
-  constructor(private http: HttpClient , 
+  constructor(private http: HttpClient ,
     private authService : AuthService,
     private apiService : ApiService,
     private commonService : CommonService,
     private formBuilder : FormBuilder) {
 
     this.userId = this.authService.getUserId();
-    
+
     this.taxYear = this.authService.getTaxYear();
 
     this.myAnalystForm = this.formBuilder.group({
@@ -97,7 +98,7 @@ export class CustomDataTableComponent implements OnInit {
       }
     )
   }
-  
+
   getTableData()
   {
     this.dtOptions = {
@@ -109,7 +110,7 @@ export class CustomDataTableComponent implements OnInit {
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/member/commonprocessingclientdata',
-            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear, filestate : this.fileState}, 
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear, filestate : this.fileState},
             {}
           )
           .subscribe(resp => {
@@ -121,7 +122,7 @@ export class CustomDataTableComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' }, 
+      columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' }, { data: 'phoneext' },
                 { data: 'phone' }, { data: 'file_status' }]
     };
   }

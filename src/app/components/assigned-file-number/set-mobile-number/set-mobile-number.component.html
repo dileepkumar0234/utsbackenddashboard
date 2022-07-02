@@ -4,10 +4,10 @@
         <h6>Update mobiile number</h6>
         <div class="form-group">
             <label>Users:</label>
-            <select class="form-control" formControlName="client_id" 
+            <select class="form-control" formControlName="client_id"
                 role="button" name="client_id">
                 <option value="">Select User</option>
-                <option *ngFor="let user of userList; let i = index;" [value]="user.user_id">
+                <option *ngFor="let user of list; let i = index;" [value]="user.user_id">
                     <a class="dropdown-item"> {{user.user_name}} ({{user.email}})</a>
                 </option>
                 <div *ngIf="f.client_id?.errors" class="error">
@@ -35,7 +35,7 @@
                         <div *ngIf="f.mobilenumber.errors?.required && f.mobilenumber.touched">Mobile number is required.</div>
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
         <div class="form-group">
             <span class="error">{{failed}} </span>

@@ -4,4 +4,3 @@ export class DataTablesResponse {
     recordsFiltered: number;
     recordsTotal: number;
 }
-  

@@ -37,15 +37,15 @@ export class LoginHistoryComponent implements OnInit {
 
   taxYear : any;
 
-  constructor(private http : HttpClient, private authService : AuthService, private apiService : ApiService) { 
+  constructor(private http : HttpClient, private authService : AuthService, private apiService : ApiService) {
     this.userId = this.authService.getUserId();
-    
+
     this.taxYear = this.authService.getTaxYear();
 
   }
 
   ngOnInit(): void {
-  
+
     this.getTableData();
   }
 
@@ -60,7 +60,7 @@ export class LoginHistoryComponent implements OnInit {
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/user/loginshistory',
-            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear}, 
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear},
             {}
           )
           .subscribe(resp => {
@@ -72,7 +72,7 @@ export class LoginHistoryComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'userfilename' }, { data: 'username' }, { data: 'useremail' }, 
+      columns: [{ data: 'userfilename' }, { data: 'username' }, { data: 'useremail' },
                 { data: 'userphone' }, { data: 'filestatus' } , { data: 'createdat' }]
     };
   }

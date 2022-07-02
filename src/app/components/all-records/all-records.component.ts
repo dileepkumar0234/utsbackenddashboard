@@ -17,6 +17,7 @@ interface Person {
   email: string;
   unique_code: string;
   phone: string;
+  phoneext : string;
   client_name: string;
   user_id : any;
   file_status : any;
@@ -58,12 +59,12 @@ export class AllRecordsComponent implements OnInit {
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/member/alluserslist',
-            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear}, 
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear},
             {}
           )
           .subscribe(resp => {
-            this.persons = resp.data;  
-            console.log(location.origin);      
+            this.persons = resp.data;
+            console.log(location.origin);
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
@@ -71,8 +72,8 @@ export class AllRecordsComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' }, 
-                { data: 'phone' }, { data: 'file_status' } , { data: 'client_name' }]
+      columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' },
+                { data: 'phone' }, { data: 'file_status' } , { data: 'client_name' }, {data : 'phoneext'}]
     };
   }
 

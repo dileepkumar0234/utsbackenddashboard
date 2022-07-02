@@ -10,8 +10,7 @@
                     <th scope="col">Referral Phone</th>
                     <th scope="col">Referral To Name ID</th>
                     <th scope="col">Referral To Email</th>
-                    <th scope="col">Referral To 
-                      Phone Status</th>
+                    <th scope="col">Referral To Phone</th>
                     <th scope="col">Comment</th>
                 </tr>
             </thead>
@@ -19,10 +18,14 @@
                 <tr *ngFor="let referral of referrals">
                   <td>{{ referral.rf_on_name }}</td>
                   <td>{{ referral.rf_on_email }}</td>
-                  <td>{{ referral.rf_on_phone }}</td>
+                  <td *ngIf="referral?.rf_on_phone_ext == 'US'">{{ referral.rf_on_phone | mask: '(000) 000-0000'}}</td>
+                  <td *ngIf="referral?.rf_on_phone_ext == 'INDIA'">{{ referral.rf_on_phone | mask: '00000-00000'}}</td>
+                  <td *ngIf="referral?.rf_on_phone_ext == null">{{ referral.rf_on_phone | mask: '(000) 000-0000'}}</td>
                   <td>{{ referral.rf_name }}</td>
                   <td>{{ referral.rf_email }}</td>
-                  <td>{{ referral.rf_phone }}</td>
+                  <td *ngIf="referral?.rf_phone_ext == 'US'">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
+                  <td *ngIf="referral?.rf_phone_ext == 'INDIA'">{{ referral.rf_phone | mask: '00000-00000'}}</td>
+                  <td *ngIf="referral?.rf_phone_ext == null">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
                   <td>{{ referral.rf_comment }}</td>
                 </tr>
               </tbody>

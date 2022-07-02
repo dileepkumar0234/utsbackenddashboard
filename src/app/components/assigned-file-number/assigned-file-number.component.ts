@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-assigned-file-number',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignedFileNumberComponent implements OnInit {
 
-  constructor() { }
+  userList : any;
+  constructor(private apiService : ApiService) { }
 
   ngOnInit(): void {
+    this.getExistingUsers();
   }
 
+  getExistingUsers()
+  {
+    this.apiService.postCall('/member/existingassignfilenumber', {})
+    .subscribe(
+      res => {
+        if (res.oldusers)
+        {
+          this.userList = res.oldusers;
+        }
+
+      },
+      error => {
+
+      }
+    )
+  }
 }

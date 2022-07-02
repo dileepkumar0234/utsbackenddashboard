@@ -19,6 +19,7 @@ interface Person {
   c_phone: any;
   c_message: any;
   c_created_at: any;
+  c_phone_ext: any;
 }
 
 
@@ -36,21 +37,21 @@ export class ToCallComponent implements OnInit {
   taxYear : any;
 
   persons: Person[] = [];
-  
-  constructor(private http: HttpClient , 
+
+  constructor(private http: HttpClient ,
     private authService : AuthService,
     private commonService : CommonService,
     private apiService : ApiService) {
 
     this.userId = this.authService.getUserId();
-    
+
     this.taxYear = this.authService.getTaxYear();
    }
 
   ngOnInit(): void {
     this.getTableData();
   }
-  
+
   getTableData()
   {
     this.dtOptions = {
@@ -62,7 +63,7 @@ export class ToCallComponent implements OnInit {
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/user/wantusinfo',
-            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear}, 
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear},
             {}
           )
           .subscribe(resp => {
@@ -74,7 +75,7 @@ export class ToCallComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'c_name' }, { data: 'c_email' }, { data: 'c_phone' }, 
+      columns: [{ data: 'c_name' }, { data: 'c_email' }, { data: 'c_phone' }, { data: 'c_phone_ext' },
                 { data: 'c_message' }, { data: 'c_created_at' }]
     };
   }

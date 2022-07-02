@@ -15,7 +15,9 @@
                 <tr *ngFor="let person of persons">
                     <td>{{ person.c_name }}</td>
                     <td>{{ person.c_email }}</td>
-                    <td>{{ person.c_phone }}</td>
+                    <td *ngIf="person?.c_phone_ext == 'US'">{{ person.c_phone | mask: '(000) 000-0000'}}</td>
+                    <td *ngIf="person?.c_phone_ext == 'INDIA'">{{ person.c_phone | mask: '00000-00000'}}</td>
+                    <td *ngIf="person?.c_phone_ext == null">{{ person.c_phone | mask: '(000) 000-0000'}}</td>
                     <td>{{ person.c_message }}</td>
                     <td>{{ person.c_created_at }}</td>
                     <td> <u style="cursor: pointer;" class="error" (click) = "OnDelete(person.contact_id)" >  Delete  </u> </td>

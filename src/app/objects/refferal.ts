@@ -8,5 +8,7 @@ export class Referral {
         public rf_comment:string,
         public rf_on_phone:string,
         public rf_year:string,
+        public rf_phone_ext:string,
+        public rf_on_phone_ext:any
     ) {}
 }

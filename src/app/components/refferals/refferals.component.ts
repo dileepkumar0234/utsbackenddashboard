@@ -17,11 +17,10 @@ export class RefferalsComponent implements OnInit {
   userId : any;
 
   taxYear : any;
-  
-  referrals : Referral[];
 
-  constructor(private http : HttpClient, private apiService : ApiService, private authService : AuthService) { 
-    this.referrals = [];
+  referrals : Referral[] = [];
+
+  constructor(private http : HttpClient, private apiService : ApiService, private authService : AuthService) {
     this.userId = this.authService.getUserId();
     this.taxYear = this.authService.getTaxYear();
   }
@@ -41,7 +40,7 @@ export class RefferalsComponent implements OnInit {
         this.http
           .post<DataTablesResponse>(
             this.apiService.baseUrl +'/user/refferalslist',
-            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear}, 
+            {dataTablesParameters, user_id : this.userId, taxYear : this.taxYear},
             {}
           )
           .subscribe(resp => {
@@ -52,9 +51,7 @@ export class RefferalsComponent implements OnInit {
               data: []
             });
           });
-      },
-      columns: [{ data: 'rf_on_name' }, { data: 'rf_on_email' }, { data: 'rf_on_phone' }, 
-                { data: 'rf_name' }, { data: 'rf_email' }, { data: 'rf_phone' } , { data: 'rf_comment' }]
+      }
     };
   }
 }
