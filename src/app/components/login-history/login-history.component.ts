@@ -18,6 +18,7 @@ interface Person {
   useremail: string;
   userphone: string;
   filestatus: string;
+  file_status:any;
   createdat : any;
 }
 

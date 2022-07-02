@@ -6,9 +6,9 @@ import { ApiService } from 'src/app/services/api.service';
 
 class DataTablesResponse {
   data: any[];
-  draw: number;
-  recordsFiltered: number;
-  recordsTotal: number;
+  draw: any;
+  recordsFiltered: any;
+  recordsTotal: any;
 }
 
 interface Person {
@@ -18,6 +18,7 @@ interface Person {
   phone: string;
   client_name: string;
   user_id : any;
+  file_status : any;
 }
 
 
@@ -38,7 +39,6 @@ export class AllRecordsComponent implements OnInit {
 
   constructor(private authService: AuthService, private router : Router, private http: HttpClient, private apiService : ApiService) {
     this.userId = this.authService.getUserId();
-    
     this.taxYear = this.authService.getTaxYear();
    }
 
@@ -61,7 +61,7 @@ export class AllRecordsComponent implements OnInit {
             {}
           )
           .subscribe(resp => {
-            this.persons = resp.data;
+            this.persons = resp.data;        
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
