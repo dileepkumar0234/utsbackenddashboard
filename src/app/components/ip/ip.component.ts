@@ -24,7 +24,7 @@ export class IpComponent implements OnInit {
 
   ipPattern = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";
 
-  constructor(private formBuilder : FormBuilder, 
+  constructor(private formBuilder : FormBuilder,
     private apiService : ApiService, private commonService : CommonService) { }
 
   ngOnInit(): void {
@@ -58,11 +58,11 @@ export class IpComponent implements OnInit {
       this.submitted = true;
       this.failed = "";
       this.success = "";
-      
+
       if (this.ipsForm.invalid) {
         if (confirm("There is noting to update."))
         {
-          
+
         }
         return;
       }
@@ -76,7 +76,7 @@ export class IpComponent implements OnInit {
           }, 3000);
           this.submitted = false;
           this.ipUpdateCancel();
-          this.getIps()        
+          this.getIps()
         },
         error => {
           this.failed = "Please try again later."
@@ -115,14 +115,14 @@ export class IpComponent implements OnInit {
             this.success = "";
           }, 3000);
           this.getIps()
-          this.ipUpdateCancel(); 
+          this.ipUpdateCancel();
         },
         error => {
           this.failed = "Please try again later."
           setTimeout(() => {
             this.failed = "";
           }, 3000);
-          this.ipUpdateCancel(); 
+          this.ipUpdateCancel();
         }
       )
   }

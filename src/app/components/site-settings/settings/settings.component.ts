@@ -17,10 +17,10 @@ export class SettingsComponent implements OnInit {
   processingError = "";
   failed = "";
   urlReg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-  INmobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";  
-  USmobNumberPattern = "^((\\+1-?)|0)?[0-9]{10}$";  
+  INmobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";
+  USmobNumberPattern = "^((\\+1-?)|0)?[0-9]{10}$";
 
-  constructor(private formBuilder : FormBuilder, 
+  constructor(private formBuilder : FormBuilder,
     private commonService : CommonService, private apiService : ApiService) { }
 
   ngOnInit(): void {
@@ -72,6 +72,20 @@ export class SettingsComponent implements OnInit {
         }, 1000);
       }
     )
+  }
+
+  eraseDocuments() {
+    if(confirm("Are you sure to delete")) {
+      this.apiService.postCall('/member/deletedalldocs', {})
+      .subscribe(
+        res => {
+          alert(res.status_smessage);
+        },
+        error => {
+          alert("Delete Failed, Please try again later");
+        }
+      )
+  }
   }
 
 }

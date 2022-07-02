@@ -17,7 +17,7 @@ export class ApiService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   options = {
     'user_id': ''
-  }; 
+  };
 
   constructor(private authService: AuthService, private httpClient : HttpClient, private router : Router) { }
 
@@ -49,7 +49,7 @@ export class ApiService {
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-    
+
     this.authService.logout();
     return throwError(
       'Something bad happened; please try again later.');
