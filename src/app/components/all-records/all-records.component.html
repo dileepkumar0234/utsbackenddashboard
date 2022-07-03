@@ -12,7 +12,7 @@
                   <th>Referral</th>
               </tr>
           </thead>
-          <tbody *ngIf="persons?.length != 0">
+          <tbody *ngIf="persons.length > 0">
               <tr *ngFor="let person of persons">
                 <td> <u> <a  *ngIf="isSuperAdmin" class="success" routerLink="/details/{{person?.user_id}}">{{ person.unique_code }} </a></u>
                   <a  *ngIf="!isSuperAdmin"  class="success">{{ person.unique_code }} </a>

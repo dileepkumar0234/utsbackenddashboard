@@ -45,7 +45,7 @@ export class AllRecordsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getTableData();
+      this.getTableData();
   }
 
   getTableData()
@@ -71,9 +71,7 @@ export class AllRecordsComponent implements OnInit {
               data: []
             });
           });
-      },
-      columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' },
-                { data: 'phone' }, { data: 'file_status' } , { data: 'client_name' }, {data : 'phoneext'}]
+      }
     };
   }
 
