@@ -1,10 +1,10 @@
 export const environment = {
   production: true,
-  apiUrl:'http://demo.umpiretaxsolutions.com:8626/api',
+  apiUrl:'https://umpiretaxsolutions.com:8626/api',
   // apiUrl:'https://www.umpiretaxsolutions.com:8626/api',
-  main_site_url:"http://demo.umpiretaxsolutions.com",
+  main_site_url:"https://umpiretaxsolutions.com",
   // main_site_url:"https://www.umpiretaxsolutions.com",
-  base_url:"http://demo.umpiretaxsolutions.com/UTS-OfficialTaxFilers",
+  base_url:"https://umpiretaxsolutions.com/UTS-OfficialTaxFilers",
   // base_url:"https://www.umpiretaxsolutions.com/UTS-OfficialTaxFilers",
   user_id:'user_id',
   uu_id:'uu_id',
