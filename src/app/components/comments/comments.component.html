@@ -20,7 +20,7 @@
                   <td>{{ person.comment }}</td>
                   <td>{{ person.previousstate }}</td>
                   <td>{{ person.presentstate }}</td>
-                  <td>{{ person.cmt_created_at }}</td>
+                  <td>{{ person.cmt_created_at | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 </tr>
               </tbody>
               <tbody *ngIf="persons?.length == 0">

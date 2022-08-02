@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://13.127.242.35:8626/api',
-  // apiUrl:'https://www.umpiretaxsolutions.com:8626/api',
+  // apiUrl:'http://13.127.242.35:8626/api',
+  apiUrl:'https://www.umpiretaxsolutions.com:8626/api',
   main_site_url:"https://umpiretaxsolutions.com",
   user_id:'user_id',
   uu_id:'uu_id',

@@ -1,7 +1,5 @@
 <span class="success" *ngIf = "currentFileStatus" >Status : {{currentFileStatus?.pfilename}}</span>
-<hr>
-<h6>File Number : {{otherInfo?.filenumber}} </h6>
-<hr>
+
 <div class="row ">
     <div class="col-12 col-md-6">
         <div class="row py-2">
@@ -30,7 +28,7 @@
     <div class="col-12 col-md-6">
         <div class="row py-2">
             <div class="col-12 col-md-5 col-lg-5 VDLable">Date Of Birth :</div>
-            <div class="col-12 col-md-7 col-lg-7 VDValue">{{otherInfo?.dob}}</div>
+            <div class="col-12 col-md-7 col-lg-7 VDValue">{{otherInfo?.dob | date:'MM-dd-yyyy'}}</div>
         </div>
     </div>
     <div class="col-12 col-md-6">
@@ -42,7 +40,8 @@
     <div class="col-12 col-md-6">
         <div class="row py-2">
             <div class="col-12 col-md-5 col-lg-5 VDLable">Dependents :</div>
-            <div class="col-12 col-md-7 col-lg-7 VDValue">{{otherInfo?.dependent}}</div>
+            <div class="col-12 col-md-7 col-lg-7 VDValue" *ngIf="otherInfo.dependent == 1">Yes</div>
+            <div class="col-12 col-md-7 col-lg-7 VDValue" *ngIf="otherInfo.dependent == 2">No</div>
         </div>
     </div>
     <div class="col-12 col-md-6">
@@ -54,7 +53,9 @@
     <div class="col-12 col-md-6">
         <div class="row py-2">
             <div class="col-12 col-md-5 col-lg-5 VDLable">Mobile :</div>
-            <div class="col-12 col-md-7 col-lg-7 VDValue">{{otherInfo?.phone}}</div>
+            <div class="col-12 col-md-7 col-lg-7 VDValue" *ngIf="otherInfo.phoneext == 'US'">{{otherInfo?.phone | mask: '(000) 000-0000'}}</div>
+            <div class="col-12 col-md-7 col-lg-7 VDValue" *ngIf="otherInfo.phoneext == 'INDIA'">{{otherInfo?.phone | mask: '00000-00000'}}</div>
+            <div class="col-12 col-md-7 col-lg-7 VDValue" *ngIf="otherInfo.phoneext == null">{{otherInfo?.phone | mask: '(000) 000-0000'}}</div>
         </div>
     </div>
     <div class="col-12 col-md-6">

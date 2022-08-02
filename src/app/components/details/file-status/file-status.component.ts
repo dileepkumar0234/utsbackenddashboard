@@ -64,21 +64,24 @@ export class FileStatusComponent implements OnInit {
 
   submitComment()
   {
-    if (confirm("Please confirm to change status"))
-    {
+    //if (confirm("Please confirm to change status"))
+   // {
       this.apiService.postCall('/member/pushtonewfilestatus', 
       { client_id : this.client_id, 
         processstate : this.processStateForm.getRawValue().processstate, 
         commentmessage : this.processStateForm.getRawValue().commentmessage })
       .subscribe(
         res => {
-          console.log(res);
+          // console.log(res);
           this.userCommentsComponent.getTableData();
+          this.refresh();
         },
         error => {
         }
       )
-    }
+    //}
   }
-
+  refresh(): void {
+      window.location.reload();
+  } 
 }

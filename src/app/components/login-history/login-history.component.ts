@@ -17,9 +17,11 @@ interface Person {
   userfilename: string;
   useremail: string;
   userphone: string;
+  userphoneext: string;
   filestatus: string;
   file_status:any;
   createdat : any;
+  filestate:any;
 }
 
 @Component({
@@ -73,7 +75,7 @@ export class LoginHistoryComponent implements OnInit {
           });
       },
       columns: [{ data: 'userfilename' }, { data: 'username' }, { data: 'useremail' },
-                { data: 'userphone' }, { data: 'filestatus' } , { data: 'createdat' }]
+                { data: 'userphone' }, { data: 'filestate' } , { data: 'createdat' }]
     };
   }
 

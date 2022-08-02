@@ -16,9 +16,11 @@
                   <td> <u> <a target="_blank" class="success" routerLink="/details/{{person?.userid}}">{{ person.userfilename }} </a> </u> </td>
                   <td>{{ person.username }}</td>
                   <td><u> <a target="_blank" class="success" routerLink="/details/{{person?.userid}}">{{ person.useremail }} </a> </u></td>
-                  <td>{{ person.userphone }}</td>
-                  <td>{{ person.file_status }}</td>
-                  <td>{{ person.createdat }}</td>
+                  <td *ngIf="person.userphoneext == 'US'">{{ person.userphone | mask: '(000) 000-0000'}}</td>
+                  <td *ngIf="person.userphoneext == 'INDIA'">{{ person.userphone | mask: '00000-00000'}}</td>
+                  <td *ngIf="person.userphoneext == null">{{ person.userphone | mask: '(000) 000-0000'}}</td>
+                  <td>{{ person.filestate }}</td>
+                  <td>{{ person.createdat | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 </tr>
               </tbody>
               <tbody *ngIf="persons?.length == 0">

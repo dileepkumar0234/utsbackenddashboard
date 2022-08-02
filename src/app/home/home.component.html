@@ -247,7 +247,7 @@
 
                                     <li class="nav-item dropdown">
                                         <form [formGroup]="yearForm" class="mr-4">
-                                            <select class="nav-link dropdown-toggle form-control" formControlName="yearControl"
+                                            <select style="color:black;" class="nav-link dropdown-toggle form-control" formControlName="yearControl"
                                                 role="button" name="year_" (change)="changeYear($event)">
                                                 <option *ngFor="let year of years" [value]="year.utstaxyear">
                                                     <a class="dropdown-item"> {{year.dutstaxyear}}</a>

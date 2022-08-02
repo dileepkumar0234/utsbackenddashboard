@@ -71,7 +71,7 @@ export class UserCommentsComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'user_name' }, { data: 'previousstate' }, { data: 'presentstate' }, 
+      columns: [{ data: 'user_name' }, { data: 'presentstate' }, 
                 { data: 'comment' }, { data: 'cmt_created_at' }]
     };
   }

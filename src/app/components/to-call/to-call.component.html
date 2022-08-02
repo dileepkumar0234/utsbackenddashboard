@@ -19,7 +19,7 @@
                     <td *ngIf="person?.c_phone_ext == 'INDIA'">{{ person.c_phone | mask: '00000-00000'}}</td>
                     <td *ngIf="person?.c_phone_ext == null">{{ person.c_phone | mask: '(000) 000-0000'}}</td>
                     <td>{{ person.c_message }}</td>
-                    <td>{{ person.c_created_at }}</td>
+                    <td>{{ person.c_created_at | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                     <td> <u style="cursor: pointer;" class="error" (click) = "OnDelete(person.contact_id)" >  Delete  </u> </td>
                 </tr>
               </tbody>

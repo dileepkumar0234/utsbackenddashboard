@@ -19,7 +19,7 @@
                     <td>{{person.t_order_id}}</td>
                     <td *ngIf="person.order_status">Payment success</td>
                     <td *ngIf="!person.order_status">Payment failed</td>
-                    <td>{{person.o_created_at}}</td>
+                    <td>{{person.o_created_at | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                     <!-- <td><u> <a class="success" routerLink="/details/{{person?.user_id}}">{{ person.email }} </a> </u></td>
                   <td>{{person.client_name}}</td>
                   <td><u><a class="success" routerLink="/details/{{person?.user_id}}">Referral To</a> </u></td> -->

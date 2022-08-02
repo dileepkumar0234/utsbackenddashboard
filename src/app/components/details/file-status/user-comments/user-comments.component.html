@@ -4,7 +4,6 @@
             <thead>
                 <tr>
                     <th>Client Name</th>
-                    <th>Previous State</th>
                     <th>Present State</th>
                     <th>Comment</th>
                     <th>Create At</th>
@@ -13,10 +12,9 @@
             <tbody *ngIf="persons?.length != 0">
                 <tr *ngFor="let person of persons">
                   <td>{{ person.user_name }}</td>
-                  <td>{{ person.previousstate }}</td>
                   <td>{{ person.presentstate }}</td>
-                  <td>{{ person.comment }}</td>
-                  <td>{{ person.cmt_created_at }}</td>
+                  <td>{{ person.comment.toUpperCase() }}</td>
+                  <td>{{ person.cmt_created_at | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 </tr>
               </tbody>
               <tbody *ngIf="persons?.length == 0">
