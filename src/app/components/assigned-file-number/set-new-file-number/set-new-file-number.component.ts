@@ -10,7 +10,6 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class SetNewFileNumberComponent implements OnInit {
 
-  @Input() list : any;
 
   form: FormGroup = new FormGroup({});
 
@@ -18,7 +17,7 @@ export class SetNewFileNumberComponent implements OnInit {
 
   failed : any;
   success : any;
-
+  userList:any;
   constructor(private formBuilder : FormBuilder,
     private apiService : ApiService, private commonService : CommonService) {
     this.form = this.formBuilder.group({
@@ -28,6 +27,24 @@ export class SetNewFileNumberComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getExistingUsers();
+  }
+
+  getExistingUsers()
+  {
+    this.apiService.postCall('/member/existingassignfilenumber', {})
+    .subscribe(
+      res => {
+        if (res.oldusers)
+        {
+          this.userList = res.oldusers;
+        }
+
+      },
+      error => {
+
+      }
+    )
   }
 
   get f(){

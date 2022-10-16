@@ -10,11 +10,11 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class SetOldFileNumberComponent implements OnInit {
 
-  @Input() list : any;
   form: FormGroup = new FormGroup({});
   isSubmitted = false;
   failed : any;
   success : any;
+  userList3:any;
 
   constructor(private formBuilder : FormBuilder,
     private apiService : ApiService, private commonService : CommonService) {
@@ -25,6 +25,24 @@ export class SetOldFileNumberComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.getExistingUsers();
+  }
+
+  getExistingUsers()
+  {
+    this.apiService.postCall('/member/usersliist', {})
+    .subscribe(
+      res => {
+        if (res.oldusers)
+        {
+          this.userList3 = res.oldusers;
+        }
+
+      },
+      error => {
+
+      }
+    )
   }
 
   get f(){

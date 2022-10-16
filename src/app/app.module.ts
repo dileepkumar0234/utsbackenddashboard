@@ -48,7 +48,9 @@ import { SynopsysListComponent } from './components/details/upload-documents/syn
 import { DefaultHomeComponent } from './default-home/default-home.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { SetEmailAddressComponent } from './components/assigned-file-number/set-email-address/set-email-address.component';
-import { SetMobileNumberComponent } from './components/assigned-file-number/set-mobile-number/set-mobile-number.component'
+import { SetMobileNumberComponent } from './components/assigned-file-number/set-mobile-number/set-mobile-number.component';
+import { AnalystslistComponent } from './components/analystslist/analystslist.component';
+import { EditanalystComponent } from './components/editanalyst/editanalyst.component';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -94,6 +96,8 @@ const maskConfig: Partial<IConfig> = {
     DefaultHomeComponent,
     SetEmailAddressComponent,
     SetMobileNumberComponent,
+    AnalystslistComponent,
+    EditanalystComponent,
   ],
   imports: [
     BrowserModule,

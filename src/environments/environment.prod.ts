@@ -10,6 +10,7 @@ export const environment = {
   uu_id:'uu_id',
   taxYear:'tax_year',
   role:'role',
+  changefilestatusflag:'changefilestatusflag',
   logo : './assets/images/logo.svg',
   profile : './assets/images/profile.png'
 }; 

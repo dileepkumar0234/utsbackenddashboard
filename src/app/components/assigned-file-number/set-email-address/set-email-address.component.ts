@@ -10,11 +10,11 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class SetEmailAddressComponent implements OnInit {
 
-  @Input() list : any;
+  @Input() uelist : any;
 
   form: FormGroup = new FormGroup({});
 
-  userList : any;
+  userLists : any;
 
   isSubmitted = false;
 
@@ -30,6 +30,24 @@ export class SetEmailAddressComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getExistingUsers();
+  }
+
+  getExistingUsers()
+  {
+    this.apiService.postCall('/member/usersliist', {})
+    .subscribe(
+      res => {
+        if (res.oldusers)
+        {
+          this.userLists = res.oldusers;
+        }
+
+      },
+      error => {
+
+      }
+    )
   }
   saveProcess()
   {

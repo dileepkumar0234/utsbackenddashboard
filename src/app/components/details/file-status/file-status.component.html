@@ -1,4 +1,4 @@
-<span class="success" *ngIf = "currentFileStatus" >Status : {{currentFileStatus?.pfilename}}</span>
+<span class="success" *ngIf = "currentFileStatus" >Status : <span style="font-size:18px;font-weight:bold;">{{currentFileStatus?.pfilename}}</span></span>
 <hr>
 <div class="row ViewDetails pb-3">
     <div class="col-12 col-md-6">
@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label>File Status:</label>
-                <select class="form-control" formControlName="processstate"
+                <select class="form-control form-select" formControlName="processstate"
                     role="button" name="processstate">
                     <option *ngFor="let process of processStatusList" [value]="process.ps_masterid">
                         <a class="dropdown-item"> {{process.ps_mastername}}</a>

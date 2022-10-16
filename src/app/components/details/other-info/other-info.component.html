@@ -1,4 +1,4 @@
-<span class="success" *ngIf = "currentFileStatus" >Status : {{currentFileStatus?.pfilename}}</span>
+<span class="success" *ngIf = "currentFileStatus" >Status : <span style="font-size:18px;font-weight:bold;">{{currentFileStatus?.pfilename}}</span></span>
 <hr>
 <div *ngIf="!isEmptySpouse() || !isEmptyDependentsInfo() || !isEmptyEmployerInfo()">
     <app-spouse-info *ngIf="!isEmptySpouse()" [spouseInfo] = "spouseInfo"></app-spouse-info>

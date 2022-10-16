@@ -35,11 +35,15 @@
             ],
             "styles": [
               "./src/assets/css/custom-styles.css",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
+              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/select2/dist/css/select2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/datatables.net/js/jquery.dataTables.min.js"
+              "node_modules/datatables.net/js/jquery.dataTables.min.js",
+              "node_modules/select2/dist/js/select2.min.js",
+              "src/assets/js/custom.js"
             ]
           },
           "configurations": {
@@ -47,8 +51,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

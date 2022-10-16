@@ -1,0 +1,26 @@
+<div class="white-box p-3">
+    <div class="table-responsive">
+        <table  class="table table-striped" style="width: 100%;" >
+            <thead>
+                <tr>
+                    <th>Analyst Name</th>
+                    <th>Email ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="analysts.length > 0">
+                <tr *ngFor="let person of analysts">
+                  <td>{{ person.user_name }}</td>
+                  <td><u> <a class="success" routerLink="/editanalyst/{{person?.user_id}}">{{ person.email }} </a> </u></td>
+                  <td><u><a class="success" routerLink="/editanalyst/{{person?.user_id}}">Edit</a> </u></td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="analysts?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+  </div>
+  

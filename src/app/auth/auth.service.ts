@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute } from '@angular/router';
 import { Role } from '../models/role';
 
 @Injectable({
@@ -18,7 +19,10 @@ export class AuthService {
 
   taxYear : any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+    const cpagename = this.route.url
+    console.log("URL:"+cpagename);
+  }
 
   isAuthenticated() {
 

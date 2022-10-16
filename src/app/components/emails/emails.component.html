@@ -4,7 +4,7 @@
         <form [formGroup]="emailForm" class="white-box p-3">
 			<div class="row mb-3 mt-3 ">
 				<div class="nav-item dropdown col-12 col-md-4"> 
-					<select class="form-control" formControlName="ettemplateid"
+					<select class="form-control form-select" formControlName="ettemplateid"
 						role="button" name="ettemplateid">
 						<option *ngFor="let template of templatesList" [value]="template.ettemplateid">
 							<a class="dropdown-item"> {{template.ettemplatedisplay}}</a>

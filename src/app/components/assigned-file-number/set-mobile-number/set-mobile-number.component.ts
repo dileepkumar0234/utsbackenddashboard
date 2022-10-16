@@ -10,7 +10,6 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class SetMobileNumberComponent implements OnInit {
 
-  @Input() list : any;
 
   form: FormGroup = new FormGroup({});
 
@@ -20,6 +19,7 @@ export class SetMobileNumberComponent implements OnInit {
   success : any;
   isYourIndian = false;
   isFriendIndian = false;
+  userList2:any;
   constructor(private formBuilder : FormBuilder,
     private apiService : ApiService, private commonService : CommonService) {
     this.form = this.formBuilder.group({
@@ -30,6 +30,24 @@ export class SetMobileNumberComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getExistingUsers();
+  }
+
+  getExistingUsers()
+  {
+    this.apiService.postCall('/member/usersliist', {})
+    .subscribe(
+      res => {
+        if (res.oldusers)
+        {
+          this.userList2 = res.oldusers;
+        }
+
+      },
+      error => {
+
+      }
+    )
   }
 
   get f(){

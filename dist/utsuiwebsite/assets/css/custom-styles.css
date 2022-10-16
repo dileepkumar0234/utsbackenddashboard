@@ -67,7 +67,9 @@ a:focus {
     padding: 5px 15px;
     margin: 0 5px;
 }
-
+.SecTabs a{
+    text-decoration:none !important;
+}
 .navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,

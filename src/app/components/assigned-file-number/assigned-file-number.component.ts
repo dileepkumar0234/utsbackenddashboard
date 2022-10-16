@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class AssignedFileNumberComponent implements OnInit {
 
   userList : any;
+  userLists : any;
   constructor(private apiService : ApiService) { }
 
   ngOnInit(): void {
@@ -22,7 +23,7 @@ export class AssignedFileNumberComponent implements OnInit {
       res => {
         if (res.oldusers)
         {
-          this.userList = res.oldusers;
+          this.userLists = res.oldusers;
         }
 
       },

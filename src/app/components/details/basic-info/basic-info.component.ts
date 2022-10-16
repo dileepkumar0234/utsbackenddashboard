@@ -13,12 +13,12 @@ export class BasicInfoComponent implements OnInit {
   constructor(private apiService : ApiService, private route : ActivatedRoute) { }
 
   otherInfo : any;
+  dependent:any;
   client_id : any;
 
   ngOnInit(): void {
     this.client_id = this.route.snapshot.paramMap.get('id');
     this.getTaxPayerInfo();
-    console.log(this.currentFileStatus);
   }
   
   getTaxPayerInfo()

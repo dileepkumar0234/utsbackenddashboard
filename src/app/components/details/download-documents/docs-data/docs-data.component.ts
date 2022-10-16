@@ -35,6 +35,9 @@ export class DocsDataComponent implements OnInit {
      })
 
   }
-
+  stringSplitEvent(docname:any){
+    let x = docname.split("utshash_");
+    return x[1];
+  }
 
 }

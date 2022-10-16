@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ApiService } from 'src/app/services/api.service';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
@@ -73,6 +74,7 @@ export class FileStatusComponent implements OnInit {
       .subscribe(
         res => {
           // console.log(res);
+          localStorage.setItem(environment.changefilestatusflag, '1');
           this.userCommentsComponent.getTableData();
           this.refresh();
         },

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { GuestGaurdService } from './auth/guest-gaurd.service';
 import { AllRecordsComponent } from './components/all-records/all-records.component';
+import { AnalystslistComponent } from './components/analystslist/analystslist.component';
+import { EditanalystComponent } from './components/editanalyst/editanalyst.component';
 import { AssignedFileNumberComponent } from './components/assigned-file-number/assigned-file-number.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CommentsComponent } from './components/comments/comments.component';
@@ -57,6 +59,8 @@ const routes: Routes = [
     {path : 'e-filing-complete', component: CommonDataComponent},
     {path : 'p-filing-docs', component: CommonDataComponent},
     {path : 'files-cancelled', component: CommonDataComponent},
+    {path : 'analystslist', component: AnalystslistComponent},
+    {path : 'editanalyst/:id', component: EditanalystComponent},
     { path: 'site-settings', component: SiteSettingsComponent, canActivate : [AuthGuardService], data: {
       roles: [
         Role.SUPER_ADMIN,

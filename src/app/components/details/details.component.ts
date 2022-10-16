@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -25,6 +26,10 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const filestatusflag = localStorage.getItem(environment.changefilestatusflag);
+    if(filestatusflag=='1'){
+        this.selectedProfileTab = 'file-status'
+    }
     this.route.queryParams.subscribe(params => {
       if (params.to)
       {
@@ -51,6 +56,9 @@ export class DetailsComponent implements OnInit {
     )
   }
   profileTab(tabName:string){
+    if(tabName!='file-status'){
+      localStorage.removeItem(environment.changefilestatusflag);
+    }
     this.selectedProfileTab = tabName
   }
 
