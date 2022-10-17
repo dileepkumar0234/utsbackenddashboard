@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonService } from 'src/app/services/common.service';
-
+declare function load_select() : any;
 @Component({
   selector: 'app-set-email-address',
   templateUrl: './set-email-address.component.html',
   styleUrls: ['./set-email-address.component.scss']
 })
-export class SetEmailAddressComponent implements OnInit {
+export class SetEmailAddressComponent implements OnInit, AfterViewInit {
 
   @Input() uelist : any;
 
@@ -31,6 +31,11 @@ export class SetEmailAddressComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExistingUsers();
+  }
+
+  ngAfterViewInit(): void {
+    // import('../../../../assets/js/custom.js');
+    load_select();
   }
 
   getExistingUsers()
