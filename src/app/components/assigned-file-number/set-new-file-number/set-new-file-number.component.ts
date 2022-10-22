@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonService } from 'src/app/services/common.service';
-
+declare function load_select() : any;
+declare function get_value(id:any) : any;
+declare function onchange_value(event:any) : any;
 @Component({
   selector: 'app-set-new-file-number',
   templateUrl: './set-new-file-number.component.html',
@@ -12,7 +14,7 @@ export class SetNewFileNumberComponent implements OnInit {
 
 
   form: FormGroup = new FormGroup({});
-
+  client_id_error = false;
   isSubmitted = false;
 
   failed : any;
@@ -21,7 +23,6 @@ export class SetNewFileNumberComponent implements OnInit {
   constructor(private formBuilder : FormBuilder,
     private apiService : ApiService, private commonService : CommonService) {
     this.form = this.formBuilder.group({
-      client_id : ['', [Validators.required]],
       filenumber: ['', [Validators.required]],
     })
   }
@@ -55,19 +56,36 @@ export class SetNewFileNumberComponent implements OnInit {
   {
     this.failed = "";
     this.success = "";
+    let val = get_value('client_id_new_file');
     if (this.form.invalid) {
       this.commonService.validateAllFormFields(this.form);
+    }
+    if (val == undefined || val == null || val == "") {
+      this.client_id_error = true;
+    } else this.client_id_error = false;
+    if (this.form.invalid || this.client_id_error) {
       return;
     }
+    let data = {
+      'client_id' : val
+    }
+    data = { ...data, ...this.form.getRawValue()};
     if (confirm("Please confirm"))
     {
-
       this.apiService.postCall('/member/confirmationtoassigningfilenumber', this.form.getRawValue())
       .subscribe(
         res => {
-          if (res.filestatus)
-          {
-            this.success = res.filestatus;
+          if ( res.http_code === 200) {
+            if (res.status_smessage)
+            {
+              this.success = res.status_smessage;
+            }
+          }
+          else {
+            if (res.status_smessage)
+            {
+              this.failed = res.status_smessage;
+            }
           }
         },
         error => {

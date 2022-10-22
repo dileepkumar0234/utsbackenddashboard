@@ -4,20 +4,20 @@
         <h6>Update email address</h6>
         <div class="form-group">
             <label>Users:</label>
-            <select class="form-control form-select select2" formControlName="client_id"
-                role="button" name="client_id">
+            <select id="client_id_email" class="form-control form-select select2" onchange="onchange_value(this)"
+                role="button" name="client_id_email">
                 <option value="">Select User</option>
                 <option *ngFor="let user of userLists; let i = index;" [value]="user.user_id">
                     <a class="dropdown-item"> {{user.user_name}} ({{user.email}})</a>
                 </option>
-                <div *ngIf="f.client_id?.errors" class="error">
-                    <div *ngIf="f.client_id.errors?.required">Please Select</div>
-                </div>
             </select>
+            <div id="client_id_email_error" *ngIf="client_id_error" class="error">
+              Please Select
+            </div>
         </div>
         <div class="form-group">
             <label>Update Email Address:</label>
-            <input type="email" placeholder="Email Ex: example@gmail.com" class="form-control" formControlName = "newemailaddr">
+            <input type="email" placeholder="Email Ex: example@gmail.com" class="form-control"  formControlName = "newemailaddr">
             <div *ngIf="f.newemailaddr?.errors" class="error">
                 <div *ngIf="f.newemailaddr.errors?.required && f.newemailaddr.touched">Email address is required.</div>
             </div>

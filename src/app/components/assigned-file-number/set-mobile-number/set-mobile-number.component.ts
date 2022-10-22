@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonService } from 'src/app/services/common.service';
-
+declare function load_select() : any;
+declare function get_value(id:any) : any;
+declare function onchange_value(event:any) : any;
 @Component({
   selector: 'app-set-mobile-number',
   templateUrl: './set-mobile-number.component.html',
@@ -12,7 +14,7 @@ export class SetMobileNumberComponent implements OnInit {
 
 
   form: FormGroup = new FormGroup({});
-
+  client_id_error = false;
   isSubmitted = false;
 
   failed : any;
@@ -23,7 +25,6 @@ export class SetMobileNumberComponent implements OnInit {
   constructor(private formBuilder : FormBuilder,
     private apiService : ApiService, private commonService : CommonService) {
     this.form = this.formBuilder.group({
-      client_id : ['', [Validators.required]],
       mobilenumber: ['', [Validators.required]],
       phone_ext:['US',[Validators.required]]
     })
@@ -42,7 +43,6 @@ export class SetMobileNumberComponent implements OnInit {
         {
           this.userList2 = res.oldusers;
         }
-
       },
       error => {
 
@@ -64,13 +64,24 @@ export class SetMobileNumberComponent implements OnInit {
 
   saveProcess()
   {
+    debugger;
     this.failed = "";
     this.success = "";
+    let val = get_value('client_id_mobile');
     if (this.form.invalid) {
       this.commonService.validateAllFormFields(this.form);
+    }
+    if (val == undefined || val == null || val == "") {
+      this.client_id_error = true;
+    } else this.client_id_error = false;
+    if (this.form.invalid || this.client_id_error) {
       return;
     }
-    this.apiService.postCall('/member/changemobilenumber', this.form.getRawValue())
+    let data = {
+      'client_id' : val
+    }
+    data = { ...data, ...this.form.getRawValue()};
+    this.apiService.postCall('/member/changemobilenumber', data)
     .subscribe(
       res => {
         if ( res.http_code === 200) {

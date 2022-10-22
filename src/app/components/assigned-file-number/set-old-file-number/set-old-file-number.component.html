@@ -4,16 +4,16 @@
         <h6>Update file number</h6>
         <div class="form-group">
             <label>Users:</label>
-            <select class="form-control form-select select2" formControlName="client_id"
-                role="button" name="client_id">
+            <select  id="client_id_old_file" class="form-control form-select select2" onchange="onchange_value(this)"
+                role="button" name="client_id_old_file">
                 <option value="">Select User</option>
                 <option *ngFor="let user of userList3; let i = index;" [value]="user.user_id">
                     <a class="dropdown-item"> {{user.user_name}} ({{user.email}})</a>
                 </option>
-                <div *ngIf="f.client_id?.errors" class="error">
-                    <div *ngIf="f.client_id.errors?.required">Please Select</div>
-                </div>
             </select>
+            <div id="client_id_old_file_error" *ngIf="client_id_error" class="error">
+              Please Select
+            </div>
         </div>
         <div class="form-group">
             <label>Update File Number:</label>
