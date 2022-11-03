@@ -18,16 +18,7 @@
                         All Records ({{allUsersCount}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
-                    <a 
-                        routerLink="/analystslist" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
-                        title="analysts">
-                        Analysts List
-                    </a>
-                </li>
+                
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
                     <a 
                         routerLink="/assigned-file" 
@@ -272,7 +263,7 @@
                                             class="nav-link" 
                                             data-bs-toggle="tooltip" 
                                             data-bs-placement="right" 
-                                            title="Payments" target="_blank">
+                                            title="Payments" >
                                             Payments
                                         </a>
                                     </li>
@@ -333,6 +324,11 @@
                                                     routerLink="/site-settings" 
                                                     class="dropdown-item" >
                                                     Site Settings
+                                                </a> 
+                                                <a  *ngIf="isSuperAdmin"
+                                                    routerLink="/analystslist" 
+                                                    class="dropdown-item" >
+                                                    Analysts List
                                                 </a>
                                                 <a class="dropdown-item" href="#" (click)="onLogout()" >Logout</a>
                                             </div>

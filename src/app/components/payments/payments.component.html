@@ -4,6 +4,7 @@
             <thead>
                 <tr>
                     <th>User Name</th>
+                    <th>Emmail</th>
                     <th>File Number</th>
                     <th>Amount</th>
                     <th>Order Transaction Id</th>
@@ -14,6 +15,7 @@
             <tbody *ngIf="persons?.length != 0">
                 <tr *ngFor="let person of persons">
                     <td>{{person.user_name}}</td>
+                    <td>{{person.email}}</td>
                     <td>{{person.filenumber}}</td>
                     <td>{{person.p_amount}}</td>
                     <td>{{person.t_order_id}}</td>

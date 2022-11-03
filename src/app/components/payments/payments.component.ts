@@ -13,6 +13,7 @@ class DataTablesResponse {
 interface Person {
   user_id: any;
   user_name: any;
+  email: any;
   filenumber: any;
   p_amount: any;
   t_order_id: any;
@@ -71,7 +72,7 @@ export class PaymentsComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'user_name' }, { data: 'filenumber' }, { data: 'p_amount' }, { data: 't_order_id' }, 
+      columns: [{ data: 'user_name' },{ data: 'email' }, { data: 'filenumber' }, { data: 'p_amount' }, { data: 't_order_id' }, 
                 { data: 'order_status' }, { data: 'o_created_at' }]
     };
   }
