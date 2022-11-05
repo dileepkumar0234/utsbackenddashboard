@@ -326,8 +326,9 @@
                                             <a class="btn Profile dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <img src="{{getProfile()}}">
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right" *ngIf="isSuperAdmin" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                                 <a class="dropdown-item"
+                                                    *ngIf="isSuperAdmin"
                                                     routerLink="/change-password">
                                                     Change Password
                                                 </a>
