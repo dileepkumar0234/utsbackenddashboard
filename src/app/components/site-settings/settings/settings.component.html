@@ -129,7 +129,7 @@
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <label>Site Popup Setting :</label>
-                    <select class="nav-link dropdown-toggle form-control" formControlName="sitepopupsetting" role="button">
+                    <select class="nav-link dropdown-toggle form-control form-select" formControlName="sitepopupsetting" role="button">
                         <option value="0">0</option>
                         <option value="1">1</option>
                     </select>
@@ -141,7 +141,7 @@
             <div class="col-12 col-md-6">
               <div class="form-group">
                   <label>Site Popup Setting :</label>
-                  <select class="nav-link dropdown-toggle form-control" formControlName="popuptype" role="button">
+                  <select class="nav-link dropdown-toggle form-control form-select" formControlName="popuptype" role="button">
                       <option value="1">Pop-up 1</option>
                       <option value="2">Pop-up 2</option>
                       <option value="3">Pop-up 3</option>
@@ -154,7 +154,7 @@
             <div class="col-12 col-md-12">
                 <div class="form-group">
                     <label>Tax Year :</label>
-                    <input type="text" class="form-control" formControlName = "taxyear" placeholder="2021">
+                    <input type="text" class="form-control " formControlName = "taxyear" placeholder="2021">
                     <div *ngIf="f.taxyear" class="error">
                         <div *ngIf="f.taxyear.errors?.required && f.taxyear.touched">Tax Year is required</div>
                     </div>
