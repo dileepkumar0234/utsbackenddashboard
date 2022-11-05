@@ -36,6 +36,7 @@ export class SettingsComponent implements OnInit {
       twitterlink: ['', [Validators.required, Validators.pattern(this.urlReg)]],
       linkedinlink: ['', [Validators.required, Validators.pattern(this.urlReg)]],
       sitepopupsetting: ['', [Validators.required]],
+      popuptype: ['', [Validators.required]],
       siteURL: ['', [Validators.required, Validators.pattern(this.urlReg)]],
       taxyear: ['', [Validators.required]]
     })
@@ -53,8 +54,7 @@ export class SettingsComponent implements OnInit {
     // stop here if form is invalid
     if (this.settingsForm.invalid) {
       console.log(this.settingsForm.getRawValue());
-
-        return;
+      return;
     }
 
     this.apiService.postCall('/settings/savesetting', this.settingsForm.getRawValue())
