@@ -51,6 +51,7 @@ import { SetEmailAddressComponent } from './components/assigned-file-number/set-
 import { SetMobileNumberComponent } from './components/assigned-file-number/set-mobile-number/set-mobile-number.component';
 import { AnalystslistComponent } from './components/analystslist/analystslist.component';
 import { EditanalystComponent } from './components/editanalyst/editanalyst.component';
+import { CareersComponent } from './components/careers/careers.component';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -98,6 +99,7 @@ const maskConfig: Partial<IConfig> = {
     SetMobileNumberComponent,
     AnalystslistComponent,
     EditanalystComponent,
+    CareersComponent,
   ],
   imports: [
     BrowserModule,

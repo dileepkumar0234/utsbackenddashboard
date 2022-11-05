@@ -15,7 +15,7 @@ export class ChangePasswordComponent implements OnInit {
   submitted = false;
   success = "";
   failed = "";
-  
+
   constructor(private formBuilder : FormBuilder, private commonService : CommonService, private apiService : ApiService) {
 
     this.passwordForm = this.formBuilder.group({
@@ -39,12 +39,12 @@ export class ChangePasswordComponent implements OnInit {
       this.commonService.validateAllFormFields(this.passwordForm);
       return;
     }
-   
+
     this.apiService.postCall('/user/changepassword', this.passwordForm.getRawValue())
     .subscribe(
       res => {
         this.passwordForm.reset();
-        this.success = res.status_smessage; 
+        this.success = res.status_smessage;
         setTimeout(() => {
           this.success = "";
         }, 4000);
@@ -74,7 +74,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
+
   }
 
 }

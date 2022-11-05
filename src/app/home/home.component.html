@@ -6,11 +6,11 @@
             </div>
             <ul class="list-unstyled components">
                 <li class="nav-item " routerLinkActive="active" *ngIf="isSuperAdmin">
-                    <a 
-                        routerLink="/all-records" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/all-records"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="All Records">
                         <span class="icon">
                             <i class="fas fa-home"></i>
@@ -18,183 +18,183 @@
                         All Records ({{allUsersCount}})
                     </a>
                 </li>
-                
+
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
-                    <a 
-                        routerLink="/assigned-file" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/assigned-file"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Assigned File Number">
                         Assigned File Number
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
-                    <a 
-                        routerLink="/to-be-assigned" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/to-be-assigned"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="To Be Assigned">
                         To Be Assigned ({{getRecord(0)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/basic-info-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/basic-info-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Basic Info Pending">
                         Basic Info Pending  ({{getRecord(1)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/scheduling-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/scheduling-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Scheduling Pending">
                         Scheduling Pending  ({{getRecord(2)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/interview-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/interview-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Interview Pending">
                         Interview Pending  ({{getRecord(3)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/documents-upload-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/documents-upload-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Documents Upload Pending">
                         Documents Upload Pending  ({{getRecord(4)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/other-docs-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/other-docs-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Other Docs Pending">
                         Other Docs Pending  ({{getRecord(5)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/preparation-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/preparation-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Preparation Pending">
                         Preparation Pending  ({{getRecord(6)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/pre-synopsys-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/pre-synopsys-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Pre-Synopsys Pending">
                         Pre-Synopsys Pending  ({{getRecord(16)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/synopsys-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/synopsys-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Synopsys Pending">
                         Synopsys Pending  ({{getRecord(7)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/payment-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/payment-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Payment Pending">
                         Payment Pending  ({{getRecord(8)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/review-upload-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/review-upload-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Review Upload Pending">
                         Review Upload Pending  ({{getRecord(9)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/review-confirmation-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/review-confirmation-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Review Confirmation Pending">
                         Review Confirmation Pending  ({{getRecord(10)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
-                    <a 
-                        routerLink="/e-filing-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/e-filing-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="E Filing Pending">
                         E Filing Pending  ({{getRecord(11)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a 
-                        routerLink="/p-filing-pending" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/p-filing-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="P Filing Pending">
                         P Filing Pending  ({{getRecord(12)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a 
-                        routerLink="/e-filing-complete" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/e-filing-complete"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="E Filing Complete">
                         E Filing Complete  ({{getRecord(13)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a 
-                        routerLink="/p-filing-docs" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/p-filing-docs"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="P Filing Docs">
                         P Filing Docs  ({{getRecord(14)}})
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a 
-                        routerLink="/files-cancelled" 
-                        class="nav-link active" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="right" 
+                    <a
+                        routerLink="/files-cancelled"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
                         title="Files Cancelled">
                         Files Cancelled  ({{getRecord(15)}})
                     </a>
@@ -236,11 +236,11 @@
                             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                                 <ul class="nav navbar-nav ml-auto">
                                     <li class="nav-item mr-4" routerLinkActive="active">
-                                        <a 
-                                            routerLink="/login-history" 
-                                            class="nav-link" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
+                                        <a
+                                            routerLink="/login-history"
+                                            class="nav-link"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
                                             title="History">
                                             Login History
                                         </a>
@@ -258,75 +258,86 @@
                                     </li>
 
                                     <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin" >
-                                        <a 
-                                            routerLink="/payments" 
-                                            class="nav-link" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
+                                        <a
+                                            routerLink="/payments"
+                                            class="nav-link"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
                                             title="Payments" >
                                             Payments
                                         </a>
                                     </li>
 
                                     <li class="nav-item" routerLinkActive="active">
-                                        <a 
-                                            routerLink="/referrals" 
-                                            class="nav-link" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
+                                        <a
+                                            routerLink="/referrals"
+                                            class="nav-link"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
                                             title="Referrals">
                                             Referrals
                                         </a>
                                     </li>
                                     <li class="nav-item" routerLinkActive="active">
-                                        <a 
-                                            routerLink="/comments" 
-                                            class="nav-link" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
+                                        <a
+                                            routerLink="/comments"
+                                            class="nav-link"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
                                             title="Comments">
                                             Comments
                                         </a>
                                     </li>
                                     <li class="nav-item" routerLinkActive="active">
-                                        <a 
-                                            routerLink="/emails" 
-                                            class="nav-link" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
+                                        <a
+                                            routerLink="/emails"
+                                            class="nav-link"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
                                             title="Emails" target="_blank">
                                             Emails
                                         </a>
                                     </li>
-                                    
+
                                     <li class="nav-item" routerLinkActive="active">
-                                        <a 
-                                            routerLink="/to-call" 
-                                            class="nav-link mr-4" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
+                                        <a
+                                            routerLink="/to-call"
+                                            class="nav-link mr-4"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
                                             title="Want us to call">
                                             Want Us To Call
                                         </a>
                                     </li>
-                                   
+
+                                    <li class="nav-item" routerLinkActive="active">
+                                        <a
+                                            routerLink="/careers"
+                                            class="nav-link mr-4"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="right"
+                                            title="Careers">
+                                            Careers
+                                        </a>
+                                    </li>
+
                                     <li class="nav-item">
                                         <div class="dropdown">
                                             <a class="btn Profile dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <img src="{{getProfile()}}">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right" *ngIf="isSuperAdmin" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" 
+                                                <a class="dropdown-item"
                                                     routerLink="/change-password">
                                                     Change Password
                                                 </a>
                                                 <a  *ngIf="isSuperAdmin"
-                                                    routerLink="/site-settings" 
+                                                    routerLink="/site-settings"
                                                     class="dropdown-item" >
                                                     Site Settings
-                                                </a> 
+                                                </a>
                                                 <a  *ngIf="isSuperAdmin"
-                                                    routerLink="/analystslist" 
+                                                    routerLink="/analystslist"
                                                     class="dropdown-item" >
                                                     Analysts List
                                                 </a>

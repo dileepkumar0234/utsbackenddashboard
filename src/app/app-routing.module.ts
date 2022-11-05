@@ -22,6 +22,7 @@ import { DefaultHomeComponent } from './default-home/default-home.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { Role } from './models/role';
+import { CareersComponent } from './components/careers/careers.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/landing-home', pathMatch: 'full'},
@@ -76,6 +77,7 @@ const routes: Routes = [
     { path: 'schedules', component: SchedulesComponent},
     { path: 'emails', component: EmailsComponent},
     { path: 'to-call', component: ToCallComponent},
+    { path: 'careers', component: CareersComponent},
     { path: 'comments', component: CommentsComponent},
     { path: 'change-password', component: ChangePasswordComponent},
     {path : 'details', component: DetailsComponent},
