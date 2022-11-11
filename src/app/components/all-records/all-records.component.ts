@@ -48,6 +48,23 @@ export class AllRecordsComponent implements OnInit {
       this.getTableData();
   }
 
+  generateResetLink(id : any) {
+    this.apiService.postCall('/user/resetpasswordlink', {client_id : id})
+    .subscribe(
+      res => {
+        if (res.http_code == 200) {
+          // let yourUrlString = res.rlink;
+          // let parser = document.createElement('a');
+          // parser.href = yourUrlString;
+          window.open(res.rlink, "_blank");
+        }
+      },
+      error => {
+        alert("Please try again after some time.");
+      }
+    )
+  }
+
   getTableData()
   {
     this.dtOptions = {

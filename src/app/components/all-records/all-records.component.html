@@ -1,4 +1,5 @@
 <div class="white-box p-3">
+  <div><a href="javascript:void(0);" class="float-right" routerLink="/">Refresh</a></div>
   <div class="table-responsive">
       <table datatable [dtOptions]="dtOptions" class="table table-striped" style="width: 100%;" >
           <thead>
@@ -14,7 +15,7 @@
           </thead>
           <tbody *ngIf="persons.length > 0">
               <tr *ngFor="let person of persons">
-                <td> <u> <a  *ngIf="isSuperAdmin" target="_blank" class="success" routerLink="/details/{{person?.user_id}}">{{ person.unique_code }} </a></u>
+                <td> <u> <a  *ngIf="isSuperAdmin" target="_blank" style="cursor: pointer; color: green;" class="success" (click)="generateResetLink(person.user_id)" >{{ person.unique_code }} </a></u>
                   <a  *ngIf="!isSuperAdmin" class="success">{{ person.unique_code }} </a>
                  </td>
                 <td>{{ person.user_name }}</td>

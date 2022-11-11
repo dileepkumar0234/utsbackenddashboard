@@ -71,7 +71,7 @@ export class SetOldFileNumberComponent implements OnInit {
     if (confirm("Please confirm"))
     {
 
-      this.apiService.postCall('/member/confirmationtoassigningfilenumber', this.form.getRawValue())
+      this.apiService.postCall('/member/confirmationtoassigningfilenumber', data)
       .subscribe(
         res => {
           if ( res.http_code === 200) {
