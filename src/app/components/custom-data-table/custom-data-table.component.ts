@@ -71,8 +71,8 @@ export class CustomDataTableComponent implements OnInit {
 
   assignFile(e : any, client_id : any)
   {
-    if (confirm("Please confirm to assign"))
-    {
+    //if (confirm("Please confirm to assign"))
+   // {
       this.apiService.postCall('/member/assgintousertoanaylst', {client_id : client_id, unlists_u_id : e.target.value })
       .subscribe(
         res => {
@@ -81,7 +81,7 @@ export class CustomDataTableComponent implements OnInit {
         error => {
         }
       )
-    }
+    // }
   }
 
   getAnalysts()

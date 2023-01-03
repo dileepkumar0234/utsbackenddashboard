@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/auth/auth.service';
+import { CommonService } from 'src/app/services/common.service';
 import { ApiService } from 'src/app/services/api.service';
+
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 @Component({
@@ -25,13 +27,15 @@ export class FileStatusComponent implements OnInit {
 
   taxYear : any;
 
-  constructor(private authService : AuthService, private apiService : ApiService, private formBuilder : FormBuilder, private route: ActivatedRoute) { }
+  constructor(private authService : AuthService, private apiService : ApiService, private formBuilder : FormBuilder, private route: ActivatedRoute, public commonService:CommonService) { }
 
 
   ngOnInit(): void {
+
+    
     this.processStateForm = this.formBuilder.group({
       processstate: ['', [Validators.required]],
-      commentmessage: ['', [Validators.required]],
+      commentmessage: [null, [Validators.required]],
     })
     this.client_id = this.route.snapshot.paramMap.get('id');
     this.userId = this.authService.getUserId();
@@ -67,20 +71,27 @@ export class FileStatusComponent implements OnInit {
   {
     //if (confirm("Please confirm to change status"))
    // {
-      this.apiService.postCall('/member/pushtonewfilestatus', 
-      { client_id : this.client_id, 
-        processstate : this.processStateForm.getRawValue().processstate, 
-        commentmessage : this.processStateForm.getRawValue().commentmessage })
-      .subscribe(
-        res => {
-          // console.log(res);
-          localStorage.setItem(environment.changefilestatusflag, '1');
-          this.userCommentsComponent.getTableData();
-          this.refresh();
-        },
-        error => {
-        }
-      )
+      var commentMessage = this.processStateForm.getRawValue().commentmessage;
+
+      if (!this.processStateForm.valid){
+			  this.commonService.validateAllFormFields(this.processStateForm);
+      }else{
+        this.apiService.postCall('/member/pushtonewfilestatus', 
+        { client_id : this.client_id, 
+          processstate : this.processStateForm.getRawValue().processstate, 
+          commentmessage : this.processStateForm.getRawValue().commentmessage })
+        .subscribe(
+          res => {
+            // console.log(res);
+            localStorage.setItem(environment.changefilestatusflag, '1');
+            this.userCommentsComponent.getTableData();
+            this.refresh();
+          },
+          error => {
+          }
+        )
+      }
+      
     //}
   }
   refresh(): void {

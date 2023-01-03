@@ -72,7 +72,13 @@ export class EmailsComponent implements OnInit {
 				{
 					this.templatesList = res.templatesinfo;     
 				}
-				this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);
+				var ettemplateid2 = localStorage.getItem('emailids');
+				if(ettemplateid2){
+					this.emailForm.controls['ettemplateid'].patchValue(ettemplateid2);	
+				}else{
+					this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);	
+				}
+				
 			},
 			error => {
 			}
@@ -103,6 +109,7 @@ export class EmailsComponent implements OnInit {
 					this.apiService.postCall('/settings/sendemailtoclient', changeData)
 					.subscribe(
 					res => {
+						localStorage.setItem('emailids',ettemplateid);
 						if(res.http_code==200){
 							emailSuccessFlag =1;	
 							this.success_msg = "Mails sent successfully."; 						               
@@ -112,7 +119,14 @@ export class EmailsComponent implements OnInit {
 						} 
 						console.log(res);
 						this.emailForm.reset();
-						this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);
+						var ettemplateid2 = localStorage.getItem('emailids');
+						if(ettemplateid2){
+							this.emailForm.controls['ettemplateid'].patchValue(ettemplateid2);
+						}else{
+							this.emailForm.controls['ettemplateid'].patchValue(this.templatesList[0].ettemplateid);
+						}
+
+						
 						this.submitted = false;
 						setTimeout(() => {
 							this.success_msg = "";  

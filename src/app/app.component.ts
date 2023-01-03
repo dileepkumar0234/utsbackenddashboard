@@ -10,12 +10,17 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
 
   title = 'utsuiwebsite';
-  
+  currentRoute: string;
   constructor(public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router)
     {
-
+      this.currentRoute = router.url;
+      const pagenameurl = this.currentRoute.split('/');
+      if(pagenameurl[1]=='emails'){
+      }else{
+        localStorage.removeItem('emailids');
+      }
     }
 
     ngOnInit() {

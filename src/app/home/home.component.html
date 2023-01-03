@@ -49,7 +49,7 @@
                         Basic Info Pending  ({{getRecord(1)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+               <!-- <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a
                         routerLink="/scheduling-pending"
                         class="nav-link active"
@@ -58,7 +58,7 @@
                         title="Scheduling Pending">
                         Scheduling Pending  ({{getRecord(2)}})
                     </a>
-                </li>
+                </li>-->
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a
                         routerLink="/interview-pending"
@@ -149,6 +149,16 @@
                         Review Confirmation Pending  ({{getRecord(10)}})
                     </a>
                 </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a
+                        routerLink="/p-filing-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        title="Pre E-Filing Pending">
+                        Pre E-Filing Pending  ({{getRecord(17)}})
+                    </a>
+                </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
                     <a
                         routerLink="/e-filing-pending"
@@ -159,16 +169,7 @@
                         E Filing Pending  ({{getRecord(11)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a
-                        routerLink="/p-filing-pending"
-                        class="nav-link active"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="right"
-                        title="P Filing Pending">
-                        P Filing Pending  ({{getRecord(12)}})
-                    </a>
-                </li>
+               
                 <li class="nav-item" routerLinkActive="active">
                     <a
                         routerLink="/e-filing-complete"

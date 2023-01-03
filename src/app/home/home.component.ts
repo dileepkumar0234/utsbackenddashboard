@@ -24,6 +24,11 @@ export class HomeComponent implements OnInit {
   constructor(private commonService : CommonService, private fb : FormBuilder, private apiService : ApiService, public authService: AuthService, private router : Router) {
       this.currentRoute = router.url;
       const pagenameurl = this.currentRoute.split('/');
+      if(pagenameurl[1]=='emails'){
+        // localStorage.removeItem('emailids');
+      }else{
+        localStorage.removeItem('emailids');
+      }
       if(pagenameurl[1]=='details'){
         const filestatusflag = localStorage.getItem(environment.changefilestatusflag);
         if(filestatusflag!='1'){

@@ -21,7 +21,7 @@
                   <td *ngIf="person?.phoneext == 'INDIA'">{{ person.phone | mask: '00000-00000'}}</td>
                   <td *ngIf="person?.phoneext == null">{{ person.phone | mask: '(000) 000-0000'}}</td>
                   <td>{{ person.message }}</td>
-                  <td>{{ person.createdat | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                  <td>{{ person.createdat | date:'MM-dd-yyyy HH:mm:ss'}}</td>
                   <td> <u style="cursor: pointer;" class="error" (click) = "OnDelete(person.id)" >  Delete  </u> </td>
               </tr>
             </tbody>

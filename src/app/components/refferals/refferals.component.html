@@ -26,7 +26,7 @@
                   <td *ngIf="referral?.rf_phone_ext == 'INDIA'">{{ referral.rf_phone | mask: '00000-00000'}}</td>
                   <td *ngIf="referral?.rf_phone_ext == null">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
                   <td>{{ referral.rf_comment }}</td>
-                  <td>{{ referral.added_at | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+                  <td>{{ referral.added_at | date:'MM-dd-yyyy HH:mm:ss' }}</td>
                 </tr>
               </tbody>
               <tbody *ngIf="referrals?.length == 0">

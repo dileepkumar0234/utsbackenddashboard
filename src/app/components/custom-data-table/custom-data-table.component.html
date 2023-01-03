@@ -23,7 +23,7 @@
                   <td *ngIf = "fileState != 0">Assigned</td>
                   <td *ngIf = "fileState == 0">
                     <form [formGroup]="myAnalystForm">
-                      <select class="form-control" formControlName="unlists_u_id"  (change)="assignFile($event, person?.user_id)"
+                      <select class="form-control form-select" formControlName="unlists_u_id"  (change)="assignFile($event, person?.user_id)"
                           role="button" name="unlists_u_id">
                           <option value=""> Please Select</option>
                           <option *ngFor="let analyst of analystList" [value]="analyst.user_id">

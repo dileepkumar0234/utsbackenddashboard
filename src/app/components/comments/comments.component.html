@@ -14,13 +14,13 @@
             </thead>
             <tbody *ngIf="persons?.length != 0">
                 <tr *ngFor="let person of persons">
-                  <td> <u> <a class="success" routerLink="/details/{{person?.user_id}}">{{ person.f_unique_code }} </a> </u> </td>
+                  <td> <a class="success" >{{ person.f_unique_code }} </a> </td>
                   <td>{{ person.f_user_name }}</td>
                   <td>{{ person.user_name }}</td>
                   <td>{{ person.comment }}</td>
                   <td>{{ person.previousstate }}</td>
                   <td>{{ person.presentstate }}</td>
-                  <td>{{ person.cmt_created_at | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                  <td>{{ person.cmt_created_at | date:'MM-dd-yyyy HH:mm:ss'}}</td>
                 </tr>
               </tbody>
               <tbody *ngIf="persons?.length == 0">
