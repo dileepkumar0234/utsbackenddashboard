@@ -14,7 +14,7 @@
                   <td>{{ person.user_name }}</td>
                   <td>{{ person.presentstate }}</td>
                   <td>{{ person.comment.toUpperCase() }}</td>
-                  <td>{{ person.cmt_created_at | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                  <td>{{ person.cmt_created_at | date:'MM-dd-yyyy HH:mm:ss'}}</td>
                 </tr>
               </tbody>
               <tbody *ngIf="persons?.length == 0">

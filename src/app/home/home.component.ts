@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   countData : any;
   allUsersCount : any;
   currentRoute: string;
+  lluname : any;
   constructor(private commonService : CommonService, private fb : FormBuilder, private apiService : ApiService, public authService: AuthService, private router : Router) {
       this.currentRoute = router.url;
       const pagenameurl = this.currentRoute.split('/');
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getYears();
+    this.lluname = localStorage.getItem(environment.luname);
     this.yearForm = this.fb.group({
       yearControl: [this.selectedYear]
     });

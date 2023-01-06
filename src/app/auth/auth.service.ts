@@ -19,6 +19,8 @@ export class AuthService {
 
   taxYear : any;
 
+  luname : any;
+
   constructor(private route: ActivatedRoute) { 
     const cpagename = this.route.url
     console.log("URL:"+cpagename);
@@ -35,16 +37,18 @@ export class AuthService {
     return this.isLogin;
   }
 
-  login(userId : any, role : string, uuId: any)
+  login(userId : any, role : string, uuId: any, uname: any)
   {
     this.isLogin = true;
     this.userId = userId;
     this.role = role;
     this.uuId = uuId;
+    this.luname = uname;
 
     localStorage.setItem(environment.user_id, userId);
     localStorage.setItem(environment.role, this.role.toString());
     localStorage.setItem(environment.uu_id, uuId);
+    localStorage.setItem(environment.luname, uname);
 
     return of({ success: this.isLogin, role: this.role, userId : userId, uuId : uuId });
   }
@@ -55,8 +59,9 @@ export class AuthService {
     this.role = '';
     localStorage.removeItem(environment.user_id);
     localStorage.removeItem(environment.role);
-    localStorage.removeItem(environment.uu_id)
-    localStorage.removeItem(environment.taxYear)
+    localStorage.removeItem(environment.uu_id);
+    localStorage.removeItem(environment.taxYear);
+    localStorage.removeItem(environment.luname)
 
     return of({ success: this.isLogin, role: '', userId : '', uuId : '' });
   }

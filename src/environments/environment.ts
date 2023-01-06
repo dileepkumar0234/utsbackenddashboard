@@ -9,6 +9,7 @@ export const environment = {
   main_site_url:"https://umpiretaxsolutions.com",
   user_id:'user_id',
   uu_id:'uu_id',
+  luname:'luname',
   taxYear:'tax_year',
   role:'role',
   changefilestatusflag:'changefilestatusflag',

@@ -52,7 +52,8 @@ export class LoginComponent implements OnInit {
             const userId = res.uinfo.user_id;
             const roleId = res.uinfo.user_type_id;
             const uuId = res.uinfo.uu_id ? res.uinfo.uu_id : '';
-            this.authService.login(userId, roleId, uuId)
+            const uname = res.uinfo.user_name;
+            this.authService.login(userId, roleId, uuId, uname)
             this.success = res.status_smessage;
             this.router.navigate(['/']);
           }

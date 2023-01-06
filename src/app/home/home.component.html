@@ -343,6 +343,7 @@
                                                     class="dropdown-item" >
                                                     Analysts List
                                                 </a>
+                                                <a *ngIf="!isSuperAdmin" class="dropdown-item" href="#" >{{this.lluname}}</a>
                                                 <a class="dropdown-item" href="#" (click)="onLogout()" >Logout</a>
                                             </div>
                                         </div>
