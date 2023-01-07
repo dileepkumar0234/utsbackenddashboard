@@ -21,6 +21,9 @@ export class AuthService {
 
   luname : any;
 
+
+  is_p_tax_year : any;
+
   constructor(private route: ActivatedRoute) { 
     const cpagename = this.route.url
     console.log("URL:"+cpagename);
@@ -44,7 +47,12 @@ export class AuthService {
     this.role = role;
     this.uuId = uuId;
     this.luname = uname;
+    
+   // if(this.is_p_tax_year==localStorage.getItem(environment.taxYear)){
 
+   // }else{
+     // this.is_p_tax_year = localStorage.getItem(environment.taxYear);
+   // }
     localStorage.setItem(environment.user_id, userId);
     localStorage.setItem(environment.role, this.role.toString());
     localStorage.setItem(environment.uu_id, uuId);

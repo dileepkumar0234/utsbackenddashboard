@@ -18,13 +18,13 @@
                 <td> <u> <a  *ngIf="isSuperAdmin" target="_blank" style="cursor: pointer; color: green;" class="success" (click)="generateResetLink(person.user_id)" >{{ person.unique_code }} </a></u>
                   <a  *ngIf="!isSuperAdmin" class="success">{{ person.unique_code }} </a>
                  </td>
-                <td>{{ person.user_name }}</td>
-                <td><u> <a class="success" target="_blank" routerLink="/details/{{person?.user_id}}">{{ person.email }} </a> </u></td>
+                <td>{{ person.user_name.toUpperCase() }}</td>
+                <td><u> <a class="success" target="_blank" routerLink="/details/{{person?.user_id}}">{{ person.email.toUpperCase() }} </a> </u></td>
                 <td *ngIf="person?.phoneext == 'US'">{{ person.phone | mask: '(000) 000-0000'}}</td>
                 <td *ngIf="person?.phoneext == 'INDIA'">{{ person.phone | mask: '00000-00000'}}</td>
                 <td *ngIf="person?.phoneext == null">{{ person.phone | mask: '(000) 000-0000'}}</td>
-                <td>{{person.file_status}}</td>
-                <td>{{person.client_name}}</td>
+                <td>{{person.file_status.toUpperCase()}}</td>
+                <td>{{person.client_name.toUpperCase()}}</td>
                 <td><u><a class="success" target="_blank" routerLink="/details/{{person?.user_id}}" [queryParams]="{ to: 'referral'}" >Referral To</a> </u></td>
               </tr>
             </tbody>

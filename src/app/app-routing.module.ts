@@ -12,6 +12,7 @@ import { CommonDataComponent } from './components/common-data/common-data.compon
 import { DetailsComponent } from './components/details/details.component';
 import { EmailsComponent } from './components/emails/emails.component';
 import { LoginHistoryComponent } from './components/login-history/login-history.component';
+import { ForgetpasswordsComponent } from './components/forgetpasswords/forgetpasswords.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PaymentsComponent } from './components/payments/payments.component';
 import { RefferalsComponent } from './components/refferals/refferals.component';
@@ -68,6 +69,8 @@ const routes: Routes = [
       ]
     }},
     { path: 'login-history', component: LoginHistoryComponent},
+    { path: 'forget-passwords', component: ForgetpasswordsComponent},
+    
     { path: 'payments', component: PaymentsComponent, canActivate : [AuthGuardService], data: {
       roles: [
         Role.SUPER_ADMIN,

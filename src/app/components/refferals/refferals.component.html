@@ -15,17 +15,17 @@
             </thead>
             <tbody *ngIf="referrals?.length != 0">
                 <tr *ngFor="let referral of referrals">
-                  <td>{{ referral.rf_on_name }}</td>
-                  <td>{{ referral.rf_on_email }}</td>
+                  <td>{{ referral.rf_on_name.toUpperCase() }}</td>
+                  <td>{{ referral.rf_on_email.toUpperCase() }}</td>
                   <td *ngIf="referral?.rf_on_phone_ext == 'US'">{{ referral.rf_on_phone | mask: '(000) 000-0000'}}</td>
                   <td *ngIf="referral?.rf_on_phone_ext == 'INDIA'">{{ referral.rf_on_phone | mask: '00000-00000'}}</td>
                   <td *ngIf="referral?.rf_on_phone_ext == null">{{ referral.rf_on_phone | mask: '(000) 000-0000'}}</td>
-                  <td>{{ referral.rf_name }}</td>
-                  <td>{{ referral.rf_email }}</td>
+                  <td>{{ referral.rf_name.toUpperCase() }}</td>
+                  <td>{{ referral.rf_email.toUpperCase() }}</td>
                   <td *ngIf="referral?.rf_phone_ext == 'US'">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
                   <td *ngIf="referral?.rf_phone_ext == 'INDIA'">{{ referral.rf_phone | mask: '00000-00000'}}</td>
                   <td *ngIf="referral?.rf_phone_ext == null">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
-                  <td>{{ referral.rf_comment }}</td>
+                  <td>{{ referral.rf_comment.toUpperCase() }}</td>
                   <td>{{ referral.added_at | date:'MM-dd-yyyy HH:mm:ss' }}</td>
                 </tr>
               </tbody>

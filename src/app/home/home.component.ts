@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getYears();
-    this.lluname = localStorage.getItem(environment.luname);
+    this.lluname =localStorage.getItem(environment.luname);
     this.yearForm = this.fb.group({
       yearControl: [this.selectedYear]
     });
