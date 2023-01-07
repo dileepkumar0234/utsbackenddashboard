@@ -11,6 +11,7 @@ export const environment = {
   uu_id:'uu_id',
   luname:'luname',
   taxYear:'tax_year',
+  currentTaxYear:'current_tax_year',
   role:'role',
   changefilestatusflag:'changefilestatusflag',
   logo : '../../assets/images/logo.svg',

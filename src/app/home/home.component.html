@@ -5,9 +5,9 @@
                 <a href=""><img src="{{getLogo()}}"></a>
             </div>
             <ul class="list-unstyled components">
-                <li class="nav-item " routerLinkActive="active" *ngIf="isSuperAdmin">
+                <li [className]="currentRoute === '/all-records' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin">
                     <a
-                        routerLink="/all-records"
+                        href="/all-records"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -19,9 +19,9 @@
                     </a>
                 </li>
 
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
+                <li [className]="currentRoute === '/assigned-file' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin">
                     <a
-                        routerLink="/assigned-file"
+                        href="/assigned-file"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -29,9 +29,9 @@
                         Assigned File Number
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin">
+                <li [className]="currentRoute === '/to-be-assigned' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin">
                     <a
-                        routerLink="/to-be-assigned"
+                        href="/to-be-assigned"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -39,9 +39,9 @@
                         To Be Assigned ({{getRecord(0)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/basic-info-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/basic-info-pending"
+                        href="/basic-info-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -59,9 +59,9 @@
                         Scheduling Pending  ({{getRecord(2)}})
                     </a>
                 </li>-->
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/interview-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/interview-pending"
+                        href="/interview-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -69,9 +69,9 @@
                         Interview Pending  ({{getRecord(3)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/documents-upload-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/documents-upload-pending"
+                        href="/documents-upload-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -79,9 +79,9 @@
                         Documents Upload Pending  ({{getRecord(4)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/other-docs-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/other-docs-pending"
+                        href="/other-docs-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -89,9 +89,9 @@
                         Other Docs Pending  ({{getRecord(5)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/preparation-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/preparation-pending"
+                        href="/preparation-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -99,9 +99,9 @@
                         Preparation Pending  ({{getRecord(6)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/pre-synopsys-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/pre-synopsys-pending"
+                        href="/pre-synopsys-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -109,9 +109,9 @@
                         Pre-Synopsys Pending  ({{getRecord(16)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/synopsys-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/synopsys-pending"
+                        href="/synopsys-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -119,9 +119,9 @@
                         Synopsys Pending  ({{getRecord(7)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/payment-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/payment-pending"
+                        href="/payment-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -129,9 +129,9 @@
                         Payment Pending  ({{getRecord(8)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/review-upload-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/review-upload-pending"
+                        href="/review-upload-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -139,9 +139,9 @@
                         Review Upload Pending  ({{getRecord(9)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/review-confirmation-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/review-confirmation-pending"
+                        href="/review-confirmation-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -149,9 +149,9 @@
                         Review Confirmation Pending  ({{getRecord(10)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li [className]="currentRoute === '/p-filing-pending' ? 'nav-item active' : 'nav-item'">
                     <a
-                        routerLink="/p-filing-pending"
+                        href="/p-filing-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -159,9 +159,9 @@
                         Pre E-Filing Pending  ({{getRecord(17)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="isSuperAdmin || isAdmin">
+                <li [className]="currentRoute === '/e-filing-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        routerLink="/e-filing-pending"
+                        href="/e-filing-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -169,10 +169,10 @@
                         E Filing Pending  ({{getRecord(11)}})
                     </a>
                 </li>
-               
-                <li class="nav-item" routerLinkActive="active">
+
+                <li [className]="currentRoute === '/e-filing-complete' ? 'nav-item active' : 'nav-item'">
                     <a
-                        routerLink="/e-filing-complete"
+                        href="/e-filing-complete"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -180,9 +180,9 @@
                         E Filing Complete  ({{getRecord(13)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li [className]="currentRoute === '/p-filing-docs' ? 'nav-item active' : 'nav-item'">
                     <a
-                        routerLink="/p-filing-docs"
+                        href="/p-filing-docs"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -190,9 +190,9 @@
                         P Filing Docs  ({{getRecord(14)}})
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li [className]="currentRoute === '/files-cancelled' ? 'nav-item active' : 'nav-item'">
                     <a
-                        routerLink="/files-cancelled"
+                        href="/files-cancelled"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"

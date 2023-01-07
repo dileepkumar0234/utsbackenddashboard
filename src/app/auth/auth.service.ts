@@ -24,7 +24,7 @@ export class AuthService {
 
   is_p_tax_year : any;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute) {
     const cpagename = this.route.url
     console.log("URL:"+cpagename);
   }
@@ -47,7 +47,7 @@ export class AuthService {
     this.role = role;
     this.uuId = uuId;
     this.luname = uname;
-    
+
    // if(this.is_p_tax_year==localStorage.getItem(environment.taxYear)){
 
    // }else{
@@ -70,7 +70,7 @@ export class AuthService {
     localStorage.removeItem(environment.uu_id);
     localStorage.removeItem(environment.taxYear);
     localStorage.removeItem(environment.luname)
-
+    localStorage.setItem('last_active', "");
     return of({ success: this.isLogin, role: '', userId : '', uuId : '' });
   }
 
@@ -87,9 +87,9 @@ export class AuthService {
   }
 
   hasRole(role: string) {
-    return this.isAuthenticated() && this.getRole() == role;  
+    return this.isAuthenticated() && this.getRole() == role;
   }
-  
+
   getUserId() {
     this.userId = localStorage.getItem(environment.user_id);
     return this.userId;
@@ -98,6 +98,16 @@ export class AuthService {
   getUUId() {
     this.uuId = localStorage.getItem(environment.uu_id);
     return this.uuId;
+  }
+
+  setCurrentTaxYear(year : any)
+  {
+    localStorage.setItem(environment.currentTaxYear, year);
+  }
+
+  getCurrentTaxYear()
+  {
+    return localStorage.getItem(environment.currentTaxYear);
   }
 
   setTaxYear(year : any)
@@ -110,4 +120,4 @@ export class AuthService {
     this.taxYear = localStorage.getItem(environment.taxYear);
     return this.taxYear;
   }
-} 
+}

@@ -24,12 +24,29 @@ export class ApiService {
   postCall(url : string, data: any) : Observable<any> {
 
     data.user_id = this.authService.getUserId();
+    if (data.user_id) {
+      let last_active = localStorage.getItem('last_active');
+      let  present_date = new Date();
+      let last_active_date = last_active ? new Date(last_active) : new Date();
+      if (this.diff_minutes(last_active_date, present_date) > 30) {
+        this.authService.logout();
+        this.router.navigate(['login']);
+      }
+    }
     return this.httpClient.post(`${this.baseUrl}/${url}`, data).pipe(
       tap( (res : any) => {
         this.handleSuccess(res);
       }),
       catchError(this.handleError)
     )
+  }
+
+  diff_minutes(dt2 : any, dt1: any)
+  {
+    var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60;
+    return Math.abs(Math.round(diff));;
+
   }
 
   handleSuccess(res : any)
@@ -39,6 +56,8 @@ export class ApiService {
       localStorage.clear();
       this.router.navigate(['/']);
     }
+    var present_date = new Date();
+    localStorage.setItem('last_active', ""+present_date);
   }
   // Handle API errors
   handleError(error: HttpErrorResponse) {

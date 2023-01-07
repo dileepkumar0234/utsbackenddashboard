@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   allUsersCount : any;
   currentRoute: string;
   lluname : any;
+  current_route = ""
   constructor(private commonService : CommonService, private fb : FormBuilder, private apiService : ApiService, public authService: AuthService, private router : Router) {
       this.currentRoute = router.url;
       const pagenameurl = this.currentRoute.split('/');
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit {
         }
       }else{
           localStorage.removeItem(environment.changefilestatusflag)
-      }      
+      }
+      this.current_route = this.router.url;
   }
 
   ngOnInit(): void {
@@ -73,7 +75,7 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  
+
 
 
   getRecord(fileNo : any)
@@ -110,7 +112,7 @@ export class HomeComponent implements OnInit {
       res => {
         if (res.taxyears)
         {
-          this.years = res.taxyears; 
+          this.years = res.taxyears;
           res.taxyears.forEach((year : any, index : any) => {
             if (this.authService.getTaxYear())
             {
@@ -124,6 +126,7 @@ export class HomeComponent implements OnInit {
             }
           });
           this.authService.setTaxYear(this.selectedYear)
+          this.authService.setCurrentTaxYear(this.years[this.years.length - 1].utstaxyear);
           this.getCount();
           this.yearForm.controls['yearControl'].patchValue(this.selectedYear);
         }
