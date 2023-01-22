@@ -11,6 +11,7 @@ export const environment = {
   taxYear:'tax_year',
   role:'role',
   luname:'luname',
+  currentTaxYear:'current_tax_year',
   changefilestatusflag:'changefilestatusflag',
   logo : './assets/images/logo.svg',
   profile : './assets/images/profile.png'

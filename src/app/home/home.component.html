@@ -5,9 +5,9 @@
                 <a href=""><img src="{{getLogo()}}"></a>
             </div>
             <ul class="list-unstyled components">
-                <li [className]="currentRoute === '/all-records' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin">
+                <li [className]="currentRoute === '/all-records' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/all-records"
+                        href="/UTS-OfficialTaxFilers/all-records"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -21,7 +21,7 @@
 
                 <li [className]="currentRoute === '/assigned-file' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin">
                     <a
-                        href="/assigned-file"
+                        href="/UTS-OfficialTaxFilers/assigned-file"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -31,7 +31,7 @@
                 </li>
                 <li [className]="currentRoute === '/to-be-assigned' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin">
                     <a
-                        href="/to-be-assigned"
+                        href="/UTS-OfficialTaxFilers/to-be-assigned"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -41,7 +41,7 @@
                 </li>
                 <li [className]="currentRoute === '/basic-info-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/basic-info-pending"
+                        href="/UTS-OfficialTaxFilers/basic-info-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -61,7 +61,7 @@
                 </li>-->
                 <li [className]="currentRoute === '/interview-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/interview-pending"
+                        href="/UTS-OfficialTaxFilers/interview-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -71,7 +71,7 @@
                 </li>
                 <li [className]="currentRoute === '/documents-upload-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/documents-upload-pending"
+                        href="/UTS-OfficialTaxFilers/documents-upload-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -81,7 +81,7 @@
                 </li>
                 <li [className]="currentRoute === '/other-docs-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/other-docs-pending"
+                        href="/UTS-OfficialTaxFilers/other-docs-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -91,7 +91,7 @@
                 </li>
                 <li [className]="currentRoute === '/preparation-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/preparation-pending"
+                        href="/UTS-OfficialTaxFilers/preparation-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -101,7 +101,7 @@
                 </li>
                 <li [className]="currentRoute === '/pre-synopsys-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/pre-synopsys-pending"
+                        href="/UTS-OfficialTaxFilers/pre-synopsys-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -111,7 +111,7 @@
                 </li>
                 <li [className]="currentRoute === '/synopsys-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/synopsys-pending"
+                        href="/UTS-OfficialTaxFilers/synopsys-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -121,7 +121,7 @@
                 </li>
                 <li [className]="currentRoute === '/payment-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/payment-pending"
+                        href="/UTS-OfficialTaxFilers/payment-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -131,7 +131,7 @@
                 </li>
                 <li [className]="currentRoute === '/review-upload-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/review-upload-pending"
+                        href="/UTS-OfficialTaxFilers/review-upload-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -141,7 +141,7 @@
                 </li>
                 <li [className]="currentRoute === '/review-confirmation-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/review-confirmation-pending"
+                        href="/UTS-OfficialTaxFilers/review-confirmation-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -151,7 +151,7 @@
                 </li>
                 <li [className]="currentRoute === '/p-filing-pending' ? 'nav-item active' : 'nav-item'">
                     <a
-                        href="/p-filing-pending"
+                        href="/UTS-OfficialTaxFilers/p-filing-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -161,7 +161,7 @@
                 </li>
                 <li [className]="currentRoute === '/e-filing-pending' ? 'nav-item active' : 'nav-item'" *ngIf="isSuperAdmin || isAdmin">
                     <a
-                        href="/e-filing-pending"
+                        href="/UTS-OfficialTaxFilers/e-filing-pending"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -169,10 +169,20 @@
                         E Filing Pending  ({{getRecord(11)}})
                     </a>
                 </li>
-
+                
+                <li [className]="currentRoute === '/paper-filing-pending' ? 'nav-item active' : 'nav-item'">
+                    <a
+                        href="/UTS-OfficialTaxFilers/paper-filing-pending"
+                        class="nav-link active"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        title="Paper-Filing Pending">
+                        Paper-Filing Pending  ({{getRecord(12)}})
+                    </a>
+                </li>
                 <li [className]="currentRoute === '/e-filing-complete' ? 'nav-item active' : 'nav-item'">
                     <a
-                        href="/e-filing-complete"
+                        href="/UTS-OfficialTaxFilers/e-filing-complete"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -182,7 +192,7 @@
                 </li>
                 <li [className]="currentRoute === '/p-filing-docs' ? 'nav-item active' : 'nav-item'">
                     <a
-                        href="/p-filing-docs"
+                        href="/UTS-OfficialTaxFilers/p-filing-docs"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
@@ -192,7 +202,7 @@
                 </li>
                 <li [className]="currentRoute === '/files-cancelled' ? 'nav-item active' : 'nav-item'">
                     <a
-                        href="/files-cancelled"
+                        href="/UTS-OfficialTaxFilers/files-cancelled"
                         class="nav-link active"
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"

@@ -1,6 +1,6 @@
 <div class="white-box p-3">
     <div class="table-responsive ">
-        <table datatable [dtOptions]="dtOptions"  class="table table-striped" style="width: 100%;" >
+        <table datatable [dtOptions]="dtOptions"  class="table table-striped table-responsive " style="width: 100%;" >
             <thead>
                 <tr>
                     <th scope="col">Referral Name</th>
@@ -9,24 +9,22 @@
                     <th scope="col">Referral To Name ID</th>
                     <th scope="col">Referral To Email</th>
                     <th scope="col">Referral To Phone</th>
-                    <th scope="col">Comment</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody *ngIf="referrals?.length != 0">
                 <tr *ngFor="let referral of referrals">
-                  <td>{{ referral.rf_on_name.toUpperCase() }}</td>
-                  <td>{{ referral.rf_on_email.toUpperCase() }}</td>
+                  <td>{{ referral.rf_on_name.toUpperCase() }} </td>
+                  <td>{{ referral.rf_on_email.toUpperCase() }} <br/> {{ referral.added_at | date:'MM-dd-yyyy HH:mm:ss' }}</td>
                   <td *ngIf="referral?.rf_on_phone_ext == 'US'">{{ referral.rf_on_phone | mask: '(000) 000-0000'}}</td>
                   <td *ngIf="referral?.rf_on_phone_ext == 'INDIA'">{{ referral.rf_on_phone | mask: '00000-00000'}}</td>
                   <td *ngIf="referral?.rf_on_phone_ext == null">{{ referral.rf_on_phone | mask: '(000) 000-0000'}}</td>
                   <td>{{ referral.rf_name.toUpperCase() }}</td>
-                  <td>{{ referral.rf_email.toUpperCase() }}</td>
+                  <td>{{ referral.rf_email.toUpperCase() }} </td>
                   <td *ngIf="referral?.rf_phone_ext == 'US'">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
                   <td *ngIf="referral?.rf_phone_ext == 'INDIA'">{{ referral.rf_phone | mask: '00000-00000'}}</td>
                   <td *ngIf="referral?.rf_phone_ext == null">{{ referral.rf_phone | mask: '(000) 000-0000'}}</td>
-                  <td>{{ referral.rf_comment.toUpperCase() }}</td>
-                  <td>{{ referral.added_at | date:'MM-dd-yyyy HH:mm:ss' }}</td>
+                  <td> <u style="cursor: pointer;" class="success" (click) = "OnViewModal(referral.rf_comment.toUpperCase() )" >  View  </u> </td>
                 </tr>
               </tbody>
               <tbody *ngIf="referrals?.length == 0">
@@ -37,3 +35,24 @@
         </table>
     </div>
 </div>
+<div *ngIf="sucess_message"
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Refferal Commit</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{commitmes}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>

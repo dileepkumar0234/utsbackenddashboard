@@ -32,7 +32,7 @@ const routes: Routes = [
   {path : '', component : HomeComponent, canActivate : [AuthGuardService], children : [
     { path: 'all-records', component: AllRecordsComponent, canActivate : [AuthGuardService], data: {
       roles: [
-        Role.SUPER_ADMIN,
+        Role.SUPER_ADMIN, Role.ADMIN
       ]
     }},
     { path: 'assigned-file', component: AssignedFileNumberComponent, canActivate : [AuthGuardService], data: {
@@ -58,6 +58,7 @@ const routes: Routes = [
     { path: 'review-confirmation-pending', component: CommonDataComponent},
     {path : 'e-filing-pending', component: CommonDataComponent},
     {path : 'p-filing-pending', component: CommonDataComponent},
+    {path : 'paper-filing-pending', component: CommonDataComponent},
     {path : 'e-filing-complete', component: CommonDataComponent},
     {path : 'p-filing-docs', component: CommonDataComponent},
     {path : 'files-cancelled', component: CommonDataComponent},

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ApiService } from 'src/app/services/api.service';
-
+import { CommonService } from 'src/app/services/common.service';
 
 class DataTablesResponse {
   data: any[];
@@ -36,7 +36,8 @@ export class ForgetpasswordsComponent implements OnInit {
 
   taxYear : any;
 
-  constructor(private http : HttpClient, private authService : AuthService, private apiService : ApiService) {
+  constructor(private http : HttpClient, private authService : AuthService, private apiService : ApiService,
+    private commonService : CommonService) {
     this.userId = this.authService.getUserId();
 
     this.taxYear = this.authService.getTaxYear();
@@ -75,6 +76,22 @@ export class ForgetpasswordsComponent implements OnInit {
       columns: [{ data: 'unique_code' }, { data: 'user_name' }, { data: 'email' },{ data: 'phone' }, { data: 'createdat' }]
     };
   }
+  
+  OnDeleteForget(userId : any)
+  {
+    if (confirm("Please confirm to delete"))
+    {
+      this.apiService.postCall('/user/deleteforgetuser', {u_id : userId})
+      .subscribe(
+        res => {
+          this.commonService.refresh();
+        },
+        error => {
+          this.commonService.refresh();
+        }
+      )
+    }
 
+  }
 
 }
