@@ -24,7 +24,8 @@
                 <td *ngIf="person?.phoneext == 'INDIA'">{{ person.phone | mask: '00000-00000'}}</td>
                 <td *ngIf="person?.phoneext == null">{{ person.phone | mask: '(000) 000-0000'}}</td>
                 <td>{{person.file_status.toUpperCase()}}</td>
-                <td>{{person.client_name.toUpperCase()}}</td>
+                <td *ngIf="person?.client_name != null">{{person.client_name.toUpperCase()}}</td>
+                <td *ngIf="person?.client_name == null"></td>
                 <td><u><a class="success" target="_blank" routerLink="/details/{{person?.user_id}}" [queryParams]="{ to: 'referral'}" >Referral To</a> </u></td>
               </tr>
             </tbody>

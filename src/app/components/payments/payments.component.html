@@ -19,8 +19,8 @@
                     <td>{{person.filenumber}}</td>
                     <td>{{person.p_amount}}</td>
                     <td>{{person.t_order_id}}</td>
-                    <td *ngIf="person.order_status">Payment success</td>
-                    <td *ngIf="!person.order_status">Payment failed</td>
+                    <td *ngIf="person.order_status==1">Payment success</td>
+                    <td *ngIf="person.order_status==0">Payment failed</td>
                     <td>{{person.o_created_at | date:'MM-dd-yyyy HH:mm:ss'}}</td>
                     <!-- <td><u> <a class="success" routerLink="/details/{{person?.user_id}}">{{ person.email }} </a> </u></td>
                   <td>{{person.client_name}}</td>
