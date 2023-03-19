@@ -23,6 +23,7 @@ export class BasicInfoComponent implements OnInit {
   
   getTaxPayerInfo()
   {
+    debugger;
     this.apiService.postCall('/member/taxpayerinfo', {client_id : this.client_id})
     .subscribe(
       res => {

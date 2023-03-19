@@ -15,10 +15,11 @@ export class DocsDataComponent implements OnInit {
   uploadedFilesWithUrls: any[] = []
 
   constructor() {
-   
+    debugger;
    }
 
   ngOnInit(): void {
+    debugger;
     this.uploadedFilesWithUrls = this.docs.map((item:any,index:number)=>{
       let list = item.upload_file.split(".");
       let extension = list[list.length - 1];

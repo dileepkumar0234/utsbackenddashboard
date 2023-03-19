@@ -23,6 +23,7 @@ export class DownloadDocumentsComponent implements OnInit {
     this.selectedProfileTab = 'w2'
     this.taxYear = this.authService.getTaxYear();
     this.client_id = this.route.snapshot.paramMap.get('id');
+    this.get_item();
   }
 
   profileTab(tabName:string){
@@ -30,9 +31,25 @@ export class DownloadDocumentsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.getAllDocs();
+    // this.getAllDocs();
+    // this.w3docs();
   }
-
+  w3docs(){
+    var folderPath = this.client_id+'/W2/';
+    var doctype = 'W2';
+    this.apiService.postCall('/upload/getuploaddocs', {folderPath : folderPath, doctype : doctype})
+    .subscribe(
+      res => {
+        if (res.downloadInfo)
+        {
+          this.downloadInfo = res.downloadInfo;
+          this.dataLoaded = true;
+        }
+      },
+      error => {
+      }
+    )
+  }
   getAllDocs()
   {
     this.apiService.postCall('/member/userdocsinfo', {client_id : this.client_id, taxYear : this.taxYear})
@@ -49,9 +66,29 @@ export class DownloadDocumentsComponent implements OnInit {
     )
   }
 
+  get_item() {
+    console.log("ASDFasdf");
+    var obj : any[] = [];
+    return obj;
+  }
   getRecord(docType : any)
   {
+    debugger;
     var obj : any[] = [];
+    var folderPath = this.client_id+'/'+docType+'/';
+    this.apiService.postCall('/upload/getuploaddocs', {folderPath : folderPath, doctype : docType})
+    .subscribe(
+      res => {
+        if (res.downloadInfo)
+        {
+          obj = res.downloadInfo;
+        }
+      },
+      error => {
+      }
+    )
+
+    return obj;
     if (this.downloadInfo != null)
     {
       obj = this.downloadInfo.filter((x : any) => x.typename === docType);
