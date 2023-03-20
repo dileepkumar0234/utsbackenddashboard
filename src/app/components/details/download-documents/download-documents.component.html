@@ -308,69 +308,69 @@
 </style>
 <span class="success" *ngIf = "currentFileStatus" >Status : <span style="font-size:18px;font-weight:bold;">{{currentFileStatus?.pfilename}}</span></span>
 <hr>
-<div class="" *ngIf ="dataLoaded">
+<div class="">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12"  *ngIf ="w2DocsLoaded">
             <div class="card card-margin">
                 <div class="card-header no-border">
                     <h5 class="card-title">W2</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
-						<app-docs-data [docs] = "currentFileStatus"></app-docs-data>
+						          <app-docs-data [docs] = "w2Docs"></app-docs-data>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12" *ngIf ="bgDocsLoaded">
             <div class="card card-margin">
                 <div class="card-header no-border">
                     <h5 class="card-title">1099B/G/DIV/INT/MISC</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
-                        <app-docs-data [docs] = "getRecord('P1099B')" ></app-docs-data>
+                        <app-docs-data [docs] = "bgDocs" ></app-docs-data>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12" *ngIf ="hsaDocsLoaded">
             <div class="card card-margin">
                 <div class="card-header no-border">
                     <h5 class="card-title">5498/HSA</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
-                        <app-docs-data [docs] = "getRecord('HSA')"></app-docs-data>
+                        <app-docs-data [docs] = "hsaDocs"></app-docs-data>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 	<div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" *ngIf ="iraDocsLoaded">
             <div class="card card-margin">
                 <div class="card-header no-border">
                     <h5 class="card-title">1099R/IRA</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
-						<app-docs-data [docs] = "getRecord('IRA')" ></app-docs-data>
+						<app-docs-data [docs] = "iraDocs" ></app-docs-data>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12" *ngIf ="otherDocsLoaded">
             <div class="card card-margin">
                 <div class="card-header no-border">
                     <h5 class="card-title">OTHER DOCS</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
-                         <app-docs-data [docs] = "getRecord('OTHER DOCS')" ></app-docs-data>
+                         <app-docs-data [docs] = "otherDocs" ></app-docs-data>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>

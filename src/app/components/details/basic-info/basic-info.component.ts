@@ -20,17 +20,16 @@ export class BasicInfoComponent implements OnInit {
     this.client_id = this.route.snapshot.paramMap.get('id');
     this.getTaxPayerInfo();
   }
-  
+
   getTaxPayerInfo()
   {
-    debugger;
     this.apiService.postCall('/member/taxpayerinfo', {client_id : this.client_id})
     .subscribe(
       res => {
         this.otherInfo = res.tinfo;
       },
       error => {
-        
+
       }
     )
   }

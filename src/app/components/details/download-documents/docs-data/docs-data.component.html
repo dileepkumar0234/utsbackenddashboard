@@ -1,7 +1,7 @@
 <div  *ngIf="docs.length > 0">
     <div *ngFor="let doc of docs; let i = index;" class="row align-items-center pb-2">
         <div *ngIf="uploadedFilesWithUrls[i]" class="col-12 col-md-12  text-md-start">
-            <a href="{{doc.upload_file}}" class="me-2 Delete" download target="_blank">{{stringSplitEvent(doc.upload_file_name)}}</a> <br/> {{doc.created_at | date:'yyyy-MM-dd HH:mm:ss'}}
+            <a href="{{doc.upload_file}}" class="me-2 Delete" download target="_blank">{{stringSplitEvent(doc.upload_file)}}</a> <br/> {{doc?.created_at | date:'yyyy-MM-dd HH:mm:ss'}}
         </div>
     </div>
 </div>
